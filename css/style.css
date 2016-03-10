@@ -1,0 +1,33 @@
+@import "nav-style.css";
+@import "footer-style.css";
+@import "slider-style.css";
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background: white;
+}
+
+section{
+    margin-top: 69px;
+}
+
+div.container {
+    height: 400px;
+}
+
+div.container div#descripcion{
+    position: absolute;
+    width: 50%;
+    height: inherit;
+    background-color: white;
+    text-align: center;
+}
+
+div.container div#caracteristicas{
+    position: absolute;
+    width: 50%;
+    height: inherit;
+    background-color: aliceblue;
+    right: 0;
+}
