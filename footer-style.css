@@ -1,0 +1,106 @@
+/* CSS del pie de página */
+.footer{
+    background-color: #292c2f;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: lightgray;
+    text-align: left;
+
+    height: 322px;
+    padding: 50px 60px 40px;
+    margin-top: 0px;
+    overflow: hidden;
+}
+
+.footer-left{
+    position: relative;
+    float:left;
+    width: 60%;
+    height: 100%;
+}
+
+.footer-left{
+    position: relative;
+    float:left;
+    width: 60%;
+    height: 100%;
+}
+
+/* Pie de pagina izquierdo*/
+.footer-logo{
+    position: absolute;
+    height: 50%;
+    width: 30%;
+    top:0;
+    /*Chrome*/
+    -webkit-filter: invert(100%);
+    /*Firefox*/
+    filter: invert(100%);
+}
+
+.footer .footer-links{
+    position: absolute;
+    color:  #ffffff;
+    margin: 0 0 10px;
+    padding: 0;
+    top: 50%
+
+}
+
+.footer .footer-links a{
+    display:inline-block;
+    line-height: 1.8;
+    text-decoration: none;
+    color:  inherit;
+    margin-top: 10px;
+}
+
+.footer .footer-company-name{
+    position: absolute;
+    color:  #8f9296;
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 30px;
+    top: 65%;
+}
+
+/* Pie de pagina derecho */
+.footer .footer-right i{
+    background-color:  #33383b;
+    color: #ffffff;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+}
+
+/*Modificacion del icono de fax y correo*/
+.footer .footer-right i.fa-envelope,
+.footer .footer-right i.fa-fax{
+    font-size: 17px;
+    line-height: 38px;
+}
+
+.footer .footer-right p{
+    display: inline-block;
+    color: #ffffff;
+    vertical-align: middle;
+    margin:0;
+}
+
+.footer .footer-right p span{
+    display:block;
+    font-weight: normal;
+    font-size:14px;
+    line-height:2;
+}
+
+.footer .footer-right p a{
+    color:  #5383d3;
+    text-decoration: none;;
+}
