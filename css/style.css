@@ -12,6 +12,9 @@ section{
     margin-top: 69px;
 }
 
+* {
+    box-sizing: border-box;
+}
 div.container {
     height: 400px;
 }
