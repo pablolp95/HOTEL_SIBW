@@ -15,22 +15,56 @@ section{
 * {
     box-sizing: border-box;
 }
-div.container {
+.container-1 {
     height: 400px;
+    width: 100%;
 }
 
-div.container div#descripcion{
+.description{
     position: absolute;
+    padding: 5%;
     width: 50%;
     height: inherit;
     background-color: white;
-    text-align: center;
+    color: #292c2f;
 }
 
-div.container div#caracteristicas{
+#description-header{
+    text-align: left;
+    margin:0;
+    font-family: Times New Roman,serif;
+    font-size: 50px;
+}
+
+#description-text{
+    text-align: justify;
+    font-size: 20px;
+    padding: auto;
+    margin-top: 5%;
+}
+
+#description-link{
+    text-align: left;
+    margin:0;
+    font-family: Times New Roman,serif;
+    text-decoration: none;
+    color: #292c2f;
+}
+
+#description-link:hover{
+    color: goldenrod;
+}
+
+.caracteristicas{
     position: absolute;
+    right: 0;
+    padding: 5%;
     width: 50%;
     height: inherit;
     background-color: aliceblue;
-    right: 0;
+    color: #292c2f;
+}
+
+.list{
+    list-style: none;
 }
