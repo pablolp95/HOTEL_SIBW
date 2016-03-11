@@ -17,7 +17,7 @@ body {
     width: 100%;
 }
 
-.description2{
+.description{
     position: absolute;
     padding: 5%;
     width: 50%;
@@ -25,22 +25,7 @@ body {
     background-color: white;
     color: #292c2f;
 }
-.description{
-    position: absolute;
-    padding: 0%;
-    width: 100%;
-    height: inherit;
-    background-color: white;
-    color: #292c2f;
-}
-.description img{
-    position: absolute;
-    padding: 0%;
-    width: 50%;
-    height:100%;
-    height: inherit;
-    background-color: white;
-}
+
 #description-header{
     text-align: left;
     margin:0;
@@ -67,19 +52,10 @@ body {
     color: goldenrod;
 }
 
-.caracteristicas{
+.characteristics{
     position: absolute;
     right: 0;
     padding: 5%;
-    width: 50%;
-    height: inherit;
-    background-color: #ebebeb;
-    color: #292c2f;
-}
-.caracteristicas2{
-    position: absolute;
-    right: 0;
-    padding: 2%;
     width: 50%;
     height: inherit;
     background-color: #ebebeb;
