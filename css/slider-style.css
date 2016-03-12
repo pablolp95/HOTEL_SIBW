@@ -49,8 +49,8 @@ div.slider figure img {
 
 /* Estilo para texto del slider*/
 .static-welcome{
-    font-family: Times New Roman,serif;
-    font-size: 70px;
+    font-family: 'Noto Serif','Droid Serif', serif;
+    font-size: 60px;
     font-style: italic;
     text-align: center;
 }

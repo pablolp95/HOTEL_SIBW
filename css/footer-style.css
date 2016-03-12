@@ -1,7 +1,9 @@
 /* CSS del pie de página */
 .footer{
+    position: relative;
+    bottom: 0px;
     background-color: #292c2f;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Noto Serif','Droid Serif', serif;
     font-size: 16px;
     font-weight: bold;
     color: lightgray;
@@ -86,6 +88,7 @@
     line-height: 38px;
 }
 
+/* Modificacion para los parrafos del footer derecho*/
 .footer .footer-right p{
     display: inline-block;
     color: #ffffff;
