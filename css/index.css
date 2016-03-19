@@ -1,35 +1,70 @@
-.container-1 {
-    height: 400px;
-    width: 100%;
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
-.description{
+.first-section{
+    margin-top: 0px;
+}
+.carousel .carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    max-height: 600px;
+    margin: auto;
+    min-height:200px;
+    /*Chrome*/
+    -webkit-filter: contrast(50%);
+    /*Firefox*/
+    filter: contrast(50%);
+
+}
+
+/* Texto principal para el slider */
+.main-text
+{
     position: absolute;
-    padding: 5%;
-    width: 50%;
-    height: inherit;
+    top: 200px;
+    width: 100%;
+    color: #FFF;
+}
+
+/* Estilo para texto del slider*/
+.static-welcome{
+    font-family: 'Noto Serif','Droid Serif', serif;
+    font-size: 60px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Oculta el texto del carrousel */
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none;
+    }
+}
+
+/*Estilo para la descripción del hotel*/
+.description{
+    padding: 65px;
     background-color: white;
     color: #232528;
 }
 
 #description-header{
-    text-align: left;
-    margin:0;
     font-family: 'Noto Serif','Droid Serif', serif;
     font-size: 50px;
+    font-weight: bold;
 }
 
 #description-text{
+    margin: 20px 0px;
     text-align: justify;
     font-size: 20px;
     font-family: 'Noto Serif','Droid Serif', serif;
-    padding: auto;
-    margin-top: 5%;
 }
 
 #description-link{
     text-align: left;
-    margin:0;
     font-family: 'Noto Serif','Droid Serif', serif;
     text-decoration: none;
     color: #232528;
@@ -39,17 +74,18 @@
     color: goldenrod;
 }
 
+/*Estilo para la descripción de los servcios del hotel*/
 .characteristics{
-    position: absolute;
     right: 0;
-    padding: 25px 25px 25px 60px;
-    width: 50%;
-    height: inherit;
+    padding: 26px 25px 25px 60px;
     background-color: #ebebeb;
     font-family: 'Noto Serif','Droid Serif', serif;
     color: #232528;
 }
 
+.characteristics .service{
+    max-height: 38px;
+}
 .characteristics i{
     text-align: center;
     line-height: 40px;
@@ -64,76 +100,52 @@
     font-size: 15px;
 }
 
-.list{
-    list-style: none;
-}
-
 .transition-image{
-    top: 0px;position: fixed;
+    top: 0px;
+    position: fixed;
     z-index: -1;
     width: 100%;
 }
 
-.post-transition{
-    margin-top: 300px
+/*CSS para las segunda parte de la pagina*/
+.second-section{
+    margin-top: 300px;
 }
 
-.room-map-header{
-    position:relative;
+.second-section .rooms-header{
     font-family: 'Noto Serif','Droid Serif', serif;
     text-align: center;
-    font-size: 25px;
+    font-size: 35px;
+    font-weight: bold;
     margin: 0px;
-    padding: 10px 0px;
+    padding: 40px 0px;
     background-color: white;
     color: #232528;
 }
 
-.map{
-    position: relative;
-    height: 400px;
-    width: 100%;
-}
-
-.rooms{
-    position: relative;
-    height: 350px;
-    width: 100%;
-    background-color: white;
-    overflow: hidden;
-}
-
-.rooms .room-header{
-    text-align: center;
-    font-family: 'Noto Serif','Droid Serif', serif;
-    color: #232528;
-}
-.rooms .room{
-    position: relative;
-    overflow: hidden;
-    width: 33.3%;
-    height: 100%;
-    float:left;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 30px;
+/*CSS para las habitaciones*/
+.room{
+    padding: 30px 30px 0px 30px;
     background-color: #ebebeb;
 }
 
-.img-room-container{
-    position: relative;
-    width: 100%;
-    height: 75%;
+.room .img-room{
+    max-height: 240px;
+    max-width: 375px
 }
 
-.img-room-container .img-room{
-    position: absolute;
-    height: 100%;
-    width: 100%;
+.room .room-header{
+    font-family: 'Noto Serif','Droid Serif', serif;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 20px 0px;
+    color: #232528;
 }
 
 
-.img-room-container .zoom{
+.room .img-room .zoom{
     position:absolute;
     width:100%;
     height:100%;
@@ -145,7 +157,24 @@
     transition: all 0.3s linear;
 }
 
-.img-room-container:hover .zoom{
+.room:hover .zoom{
     -webkit-transform: scale(1);
     transform: scale(1);
 }
+
+.map-header{
+    font-family: 'Noto Serif','Droid Serif', serif;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0px;
+    padding: 40px 0px;
+    background-color: white;
+    color: #232528;
+}
+
+.map{
+    height: 400px;
+    padding: 0;
+}
+

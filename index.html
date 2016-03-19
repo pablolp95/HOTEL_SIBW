@@ -5,13 +5,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Personal's CSS -->
-    <link type="text/css" rel="stylesheet" href="css/body.css"/>
+
+    <link rel="shortcut icon" href="img/favicon.ico"/>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- Personal CSS -->
     <link type="text/css" rel="stylesheet" href="css/nav.css"/>
-    <link type="text/css" rel="stylesheet" href="css/slider.css"/>
     <link type="text/css" rel="stylesheet" href="css/index.css"/>
     <link type="text/css" rel="stylesheet" href="css/footer.css"/>
     <link type="text/css" rel="stylesheet" href="css/font/flaticon.css"/>
+
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:500,300,700,400' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Numans' rel="stylesheet" type='text/css'/>
@@ -55,161 +64,192 @@
     </script>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li>
-                <a id="active" href="#">RESERVAR AHORA</a>
-            </li>
-            <li><a href="#">Mi reserva</a></li>
-            <li>
-                <a href="#">Opiniones</a>
-            </li>
-            <li>
-                <a href="index.html#map-header">Mapa</a>
-            </li>
-            <li>
-                <a href="#contact">Contacto</a>
-            </li>
-            <li>
-                <a href="#">Galeria</a>
-            </li>
-            <li>
-                <a href="#">Servicios</a>
-            </li>
-            <li id="dropdown">
-                <a href="#rooms">Habitaciones</a>
-                <div class="dropdown-content">
-                    <a href="double-room.html">Habitación doble</a>
-                    <a href="#">Habitación triple</a>
-                    <a href="#">Habitación superior</a>
+
+<!-- Barra de navegación -->
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img class="img-responsive" src="img/logo.png" alt="logo de la pagina"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Promociones</a></li>
+                <li class="dropdown">
+                    <a href="#rooms">Habitaciones</a>
+                    <ul class="dropdown-menu dropdown-menu-left">
+                        <li><a href="#">Habitación doble</a></li>
+                        <li><a href="#">Habitación triple</a></li>
+                        <li><a href="#">Habitación superior</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Galería</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Mapa</a></li>
+                <li><a href="#">Opiniones</a></li>
+                <li><a href="#">Mi reserva</a></li>
+                <li id="active"><a href="#">RESERVAR AHORA</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="first-section">
+    <!-- Slide de imagenes -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="img/1.jpg" alt="Image">
+            </div>
+
+            <div class="item">
+                <img src="img/2.jpg" alt="Image">
+            </div>
+
+            <div class="item">
+                <img src="img/3.jpg" alt="Image">
+            </div>
+
+            <div class="item">
+                <img src="img/4.jpg" alt="Image">
+            </div>
+
+            <div class="item">
+                <img src="img/5.jpg" alt="Image">
+            </div>
+
+            <div class="main-text hidden-xs">
+                <div class="col-sm-12 text-center">
+                    <h1 class="static-welcome">Bienvenido al<br/> hotel Plaza Nueva</h1>
                 </div>
-            </li>
-            <li>
-                <a href="#">Promociones</a>
-            </li>
-            <li style="float:left">
-                <a id="logo" href="index.html">
-                    <img src="img/logo.png" alt="Hotel Plaza Nueva" >
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <section>
-        <!-- Slide de imagenes con texto -->
-        <div class="slider">
-            <figure>
-                <img src="img/1.jpg" alt="Imagen presentación 1">
-                <img src="img/2.jpg" alt="Imagen presentación 2">
-                <img src="img/3.jpg" alt="Imagen presentación 3">
-                <img src="img/4.jpg" alt="Imagen presentación 4">
-                <img src="img/5.jpg" alt="Imagen presentación 5">
-            </figure>
-            <div class="main-text">
-                <h1 class="static-welcome">Bienvenido al<br/> hotel Plaza Nueva</h1>
             </div>
         </div>
-        <!--Breve descripción con enlace y características -->
-        <div class="container-1">
-            <div class="description">
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <!-- Ocultar informacion para lectores de pantalla-->
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <!-- Ocultar informacion para lectores de pantalla-->
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 description">
                 <h1 id="description-header">Hotel Plaza Nueva</h1>
                 <p id="description-text">Situado en pleno centro monumental, comercial y administrativo de Granada,
                     nuestro hotel ofrece una gran variedad de servicios que satisfarán cualquier necesidad que le surja.
                 </p>
                 <a id="description-link" href="#">Leer más</a>
             </div>
-            <div class="characteristics">
+            <div class="col-sm-6 characteristics">
                 <p>Tiene a su disposición los siguientes servicios:</p>
-                <div>
+                <div class="service">
                     <i class="flaticon-icon-62768"></i>
                     <p>Recepción 24 horas</p>
                 </div>
-                <div>
+                <div class="service">
                     <i class="flaticon-connection"></i>
                     <p>Conexión wifi a Internet</p>
                 </div>
-                <div>
+                <div class="service">
                     <i class="flaticon-circle"></i>
                     <p>Bar-Cafetería</p>
                 </div>
-                <div>
+                <div class="service">
                     <i class="flaticon-icon-101197"></i>
                     <p>Consigna de equipajes</p>
                 </div>
-                <div>
+                <div class="service">
                     <i class="flaticon-weather"></i>
                     <p>Aire acondicionado</p>
                 </div>
-                <div>
+                <div class="service">
                     <i class="flaticon-car"></i>
                     <p>Parking cubierto</p>
                 </div>
-                <div>
+                <div class="service">
                     <i class="flaticon-hospital"></i>
                     <p>Accesos adaptados</p>
                 </div>
-                <div>
+                <div class="service">
                     <i class="flaticon-icon-60435"></i>
                     <p>Servicio de habitaciones</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Imagen de transicion -->
-    <img class="transition-image" src="img/ALHAMBRA_WEB_MOSAIC.jpg">
+<!-- Imagen de transicion -->
+<img class="img-responsive transition-image" src="img/ALHAMBRA_WEB_MOSAIC.jpg">
 
-    <section class="post-transition">
-        <!-- Habitaciones-->
-        <div class="room-map-header" id="rooms"><h1>Habitaciones</h1></div>
-        <div class="rooms">
-            <div class="room">
-                <div class="img-room-container">
-                    <a href="double-room.html">
-                        <img class="img-room" src="img/doble.jpg"/>
-                        <div class="zoom">
-                            <i class="fa-zoom fa fa-search-plus fa-3x fa-inverse"></i>
-                        </div>
-                    </a>
-                </div>
-                <h1 class="room-header">Habitación doble</h1>
+<section class="second-section">
+    <!-- Habitaciones -->
+    <div class="container-fluid" id="rooms">
+        <div class="row">
+            <div class="col-sm-12 nopadding">
+                <h1 class="rooms-header">Habitaciones</h1>
             </div>
-            <div class="room">
-                <div class="img-room-container">
-                    <a href="double-room.html">
-                        <img class="img-room" src="img/triple.jpg"/>
-                        <div class="zoom">
-                            <i class="fa-zoom fa fa-search-plus fa-3x fa-inverse"></i>
-                        </div>
-                    </a>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 room">
+                <a href="double-room.html">
+                    <img class="img-responsive" src="img/doble.jpg"/>
+                </a>
                 <h1 class="room-header">Habitación triple</h1>
             </div>
-            <div class="room">
-                <div class="img-room-container">
-                    <a href="double-room.html">
-                        <img class="img-room" src="img/superior.jpg"/>
-                        <div class="zoom">
-                            <i class="fa-zoom fa fa-search-plus fa-3x fa-inverse"></i>
-                        </div>
-                    </a>
-                </div>
+            <div class="col-sm-4 room">
+                <a href="double-room.html">
+                    <img class="img-responsive" src="img/triple.jpg"/>
+                </a>
                 <h1 class="room-header">Habitación superior</h1>
             </div>
+            <div class="col-sm-4 room">
+                <a href="double-room.html">
+                    <img class="img-responsive" src="img/superior.jpg"/>
+                </a>
+                <h1 class="room-header">Habitación doble</h1>
+            </div>
         </div>
-        <!-- Slide de promociones-->
-        <div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 nopadding">
+                    <h1 class="map-header">¿Dónde nos encontramos?</h1>
+            </div>
         </div>
-        <!-- Slide de promociones-->
-        <div>
+        <div class="row">
+            <div class="col-sm-12 nopadding">
+                <div class="map" id="googleMap"></div>
+            </div>
         </div>
-        <!-- Mapa-->
-        <div class="room-map-header" id="map-header"><h1>¿Dónde nos encontramos?</h1></div>
-        <div class="map" id="googleMap"></div>
-    </section>
-    <!-- Información adicional del hotel-->
-    <footer class="footer">
-        <div class="footer-left">
-            <a href="index.html"><img src="img/logo.png" class="img-responsive footer-logo" alt="Logo del pie de pagina"/></a>
+    </div>
+</section>
+
+<footer class="container-fluid footer">
+    <div class="row">
+        <div class="col-sm-8">
+            <img src="img/logo.png" class="img-responsive footer-logo" alt="Logo del pie de pagina"/>
             <p class="footer-links">
                 <a href="#">Promociones</a>
                 ·
@@ -221,9 +261,8 @@
                 ·
                 <a href="#">Mi reserva</a>
             </p>
-            <p class="footer-company-name">Desarrollado con <i class="fa fa-fw fa-coffee"></i> y <i class="fa fa-fw fa-heart"></i> por José Conejero y Pablo Lara</p>
         </div>
-        <div class="footer-right" id="contact">
+        <div class="col-sm-4 footer-right">
             <div>
                 <i class="fa fa-map-marker"></i>
                 <p><span>c/ Imprenta Nº2</span> 18010 Granada, España</p>
@@ -241,6 +280,15 @@
                 <p><a href="mailto:info@hotel-plazanueva.com">info@hotel-plazanueva.com</a></p>
             </div>
         </div>
-    </footer>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <p class="footer-company-name">Desarrollado con <i class="fa fa-fw fa-coffee"></i> y <i class="fa fa-fw fa-heart"></i> por José Conejero y Pablo Lara</p>
+        </div>
+    </div>
+</footer>
+
 </body>
+</html>
+
 </html>

@@ -1,26 +1,7 @@
-.room-description{
-    position: absolute;
-    padding: 0%;
+#img1{
+    height: 100%;
     width: 100%;
-    height: inherit;
-    background-color: white;
-    color: #292c2f;
-}
-.room-description img{
-    position: absolute;
-    padding: 0%;
-    width: 50%;
-    height:100%;
-    height: inherit;
-    background-color: white;
-}
-
-.room-characteristics{
-    position: absolute;
-    right: 0;
-    padding: 2%;
-    width: 50%;
-    height: inherit;
-    background-color: #ebebeb;
-    color: #292c2f;
+    border-style: double;
+    border-color: #99D3FF;
+    padding: 1%;
 }

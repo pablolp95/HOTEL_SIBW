@@ -1,7 +1,5 @@
 /* CSS del pie de página */
 .footer{
-    position: relative;
-    bottom: 0px;
     background-color: #292c2f;
     font-family: 'Noto Serif','Droid Serif', serif;
     font-size: 16px;
@@ -9,32 +7,14 @@
     color: lightgray;
     text-align: left;
 
-    height: 310px;
-    padding: 40px 50px;
-    margin-top: 0px;
+    padding: 50px 60px 40px;
     overflow: hidden;
-}
-
-.footer-left{
-    position: relative;
-    float:left;
-    width: 60%;
-    height: 100%;
-}
-
-.footer-right{
-    position: relative;
-    float:right;
-    width: 40%;
-    height: 100%;
 }
 
 /* Pie de pagina izquierdo*/
 .footer-logo{
-    position: absolute;
-    height: 50%;
-    width: 30%;
-    top:0;
+    height: 25%;
+    width: 25%;
     /*Chrome*/
     -webkit-filter: invert(100%);
     /*Firefox*/
@@ -42,12 +22,9 @@
 }
 
 .footer .footer-links{
-    position: absolute;
     color:  #ffffff;
     margin: 0 0 10px;
     padding: 0;
-    top: 55%
-
 }
 
 .footer .footer-links a{
@@ -59,12 +36,11 @@
 }
 
 .footer .footer-company-name{
-    position: absolute;
+    text-align: center;
     color:  #8f9296;
     font-size: 14px;
     font-weight: normal;
-    margin-top: 45px;
-    top: 65%;
+    margin-top: 30px;
 }
 
 /* Pie de pagina derecho */
@@ -88,7 +64,6 @@
     line-height: 38px;
 }
 
-/* Modificacion para los parrafos del footer derecho*/
 .footer .footer-right p{
     display: inline-block;
     color: #ffffff;
