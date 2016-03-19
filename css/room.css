@@ -12,7 +12,20 @@
     height: 100%;
     margin: auto;
 }
-#cont{
-    height: 100px;
-    background-color:goldenrod;
+#title{
+    vertical-align: middle;
+    font-family: Courier New;
+    background-color: goldenrod
+}
+#hab{
+    padding:20px;border: solid; border-color:goldenrod ; background-color: white
+}
+#hab3{
+     padding:20px;border: solid; border-color:goldenrod ; background-color: white
+ }
+#hab2{
+    padding:20px;border: solid; border-color:#F2F2F2; background-color: white
+}
+h3{
+    text-align: center ;font-family: Courier New
 }
