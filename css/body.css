@@ -1,8 +1,13 @@
-.container-fluid {
-    padding-right: 0px;
-    padding-left: 0px;
-    margin-right: auto;
-    margin-left: auto;
+@media (min-width: 768px) {
+    .table-row {
+        display: table;
+        table-layout: fixed;
+    }
+
+    .table-row [class^="col-"] {
+        display: table-cell;
+        float: none;
+    }
 }
 
 

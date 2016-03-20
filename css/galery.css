@@ -1,0 +1,51 @@
+.parallax-galery {
+    background:linear-gradient(rgba(28,28,28,.3),rgba(28,28,28,.3)),url(../img/ALHAMBRA_WEB_MOSAIC.jpg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 4em;
+    font-family: 'Noto Serif', 'Droid Serif', serif;
+}
+
+.parallax-galery h1 {
+    color: white;
+    font-size: 2em;
+    text-align: left;
+    font-style: italic;
+}
+
+img {
+    margin: 2px;
+    float: left;
+    width: 150px;
+    height: 100px;
+
+}
+
+desc {
+    padding: 15px;
+    text-align: center;
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+h1{
+    text-align: center
+}
+
+#title{
+    background-color: goldenrod;
+    margin: 2%;
+}
+.margin{
+ margin: 2%;
+}

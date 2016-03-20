@@ -29,3 +29,23 @@
 h3{
     text-align: center ;font-family: Courier New
 }
+
+.parallax-room {
+    background:linear-gradient(rgba(28,28,28,.3),rgba(28,28,28,.3)),url(../img/ALHAMBRA_WEB_MOSAIC.jpg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 4em;
+    font-family: 'Noto Serif', 'Droid Serif', serif;
+}
+
+.parallax-room h1 {
+    color: white;
+    font-size: 2em;
+    text-align: left;
+    font-style: italic;
+}
