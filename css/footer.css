@@ -27,12 +27,18 @@
     padding: 0;
 }
 
-.footer .footer-links a{
+.footer .footer-links li{
     display:inline-block;
     line-height: 1.8;
-    text-decoration: none;
     color:  inherit;
     margin-top: 10px;
+}
+.footer .footer-links li a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.footer .footer-links li a:hover{
+   text-decoration: underline;
 }
 
 .footer .footer-company-name{
@@ -48,7 +54,7 @@
 /* Pie de pagina derecho */
 .footer .footer-right i{
     background-color:  #33383b;
-    color: #ffffff;
+    color: #FFFFFF;
     font-size: 25px;
     width: 38px;
     height: 38px;
