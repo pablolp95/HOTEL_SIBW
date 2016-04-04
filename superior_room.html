@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Hotel Plaza Nueva - Contacto y ubicación</title>
+    <title>Hotel Plaza Nueva - Habitacion superior</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@
     <!-- Personal CSS -->
     <link type="text/css" rel="stylesheet" href="css/body.css"/>
     <link type="text/css" rel="stylesheet" href="css/nav.css"/>
-    <link type="text/css" rel="stylesheet" href="css/contact.css"/>
+    <link type="text/css" rel="stylesheet" href="css/rooms.css"/>
     <link type="text/css" rel="stylesheet" href="css/footer.css"/>
     <link type="text/css" rel="stylesheet" href="css/font/flaticon.css"/>
 
@@ -29,41 +29,8 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic' rel='stylesheet' type='text/css'>
 
-    <!-- Google maps -->
-    <script
-            src="http://maps.googleapis.com/maps/api/js">
-    </script>
-
-    <script>
-        var myCenter=new google.maps.LatLng(37.1770723,-3.5962826,21);
-
-        function initialize()
-        {
-            var mapProp = {
-                center:myCenter,
-                zoom:17,
-                mapTypeId:google.maps.MapTypeId.ROADMAP,
-                scrollwheel: false
-            };
-
-            var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-
-            var marker=new google.maps.Marker({
-                position:myCenter,
-            });
-
-            var infowindow = new google.maps.InfoWindow({
-                content:"¡Visitanos!"
-            });
-
-            infowindow.open(map,marker);
-
-            marker.setMap(map);
-        }
-
-        google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
 </head>
+
 <body>
 
 <!-- Barra de navegación -->
@@ -98,56 +65,18 @@
     </div>
 </nav>
 
-<!-- Banner -->
-<section class="parallax-contact">
-    <div class="row">
-        <div class="col-sm-12">
-            <h1>Contacto y ubicación</h1>
-        </div>
-    </div>
-</section>
-
-<section>
+<section class="section">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 center-align">
-                <h1>¿En qué podemos ayudarte?</h1>
+            <div class="col-sm-6 text-center description">
+                <h1>Habitación superior</h1>
+                <p>Disfrute de una<strong> magnifica vista de Plaza Nueva</strong> y
+                    el centro de Granada desde nuestras habitaciones superiores.</p>
             </div>
-        </div>
-        <div class="row section">
-            <div class="col-sm-12">
-                <form  role="form">
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <input type="text" class="form-control input-lg input-style" id="name" placeholder="Nombre">
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <input type="email" class="form-control input-lg input-style" id="email" placeholder="E-mail">
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <input type="phone" class="form-control input-lg input-style" id="phone" placeholder="Teléfono">
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="form-group">
-                            <textarea class="form-control input-lg noresize input-style" rows="5" id="comment" placeholder="Mensaje"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 text-center">
-                        <button type="submit" class="button btn-lg" style="text-align: center">Enviar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12 nopadding">
-                <div class="map" id="googleMap"></div>
+            <div class="col-sm-6">
+                <figure>
+                    <img class="img-responsive" src="img/superior.jpg" alt="Habitación superior">
+                </figure>
             </div>
         </div>
     </div>
