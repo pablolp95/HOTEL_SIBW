@@ -416,7 +416,7 @@ class content{
     }
     function printRoom($room){
         switch ($room){
-            case 'doble':
+            case 'double-room':
                 echo "<section class=\"section\">
                         <div class=\"container\">
                             <div class=\"row\">
@@ -434,7 +434,7 @@ class content{
                         </div>
                     </section>";
                 break;
-            case 'triple':
+            case 'triple-room':
                 echo "<section class=\"section\">
                         <div class=\"container\">
                             <div class=\"row\">
@@ -452,7 +452,7 @@ class content{
                         </div>
                 </section>";
                 break;
-            case 'superior':
+            case 'top-room':
                 echo "<section class=\"section\">
                         <div class=\"container\">
                             <div class=\"row\">
@@ -821,7 +821,7 @@ class content{
                 </section>";
     }
     function printBar(){
-        
+
     }
 }
 
