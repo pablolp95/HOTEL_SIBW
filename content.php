@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: joseccf
- * Date: 12/04/16
- * Time: 18:46
- */
 class content{
 
     function printPromotions(){//Promociones
@@ -421,7 +415,7 @@ class content{
 </section>";
     }
     function printRoom($room){
-        switch (room){
+        switch ($room){
             case 'doble':
                 echo "<section class=\"section\">
                         <div class=\"container\">
@@ -442,52 +436,393 @@ class content{
                 break;
             case 'triple':
                 echo "<section class=\"section\">
-    <div class=\"container\">
-        <div class=\"row\">
-            <div class=\"col-sm-6 text-center description\">
-                <h1>Habitación triple</h1>
-                <p>En nuestras <strong>habitaciones triples</strong> podrá disfrutar de sus vacaciones
-                    en familia o con amigos en el centro de Granada.</p>
-            </div>
-            <div class=\"col-sm-6\">
-                <figure>
-                    <img class=\"img-responsive\" src=\"img/triple.jpg\" alt=\"Habitación triple\">
-                </figure>
-            </div>
-        </div>
-    </div>
-</section>";
+                        <div class=\"container\">
+                            <div class=\"row\">
+                                <div class=\"col-sm-6 text-center description\">
+                                    <h1>Habitación triple</h1>
+                                    <p>En nuestras <strong>habitaciones triples</strong> podrá disfrutar de sus vacaciones
+                                        en familia o con amigos en el centro de Granada.</p>
+                                </div>
+                                <div class=\"col-sm-6\">
+                                    <figure>
+                                        <img class=\"img-responsive\" src=\"img/triple.jpg\" alt=\"Habitación triple\">
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                </section>";
                 break;
             case 'superior':
                 echo "<section class=\"section\">
-    <div class=\"container\">
-        <div class=\"row\">
-            <div class=\"col-sm-6 text-center description\">
-                <h1>Habitación superior</h1>
-                <p>Disfrute de una<strong> magnifica vista de Plaza Nueva</strong> y
-                    el centro de Granada desde nuestras habitaciones superiores.</p>
-            </div>
-            <div class=\"col-sm-6\">
-                <figure>
-                    <img class=\"img-responsive\" src=\"img/superior.jpg\" alt=\"Habitación superior\">
-                </figure>
-            </div>
-        </div>
-    </div>
-</section>";
+                        <div class=\"container\">
+                            <div class=\"row\">
+                                <div class=\"col-sm-6 text-center description\">
+                                    <h1>Habitación superior</h1>
+                                    <p>Disfrute de una<strong> magnifica vista de Plaza Nueva</strong> y
+                                        el centro de Granada desde nuestras habitaciones superiores.</p>
+                                </div>
+                                <div class=\"col-sm-6\">
+                                    <figure>
+                                        <img class=\"img-responsive\" src=\"img/superior.jpg\" alt=\"Habitación superior\">
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                </section>";
                 break;
         }
     }
     function printgallery(){
 
+        echo "<section>
+    <div class=\"container-fluid\">
+        <div class=\"row padding\">
+            <div class=\"col-sm-4\">
+                <div class=\"responsive\">
+                    <div class=\"img\">
+                        <img src=\"img/doble.jpg\" alt=\"doble\" >
+                        <div class=\"desc\">Habitación doble</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class=\"col-sm-4\">
+                <div class=\"responsive\">
+                    <div class=\"img\">
+                        <img src=\"img/doble1.jpg\" alt=\"doble1\">
+                        <div class=\"desc\">Habitación doble</div>
+                    </div>
+                </div>
+            </div>
+            <div class=\"col-sm-4\">
+                <div class=\"responsive\">
+                    <div class=\"img\">
+                        <img src=\"img/doble3.png\" alt=\"doble3\">
+                        <div class=\"desc\">Habitación Doble</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=\"row padding\">
+            <div class=\"col-sm-4\">
+                <div class=\"responsive\">
+                    <div class=\"img\">
+                        <img src=\"img/triple.jpg\" alt=\"triple\">
+                        <div class=\"desc\">Habitación triple</div>
+                    </div>
+                </div>
+            </div>
+            <div class=\"col-sm-4\">
+                <div class=\"responsive\">
+                    <div class=\"img\">
+                        <img src=\"img/superior.jpg\" alt=\"superior\">
+                        <div class=\"desc\">Habitación superior</div>
+                    </div>
+                </div>
+            </div>
+            <div class=\"col-sm-4\">
+                <div class=\"responsive\">
+                    <div class=\"img\">
+                        <img src=\"img/superior1.jpg\" alt=\"superior1\">
+                        <div class=\"desc\">Habitación superior</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=\"row padding\">
+            <div class=\"col-sm-4\">
+                <div class=\"responsive\">
+                    <div class=\"img\">
+                        <img src=\"img/Hamman.1800.jpg\" alt=\"hamman\">
+                        <div class=\"desc\">Hamman</div>
+                    </div>
+                </div>
+            </div>
+            <div class=\"col-sm-4\">
+                <div class=\"responsive\">
+                    <div class=\"img\">
+                        <img src=\"img/patio.jpg\" alt=\"patio\">
+                        <div class=\"desc\">Patio</div>
+                    </div>
+                </div>
+            </div>
+            <div class=\"col-sm-4\">
+                <div class=\"responsive\">
+                    <div class=\"img\">
+                        <img src=\"img/fachada.jpeg\" alt=\"fachada\">
+                        <div class=\"desc\">Fachada</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=\"row padding\">
+                <div class=\"col-sm-4\">
+                    <div class=\"responsive\">
+                        <div class=\"img\">
+                            <img src=\"img/s3.png\" alt=\"buffet\">
+                            <div class=\"Buffet\">Patio interior</div>
+                        </div>
+                    </div>
+                </div>
+            <div class=\"col-sm-4\">
+                <div class=\"responsive\">
+                    <div class=\"img\">
+                        <img src=\"img/s2.png\" alt=\"servicios\">
+                        <div class=\"desc\">Servicios</div>
+                    </div>
+                </div>
+            </div>
+            <div class=\"col-sm-4\">
+                <div class=\"responsive\">
+                    <div class=\"img\">
+                        <img src=\"img/s1.png\" alt=\"servicios\">
+                        <div class=\"desc\">Servicios</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=\"row padding\">
+            <div class=\"col-sm-4\">
+                <div class=\"responsive\">
+                    <div class=\"img\">
+                        <img src=\"img/3.jpg\" alt=\"patioi\">
+                        <div class=\"Patio interior\">Patio interior</div>
+                    </div>
+                </div>
+            </div>
+            <div class=\"col-sm-4\">
+                <div class=\"responsive\">
+                    <div class=\"img\">
+                        <img src=\"img/patio_interior.png\" alt=\"patio\">
+                        <div class=\"desc\">Patio interior</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class=\"clearfix\"></div>
+
+    <!-- The Modal -->
+    <div id=\"myModal\" class=\"modal\">
+        <span class=\"close\">×</span>
+        <img class=\"modal-content\" id=\"img01\">
+        <div id=\"caption\"></div>
+    </div>
+
+
+
+
+
+
+</section>";
     }
     function home(){
+        echo "<section class=\"first-section\">
+    <!-- Slide de imagenes -->
+        <div id=\"myCarousel\" class=\"carousel slide\" data-ride=\"carousel\">
+        <!-- Indicators -->
+        <ol class=\"carousel-indicators\">
+            <li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\"></li>
+            <li data-target=\"#myCarousel\" data-slide-to=\"1\"></li>
+            <li data-target=\"#myCarousel\" data-slide-to=\"2\"></li>
+            <li data-target=\"#myCarousel\" data-slide-to=\"3\"></li>
+            <li data-target=\"#myCarousel\" data-slide-to=\"4\"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class=\"carousel-inner\" role=\"listbox\">
+            <div class=\"item active\">
+                <img src=\"img/1.jpg\" alt=\"Image\">
+            </div>
 
+            <div class=\"item\">
+                <img src=\"img/2.jpg\" alt=\"Image\">
+            </div>
+
+            <div class=\"item\">
+                <img src=\"img/3.jpg\" alt=\"Image\">
+            </div>
+
+            <div class=\"item\">
+                <img src=\"img/4.jpg\" alt=\"Image\">
+            </div>
+
+            <div class=\"item\">
+                <img src=\"img/5.jpg\" alt=\"Image\">
+                <div class=\"main-text hidden-xs\">
+                    <div class=\"col-sm-12 text-center\">
+                        <h1 class=\"static-welcome\">Bienvenido al<br/> hotel Plaza Nueva</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class=\"left carousel-control\" href=\"#myCarousel\" role=\"button\" data-slide=\"prev\">
+            <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span>
+            <!-- Ocultar informacion para lectores de pantalla-->
+            <span class=\"sr-only\">Previous</span>
+        </a>
+        <a class=\"right carousel-control\" href=\"#myCarousel\" role=\"button\" data-slide=\"next\">
+            <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span>
+            <!-- Ocultar informacion para lectores de pantalla-->
+            <span class=\"sr-only\">Next</span>
+        </a>
+    </div>
+
+        <div class=\"container-fluid\">
+        <div class=\"row\">
+            <div class=\"col-sm-6 description\">
+                <h1 id=\"description-header\">Hotel Plaza Nueva</h1>
+                <p id=\"description-text\">Situado en pleno centro monumental, comercial y administrativo de Granada,
+                    nuestro hotel ofrece una gran variedad de servicios que satisfarán cualquier necesidad que le surja.
+                </p>
+                <a id=\"description-link\" href=\"#\">Leer más</a>
+            </div>
+            <div class=\"col-sm-6 characteristics\" id=\"service\">
+                <p>Tiene a su disposición los siguientes servicios:</p>
+                <div class=\"service\">
+                    <i class=\"flaticon-icon-62768\"></i>
+                    <p>Recepción 24 horas</p>
+                </div>
+                <div class=\"service\">
+                    <i class=\"flaticon-connection\"></i>
+                    <p>Conexión wifi a Internet</p>
+                </div>
+                <div class=\"service\">
+                    <i class=\"flaticon-circle\"></i>
+                    <p>Bar-Cafetería</p>
+                </div>
+                <div class=\"service\">
+                    <i class=\"flaticon-icon-101197\"></i>
+                    <p>Consigna de equipajes</p>
+                </div>
+                <div class=\"service\">
+                    <i class=\"flaticon-weather\"></i>
+                    <p>Aire acondicionado</p>
+                </div>
+                <div class=\"service\">
+                    <i class=\"flaticon-car\"></i>
+                    <p>Parking cubierto</p>
+                </div>
+                <div class=\"service\">
+                    <i class=\"flaticon-hospital\"></i>
+                    <p>Accesos adaptados</p>
+                </div>
+                <div class=\"service\">
+                    <i class=\"flaticon-icon-60435\"></i>
+                    <p>Servicio de habitaciones</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+        <section class=\"parallax-index\">
+        </section>
+        <section class=\"second-section\">
+    <!-- Habitaciones -->
+    <div class=\"container-fluid\" id=\"rooms\">
+        <div class=\"row\">
+            <a href=\"rooms.html\">
+                <div class=\"col-sm-12 nopadding\">
+                    <h1 class=\"rooms-header\">Habitaciones</h1>
+                </div>
+            </a>
+        </div>
+        <div class=\"row\">
+            <div class=\"col-sm-4 room\">
+                <a href=\"rooms.html#hd\">
+                    <img class=\"img-responsive\" src=\"img/doble.jpg\"/>
+                </a>
+                <h1 class=\"room-header\">Habitación triple</h1>
+            </div>
+            <div class=\"col-sm-4 room\">
+                <a href=\"rooms.html#ht\">
+                    <img class=\"img-responsive\" src=\"img/triple.jpg\"/>
+                </a>
+                <h1 class=\"room-header\">Habitación superior</h1>
+            </div>
+            <div class=\"col-sm-4 room\">
+                <a href=\"rooms.html#hs\">
+                    <img class=\"img-responsive\" src=\"img/superior.jpg\"/>
+                </a>
+                <h1 class=\"room-header\">Habitación doble</h1>
+            </div>
+        </div>
+    </div>
+    <div class=\"container-fluid\">
+        <div class=\"row\" id=\"map\">
+            <a href=\"contact.html\">
+                <div class=\"col-sm-12 nopadding\">
+                    <h1 class=\"map-header\">¿Dónde nos encontramos?</h1>
+                </div>
+            </a>
+        </div>
+        <div class=\"row\">
+            <div class=\"col-sm-12 nopadding\">
+                <div class=\"map\" id=\"googleMap\"></div>
+            </div>
+        </div>
+    </div>
+</section>";
     }
     function contact(){
-            
+            echo "<section class=\"parallax-contact\">
+                    <div class=\"row\">
+                        <div class=\"col-sm-12\">
+                            <h1>Contacto y ubicación</h1>
+                        </div>
+                    </div>
+                </section>
+                
+                <section>
+                    <div class=\"container\">
+                        <div class=\"row\">
+                            <div class=\"col-sm-12 center-align\">
+                                <h1>¿En qué podemos ayudarte?</h1>
+                            </div>
+                        </div>
+                        <div class=\"row section\">
+                            <div class=\"col-sm-12\">
+                                <form  role=\"form\" name=\"myForm\" onsubmit=\"return validateForm()\">
+                                    <div class=\"col-sm-4\">
+                                        <div class=\"form-group\">
+                                            <input type=\"text\" class=\"form-control input-lg input-style\" id=\"name\" placeholder=\"Nombre\" required>
+                                        </div>
+                                    </div>
+                                    <div class=\"col-sm-4\">
+                                        <div class=\"form-group\">
+                                            <input type=\"email\" class=\"form-control input-lg input-style\" id=\"email\" placeholder=\"E-mail\" required>
+                                        </div>
+                                    </div>
+                                    <div class=\"col-sm-4\">
+                                        <div class=\"form-group\">
+                                            <input type=\"phone\" class=\"form-control input-lg input-style\" id=\"phone\" name=\"fphone\" placeholder=\"Teléfono\">
+                                        </div>
+                                    </div>
+                                    <div class=\"col-sm-12\">
+                                        <div class=\"form-group\">
+                                            <textarea class=\"form-control input-lg noresize input-style\" rows=\"5\" id=\"comment\" placeholder=\"Mensaje\" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class=\"col-sm-12 text-center\">
+                                        <button type=\"submit\" class=\"button btn-lg\" style=\"text-align: center\">Enviar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=\"container-fluid\">
+                        <div class=\"row\">
+                            <div class=\"col-sm-12 nopadding\">
+                                <div class=\"map\" id=\"googleMap\"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>";
     }
-
+    function printBar(){
+        
+    }
 }
 
 
