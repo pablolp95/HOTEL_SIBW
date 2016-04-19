@@ -1,0 +1,91 @@
+/* CSS del pie de página */
+.topbar{
+    background-color: #8C8A87;
+    font-family: 'Noto Serif','Droid Serif', serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: lightgray;
+    text-align: left;
+    bottom: 0px;
+    padding: 10px 20px 15px;
+    overflow: hidden;
+}
+
+/* Pie de pagina izquierdo*/
+.topbar-logo{
+    height: 25%;
+    width: 25%;
+    /*Chrome*/
+    -webkit-filter: invert(100%);
+    /*Firefox*/
+    filter: invert(100%);
+}
+
+.topbar .topbar-links{
+    color:  #ffffff;
+    margin: 20px 0 0px;
+    padding: 0;
+}
+
+.topbar .topbar-links li{
+    display:inline-block;
+    line-height: 1.8;
+    color:  inherit;
+    margin-top: 10px;
+}
+.topbar .topbar-links li a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.topbar .topbar-company-name{
+    text-align: center;
+    color:  #8f9296;
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #8f9296;
+}
+
+/* Pie de pagina derecho */
+.topbar .topbar-right i{
+    background-color:  #33383b;
+    color: #FFFFFF;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+}
+
+/*Modificacion del icono de fax y correo*/
+.topbar .topbar-right i.fa-envelope,
+.topbar .topbar-right i.fa-fax{
+    font-size: 17px;
+    line-height: 38px;
+}
+
+.topbar .topbar-right p{
+    display: inline-block;
+    color: #ffffff;
+    vertical-align: middle;
+    margin:0;
+}
+
+.topbar .topbar-right p span{
+    display:block;
+    font-weight: normal;
+    font-size:14px;
+    line-height:2;
+}
+
+.topbar .topbar-right p a{
+    color:  goldenrod;
+    text-decoration: none;
+    font-size: 15px;
+
+}

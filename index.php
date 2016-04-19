@@ -7,22 +7,26 @@ include 'head.php';
 include 'header.php';
 include 'content.php';
 include 'footer.php';
-
+include 'topbar.php';
 $content =new content();
 $head = new head();
 $nav =new nav();
 $footer= new footer();
+$bar= new TopBar();
+
+
 if(isset($_GET['page'])){
     $page=isset($_GET['page']) ? $_GET['page']:'';
+}
+else{
+    $page='homepage';
 }
 
 $head->printHead($page);
 $nav->printNav();
-
+$bar->printBar($page);
 switch ($page){
     case 'rooms':
-        $head->printHead($page);
-        $nav->printNav();
         $content->printAllRooms();
         break;
     case 'double-room':
