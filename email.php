@@ -22,11 +22,11 @@ $mail->isHTML(true);                                  // Set email format to HTM
 $mail->Subject = 'Petición de contacto de '.$_POST['name'];
 $mail->Body    = $_POST['message'];
 
-/*Mostrar mensaje de error o no en la web
+//Mostrar mensaje de error o no en la web
 if(!$mail->send()) {
     echo 'Message could not be sent.';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
     echo 'Message has been sent';
-}*/
+}
 ?>
