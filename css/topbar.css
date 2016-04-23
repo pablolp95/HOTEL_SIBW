@@ -1,24 +1,14 @@
 /* CSS del pie de página */
 .topbar{
-    background-color: #8C8A87;
+    background-color: #292c2f;
     font-family: 'Noto Serif','Droid Serif', serif;
     font-size: 20px;
     font-weight: bold;
     color: lightgray;
     text-align: left;
     bottom: 0px;
-    padding: 10px 20px 15px;
+    padding: 0px 0px 0px;
     overflow: hidden;
-}
-
-/* Pie de pagina izquierdo*/
-.topbar-logo{
-    height: 25%;
-    width: 25%;
-    /*Chrome*/
-    -webkit-filter: invert(100%);
-    /*Firefox*/
-    filter: invert(100%);
 }
 
 .topbar .topbar-links{
@@ -28,14 +18,13 @@
 }
 
 .topbar .topbar-links li{
-    display:inline-block;
-    line-height: 1.8;
     color:  inherit;
     margin-top: 10px;
+    margin-left: 10px;
 }
 .topbar .topbar-links li a{
     color: #FFFFFF;
-    text-decoration: none;
+    text-decoration: solid;
 }
 
 .topbar .topbar-company-name{
