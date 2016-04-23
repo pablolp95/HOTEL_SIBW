@@ -7,35 +7,35 @@
                     $css = 'index.css';
                     break;
                 case 'promotions':
-                    $title = '- Promociones';
+                    $title = ' - Promociones';
                     $css = 'promotions.css';
                     break;
                 case 'rooms':
-                    $title = '- Habitaciones';
+                    $title = ' - Habitaciones';
                     $css = 'rooms.css';
                     break;
                 case 'triple-room':
-                    $title = '- Habitación triple';
+                    $title = ' - Habitación triple';
                     $css = 'rooms.css';
                     break;
                 case 'double-room':
-                    $title = '- Habitación doble';
+                    $title = ' - Habitación doble';
                     $css = 'rooms.css';
                     break;
-                case 'top-room':
-                    $title = '- Habitación superior';
+                case 'superior-room':
+                    $title = ' - Habitación superior';
                     $css = 'rooms.css';
                     break;
                 case 'services':
-                    $title = '- Servicios';
+                    $title = ' - Servicios';
                     $css = 'rooms.css';
                     break;
                 case 'gallery':
-                    $title = '- Galería';
+                    $title = ' - Galería';
                     $css = 'gallery.css';
                     break;
                 case 'contact':
-                    $title = '- Contacto y ubicación';
+                    $title = ' - Contacto y ubicación';
                     $css = 'contact.css';
                     break;
             }
@@ -70,11 +70,45 @@
                  <link href=\'http://fonts.googleapis.com/css?family=Numans\' rel="stylesheet" type=\'text/css\'/>
                 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type=\'text/css\'/>
                 <link href=\'https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic\' rel=\'stylesheet\' type=\'text/css\'>
-                <link href=\'https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic\' rel=\'stylesheet\' type=\'text/css\'>
+                <link href=\'https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic\' rel=\'stylesheet\' type=\'text/css\'>';
 
+                if($page == 'homepage' || $page = 'contact')
+                    $this->printGoogleMap();
 
-                </head>';
+                echo'</head>';
 
+        }
+
+        private function printGoogleMap(){
+            echo '
+                <!-- Google maps -->
+                <script
+                        src="http://maps.googleapis.com/maps/api/js">
+                </script>
+            
+                <script>
+                    var myCenter=new google.maps.LatLng(37.1770723,-3.5962826,21);
+                    function initialize()
+                    {
+                        var mapProp = {
+                            center:myCenter,
+                            zoom:17,
+                            mapTypeId:google.maps.MapTypeId.ROADMAP,
+                            scrollwheel: false
+                        };
+                        var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+                        var marker=new google.maps.Marker({
+                            position:myCenter,
+                        });
+                        var infowindow = new google.maps.InfoWindow({
+                            content:"¡Visitanos!"
+                        });
+                        infowindow.open(map,marker);
+                        marker.setMap(map);
+                    }
+                    google.maps.event.addDomListener(window, \'load\', initialize);
+                </script>
+            ';
         }
     }
 ?>

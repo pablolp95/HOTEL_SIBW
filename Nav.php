@@ -20,9 +20,9 @@ class Nav{
                                 <ul class=\"dropdown-menu dropdown-menu-left\">
                                     <li><a href=\"index.php?page=double-room\">Habitación doble</a></li>
                                     <li><a href=\"index.php?page=triple-room\">Habitación triple</a></li>
-                                    <li><a href=\"index.php?page=top-room\">Habitación superior</a></li>
+                                    <li><a href=\"index.php?page=superior-room\">Habitación superior</a></li>
                                 </ul>
-                            <li><a href=\"index.html?page=service\">Servicios</a></li>
+                            <li><a href=\"index.php#service\">Servicios</a></li>
                             <li><a href=\"index.php?page=gallery\">Galería</a></li>
                             <li><a href=\"index.php?page=contact\">Contacto y ubicación</a></li>
                             <li><a href=\"#\">Opiniones</a></li>

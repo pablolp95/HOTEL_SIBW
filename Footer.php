@@ -9,7 +9,7 @@
                                 <li><a href=\"promotions.html\">Promociones</a></li>
                                 <li><a href=\"rooms.html\">· Habitaciones</a></li>
                                 <li><a href=\"index.html#service\">· Servicios</a></li>
-                                <li><a href=\"galery.html\">· Galería</a></li>
+                                <li><a href=\"gallery.html\">· Galería</a></li>
                                 <li><a href=\"contact.html\">· Contacto y ubicación</a></li>
                                 <li><a href=\"#\">· Opiniones</a></li>
                                 <li><a href=\"#\">· Mi reserva</a></li>
