@@ -393,6 +393,16 @@ class Content{
 
     //This function prints Rooms's page
     function printAllRooms(){
+        echo '
+        <!-- Banner -->
+        <section class="parallax-room">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>Habitaciones</h1>
+                </div>
+            </div>
+        </section>';
+
         echo '<section class="section">
         <div class="container">
             <div class="row">
@@ -497,6 +507,19 @@ class Content{
 
     //This funciton prints Galery's page
     function printGallery(){
+        echo '
+        <!-- Banner -->
+        <section class="parallax-galery">
+        
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>Galería</h1>
+                </div>
+            </div>
+        </div>
+        </section>';
+
         echo '
         <section>
             <div class="container-fluid">
