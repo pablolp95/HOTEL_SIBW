@@ -1,6 +1,6 @@
 <?php
 
-class nav{
+class Nav{
     function printNav(){
         echo "<nav class=\"navbar navbar-default\" role=\"navigation\">
                 <div class=\"container-fluid\">

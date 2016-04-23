@@ -1,5 +1,5 @@
 <?php
-    class footer{
+    class Footer{
         function printFooter(){
             echo "<footer class=\"container-fluid footer\" id=\"footer\">
                     <div class=\"row\">

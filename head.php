@@ -1,5 +1,5 @@
 <?php
-    class head{
+    class Head{
         function printHead($page){
 
             switch($page){

@@ -4,14 +4,15 @@
 <?php
 
 include 'head.php';
-include 'header.php';
+include 'nav.php';
 include 'content.php';
 include 'footer.php';
 include 'topbar.php';
-$content =new content();
-$head = new head();
-$nav =new nav();
-$footer= new footer();
+
+$content =new Content();
+$head = new Head();
+$nav =new Nav();
+$footer= new Footer();
 $bar= new TopBar();
 
 

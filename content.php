@@ -1,9 +1,10 @@
 <?php
-class content{
+class Content{
 
-    function printPromotions(){//Promociones
+    //Promociones
+    function printPromotions(){
         echo "<section>
-    <div class=\"container-fluid promotions-container\">
+        <div class=\"container-fluid promotions-container\">
         <div class=\"row promotions\">
             <div class=\"col-sm-4\">
                 <div class=\"thumbnail\">
@@ -372,48 +373,52 @@ class content{
     </div>
     </section>";
     }
+
+    //This function prints Rooms's page
     function printAllRooms(){
         echo "<section class=\"section\">
-    <div class=\"container\">
-        <div class=\"row\">
-            <div class=\"col-sm-6 text-center description\">
-                <h1>Habitación doble</h1>
-                <p>En nuestras habitaciones<strong> standard</strong> disfrutará de todo el equipamiento
-                    y comodidades que su estancia en Granada merece.</p>
+        <div class=\"container\">
+            <div class=\"row\">
+                <div class=\"col-sm-6 text-center description\">
+                    <h1>Habitación doble</h1>
+                    <p>En nuestras habitaciones<strong> standard</strong> disfrutará de todo el equipamiento
+                        y comodidades que su estancia en Granada merece.</p>
+                </div>
+                <div class=\"col-sm-6\">
+                    <figure>
+                        <img class=\"img-responsive\" src=\"img/doble.jpg\" alt=\"Habitación doble\">
+                    </figure>
+                </div>
             </div>
-            <div class=\"col-sm-6\">
-                <figure>
-                    <img class=\"img-responsive\" src=\"img/doble.jpg\" alt=\"Habitación doble\">
-                </figure>
+            <div class=\"row\">
+                <div class=\"col-sm-6\">
+                    <figure>
+                        <img class=\"img-responsive\" src=\"img/triple.jpg\" alt=\"Habitación triple\">
+                    </figure>
+                </div>
+                <div class=\"col-sm-6 text-center description\">
+                    <h1>Habitación triple</h1>
+                    <p>En nuestras <strong>habitaciones triples</strong> podrá disfrutar de sus vacaciones
+                        en familia o con amigos en el centro de Granada.</p>
+                </div>
+            </div>
+            <div class=\"row\">
+                <div class=\"col-sm-6 text-center description\">
+                    <h1>Habitación superior</h1>
+                    <p>Disfrute de una<strong> magnifica vista de Plaza Nueva</strong> y
+                        el centro de Granada desde nuestras habitaciones superiores.</p>
+                </div>
+                <div class=\"col-sm-6\">
+                    <figure>
+                        <img class=\"img-responsive\" src=\"img/superior.jpg\" alt=\"Habitación superior\">
+                    </figure>
+                </div>
             </div>
         </div>
-        <div class=\"row\">
-            <div class=\"col-sm-6\">
-                <figure>
-                    <img class=\"img-responsive\" src=\"img/triple.jpg\" alt=\"Habitación triple\">
-                </figure>
-            </div>
-            <div class=\"col-sm-6 text-center description\">
-                <h1>Habitación triple</h1>
-                <p>En nuestras <strong>habitaciones triples</strong> podrá disfrutar de sus vacaciones
-                    en familia o con amigos en el centro de Granada.</p>
-            </div>
-        </div>
-        <div class=\"row\">
-            <div class=\"col-sm-6 text-center description\">
-                <h1>Habitación superior</h1>
-                <p>Disfrute de una<strong> magnifica vista de Plaza Nueva</strong> y
-                    el centro de Granada desde nuestras habitaciones superiores.</p>
-            </div>
-            <div class=\"col-sm-6\">
-                <figure>
-                    <img class=\"img-responsive\" src=\"img/superior.jpg\" alt=\"Habitación superior\">
-                </figure>
-            </div>
-        </div>
-    </div>
-</section>";
+        </section>";
     }
+
+    //This function prints a specific room page
     function printRoom($room){
         switch ($room){
             case 'double-room':
@@ -473,152 +478,145 @@ class content{
         }
     }
     function printgallery(){
-
-        echo "<section>
-    <div class=\"container-fluid\">
-        <div class=\"row padding\">
-            <div class=\"col-sm-4\">
-                <div class=\"responsive\">
-                    <div class=\"img\">
-                        <img src=\"img/doble.jpg\" alt=\"doble\" >
-                        <div class=\"desc\">Habitación doble</div>
+        echo "
+        <section>
+            <div class=\"container-fluid\">
+                <div class=\"row padding\">
+                    <div class=\"col-sm-4\">
+                        <div class=\"responsive\">
+                            <div class=\"img\">
+                                <img src=\"img/doble.jpg\" alt=\"doble\" >
+                                <div class=\"desc\">Habitación doble</div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class=\"col-sm-4\">
-                <div class=\"responsive\">
-                    <div class=\"img\">
-                        <img src=\"img/doble1.jpg\" alt=\"doble1\">
-                        <div class=\"desc\">Habitación doble</div>
+        
+                    <div class=\"col-sm-4\">
+                        <div class=\"responsive\">
+                            <div class=\"img\">
+                                <img src=\"img/doble1.jpg\" alt=\"doble1\">
+                                <div class=\"desc\">Habitación doble</div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class=\"col-sm-4\">
-                <div class=\"responsive\">
-                    <div class=\"img\">
-                        <img src=\"img/doble3.png\" alt=\"doble3\">
-                        <div class=\"desc\">Habitación Doble</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class=\"row padding\">
-            <div class=\"col-sm-4\">
-                <div class=\"responsive\">
-                    <div class=\"img\">
-                        <img src=\"img/triple.jpg\" alt=\"triple\">
-                        <div class=\"desc\">Habitación triple</div>
-                    </div>
-                </div>
-            </div>
-            <div class=\"col-sm-4\">
-                <div class=\"responsive\">
-                    <div class=\"img\">
-                        <img src=\"img/superior.jpg\" alt=\"superior\">
-                        <div class=\"desc\">Habitación superior</div>
-                    </div>
-                </div>
-            </div>
-            <div class=\"col-sm-4\">
-                <div class=\"responsive\">
-                    <div class=\"img\">
-                        <img src=\"img/superior1.jpg\" alt=\"superior1\">
-                        <div class=\"desc\">Habitación superior</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class=\"row padding\">
-            <div class=\"col-sm-4\">
-                <div class=\"responsive\">
-                    <div class=\"img\">
-                        <img src=\"img/Hamman.1800.jpg\" alt=\"hamman\">
-                        <div class=\"desc\">Hamman</div>
-                    </div>
-                </div>
-            </div>
-            <div class=\"col-sm-4\">
-                <div class=\"responsive\">
-                    <div class=\"img\">
-                        <img src=\"img/patio.jpg\" alt=\"patio\">
-                        <div class=\"desc\">Patio</div>
-                    </div>
-                </div>
-            </div>
-            <div class=\"col-sm-4\">
-                <div class=\"responsive\">
-                    <div class=\"img\">
-                        <img src=\"img/fachada.jpeg\" alt=\"fachada\">
-                        <div class=\"desc\">Fachada</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class=\"row padding\">
-                <div class=\"col-sm-4\">
-                    <div class=\"responsive\">
-                        <div class=\"img\">
-                            <img src=\"img/s3.png\" alt=\"buffet\">
-                            <div class=\"Buffet\">Patio interior</div>
+                    <div class=\"col-sm-4\">
+                        <div class=\"responsive\">
+                            <div class=\"img\">
+                                <img src=\"img/doble3.png\" alt=\"doble3\">
+                                <div class=\"desc\">Habitación Doble</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            <div class=\"col-sm-4\">
-                <div class=\"responsive\">
-                    <div class=\"img\">
-                        <img src=\"img/s2.png\" alt=\"servicios\">
-                        <div class=\"desc\">Servicios</div>
+                <div class=\"row padding\">
+                    <div class=\"col-sm-4\">
+                        <div class=\"responsive\">
+                            <div class=\"img\">
+                                <img src=\"img/triple.jpg\" alt=\"triple\">
+                                <div class=\"desc\">Habitación triple</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=\"col-sm-4\">
+                        <div class=\"responsive\">
+                            <div class=\"img\">
+                                <img src=\"img/superior.jpg\" alt=\"superior\">
+                                <div class=\"desc\">Habitación superior</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=\"col-sm-4\">
+                        <div class=\"responsive\">
+                            <div class=\"img\">
+                                <img src=\"img/superior1.jpg\" alt=\"superior1\">
+                                <div class=\"desc\">Habitación superior</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=\"row padding\">
+                    <div class=\"col-sm-4\">
+                        <div class=\"responsive\">
+                            <div class=\"img\">
+                                <img src=\"img/Hamman.1800.jpg\" alt=\"hamman\">
+                                <div class=\"desc\">Hamman</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=\"col-sm-4\">
+                        <div class=\"responsive\">
+                            <div class=\"img\">
+                                <img src=\"img/patio.jpg\" alt=\"patio\">
+                                <div class=\"desc\">Patio</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=\"col-sm-4\">
+                        <div class=\"responsive\">
+                            <div class=\"img\">
+                                <img src=\"img/fachada.jpeg\" alt=\"fachada\">
+                                <div class=\"desc\">Fachada</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=\"row padding\">
+                        <div class=\"col-sm-4\">
+                            <div class=\"responsive\">
+                                <div class=\"img\">
+                                    <img src=\"img/s3.png\" alt=\"buffet\">
+                                    <div class=\"Buffet\">Patio interior</div>
+                                </div>
+                            </div>
+                        </div>
+                    <div class=\"col-sm-4\">
+                        <div class=\"responsive\">
+                            <div class=\"img\">
+                                <img src=\"img/s2.png\" alt=\"servicios\">
+                                <div class=\"desc\">Servicios</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=\"col-sm-4\">
+                        <div class=\"responsive\">
+                            <div class=\"img\">
+                                <img src=\"img/s1.png\" alt=\"servicios\">
+                                <div class=\"desc\">Servicios</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=\"row padding\">
+                    <div class=\"col-sm-4\">
+                        <div class=\"responsive\">
+                            <div class=\"img\">
+                                <img src=\"img/3.jpg\" alt=\"patioi\">
+                                <div class=\"Patio interior\">Patio interior</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=\"col-sm-4\">
+                        <div class=\"responsive\">
+                            <div class=\"img\">
+                                <img src=\"img/patio_interior.png\" alt=\"patio\">
+                                <div class=\"desc\">Patio interior</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class=\"col-sm-4\">
-                <div class=\"responsive\">
-                    <div class=\"img\">
-                        <img src=\"img/s1.png\" alt=\"servicios\">
-                        <div class=\"desc\">Servicios</div>
-                    </div>
-                </div>
+             <div class=\"clearfix\"></div>
+        
+            <!-- The Modal -->
+            <div id=\"myModal\" class=\"modal\">
+                <span class=\"close\">×</span>
+                <img class=\"modal-content\" id=\"img01\">
+                <div id=\"caption\"></div>
             </div>
-        </div>
-        <div class=\"row padding\">
-            <div class=\"col-sm-4\">
-                <div class=\"responsive\">
-                    <div class=\"img\">
-                        <img src=\"img/3.jpg\" alt=\"patioi\">
-                        <div class=\"Patio interior\">Patio interior</div>
-                    </div>
-                </div>
-            </div>
-            <div class=\"col-sm-4\">
-                <div class=\"responsive\">
-                    <div class=\"img\">
-                        <img src=\"img/patio_interior.png\" alt=\"patio\">
-                        <div class=\"desc\">Patio interior</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-     <div class=\"clearfix\"></div>
-
-    <!-- The Modal -->
-    <div id=\"myModal\" class=\"modal\">
-        <span class=\"close\">×</span>
-        <img class=\"modal-content\" id=\"img01\">
-        <div id=\"caption\"></div>
-    </div>
-
-
-
-
-
-
-</section>";
+        </section>";
     }
-    function home(){
-        echo ";
-    }
+
+    //This function prints contact's page
     function contact(){
             echo "<section class=\"parallax-contact\">
                     <div class=\"row\">

@@ -14,20 +14,21 @@ class TopBar
 
     }
 
-function printcontact(){
-echo '<div class="col-sm-4 topbar-right">
-            <ul>
-                <li><i class="fa fa-phone"></i>
-                <p>+34 958 215 273</p></li>
-                    
-                <li><i class="fa fa-fax"></i>
-                <p>+34 958 225 765</p></li>
-        
-                <li><i class="fa fa-envelope"></i>
-                <p><a href="mailto:info@hotel-plazanueva.com">info@hotel-plazanueva.com</a></p></li>
-            </ul>
-       </div>';
-}
+    function printcontact(){
+    echo '<div class="col-sm-4 topbar-right">
+                <ul>
+                    <li><i class="fa fa-phone"></i>
+                    <p>+34 958 215 273</p></li>
+                        
+                    <li><i class="fa fa-fax"></i>
+                    <p>+34 958 225 765</p></li>
+            
+                    <li><i class="fa fa-envelope"></i>
+                    <p><a href="mailto:info@hotel-plazanueva.com">info@hotel-plazanueva.com</a></p></li>
+                </ul>
+           </div>';
+    }
+
     function printVariableBar($page){
         echo '<div class="col-sm-8">
                          <ul class="topbar-links">';
@@ -49,11 +50,13 @@ echo '<div class="col-sm-4 topbar-right">
         echo'</ul>
            </div>';
     }
+
     function allref(){
         echo '<li><a href=\'index.php?page=double-room\'>Habitación doble</a></li>
         <li><a href=\'index.php?page=triple-room\'>Habitación triple</a></li>
         <li><a href=\'index.php?page=top-room\'>Habitación superior</a></li>';
     }
+    
     function ref($page){
         if($page=='double-room'){
             echo '<li><a href=\'index.php?page=triple-room\'>Habitación triple</a></li>
