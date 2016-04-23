@@ -677,15 +677,15 @@ class Content{
                         </div>
                         <div class="row section">
                             <div class="col-sm-12">
-                                <form  role="form" name="myForm" onsubmit="return validateForm()">
+                                <form  role="form" name="myForm" method="POST" action="email.php">
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <input type="text" class="form-control input-lg input-style" id="name" placeholder="Nombre" required>
+                                            <input type="text" class="form-control input-lg input-style" id="name" name="name" placeholder="Nombre" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <input type="email" class="form-control input-lg input-style" id="email" placeholder="E-mail" required>
+                                            <input type="email" class="form-control input-lg input-style" id="email" name="email" placeholder="E-mail" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
@@ -695,7 +695,7 @@ class Content{
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <textarea class="form-control input-lg noresize input-style" rows="5" id="comment" placeholder="Mensaje" required></textarea>
+                                            <textarea class="form-control input-lg noresize input-style" rows="5" id="comment" name="message" placeholder="Mensaje" required></textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 text-center">
