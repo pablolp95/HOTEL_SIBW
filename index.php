@@ -45,6 +45,7 @@ switch ($page){
     case 'contact':
         $content->printContact();
         break;
+
     default:
         $content->printHome();
         break;

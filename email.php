@@ -26,7 +26,11 @@ $mail->Body    = $_POST['message'];
 if(!$mail->send()) {
     echo 'Message could not be sent.';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
+    echo "<a href='index.php?page=contact'><button class=\"btn btn-primary\">Volver a la pagina de contacto</button></a>";
+
 } else {
     echo 'Message has been sent';
+    echo "<a href='index.php'><button class=\"btn btn-primary\">Volver a la pagina principal</button></a>";
+
 }
 ?>
