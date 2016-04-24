@@ -660,65 +660,15 @@ class Content{
 
     //This function prints contact's page
     function printContact(){
-
-            echo '<script>
-             function validate(formulario) {
-                var x=document.forms[formulario];
-                var correcto=true;
-
-                for(var i=0;i<x.elements.length-1;i++){
-
-                    if(x.elements[i].value===""){
-                            correcto=false;
-                            alert("El campo "+ x.elements[i].name +" es obligatorio");
-                            return correcto;
-                    }
-                    else if(x.elements[i].name==="name"){
-                        if(!(x.elements[i].value.match(/[A-Za-z]{1,20}/))){
-                            correcto=false;
-                            alert("El campo Nombre solo admite caracteres A-Z()");
-                            return correcto;
-                        }
-                    }
-                    else if(x.elements[i].name==="email"){
-                       if(!x.elements[i].value.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/)){
-                            correcto=false;
-                            alert("Formato de correo incorrecto");
-                            return correcto;
-                        }
-                    }
-                    else if(x.elements[i].name==="phone"){
-                        if(!x.elements[i].value.match(/^([0-9]{9})/)){
-                            correcto=false;
-                            alert("El campo telefono solo admite 9 DIGITOS");
-                            return correcto;
-                        }
-                        else if(x.elements[i].value.match(/\s/)){
-                            correcto=false;
-                            alert("No admite espacios en blanco en el campo telefono");
-                            return correcto;
-                        }
-                   }
-
-                }
-             if(correcto){
-                alert("Todo correcto,correo enviado.")
-                return correcto;
-             }
-             else{
-                return correcto;
-             }
-             }
-            </script>;
-            <section class="parallax-contact">
+        echo '<section class="parallax-contact">
                     <div class="row">
                         <div class="col-sm-12">
                             <h1>Contacto y ubicación</h1>
                         </div>
                     </div>
                 </section>
-
-                    <section>
+                
+                <section>
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12 center-align">
@@ -727,27 +677,29 @@ class Content{
                         </div>
                         <div class="row section">
                             <div class="col-sm-12">
-                                <form id="formulario" name="miformulario" onsubmit="return validate(\'miformulario\')" action="email.php" method="post">
-                                    <div class="col-sm-4">
-                                          <input type="text" class="form-control"name="name" placeholder="Nombre">
-                                                                          </div>
+                                <form  role="form" name="myForm" onsubmit="return validate(\'myForm\')" method="POST" action="email.php">
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <input type="text" type="email" class="form-control" name="email" placeholder="E-mail">
+                                            <input type="text" class="form-control input-lg input-style" id="name" name="name" placeholder="Nombre" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="phone" placeholder="Teléfono"d>
+                                            <input class="form-control input-lg input-style" id="email" name="email" placeholder="E-mail" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <input class="form-control input-lg input-style" id="phone" name="fphone" placeholder="Teléfono">
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" rows="5" name="message" placeholder="Mensaje">
+                                            <textarea class="form-control input-lg noresize input-style" rows="5" id="comment" name="message" placeholder="Mensaje" required></textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 text-center">
-                                            <button type="submit" class="btn btn-primary">Enviar</button>
+                                        <button type="submit" class="button btn-lg" style="text-align: center">Enviar</button>
                                     </div>
                                 </form>
                             </div>

@@ -55,8 +55,11 @@
                 <script src=\'https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js\'></script>
                 <!-- Latest compiled JavaScript -->
                 <script src=\'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js\'></script>
-                <!-- Personal scripts -->
-    
+                <!-- Personal scripts -->';
+                if($page = 'contact')
+                echo'<script src=\'js/emailValidation.js\'></script>';
+
+                echo'
                 <!-- Personal CSS -->
                 <link type=\'text/css\' rel=\'stylesheet\' href=\'css/body.css\'/>
                 <link type=\'text/css\' rel=\'stylesheet\' href=\'css/nav.css\'/>
