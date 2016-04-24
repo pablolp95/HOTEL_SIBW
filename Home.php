@@ -30,54 +30,22 @@ class Home
     private function secondSection(){
         echo '
             <section class="second-section">
-            <!-- Habitaciones -->
-            <div class="container-fluid" id="rooms">
-                <div class="row">
-                    <a href="rooms.html">
-                        <div class="col-sm-12 nopadding">
-                            <h1 class="rooms-header">Habitaciones</h1>
-                        </div>
-                    </a>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4 room">
-                        <a href="index.php?page=doble-room">
-                            <img class="img-responsive" src="img/doble.jpg"/>
-                        </a>
-                        <h1 class="room-header">Habitación doble</h1>
-                    </div>
-                    <div class="col-sm-4 room">
-                        <a href="index.php?page=triple-room">
-                            <img class="img-responsive" src="img/triple.jpg"/>
-                        </a>
-                        <h1 class="room-header">Habitación triple</h1>
-                    </div>
-                    <div class="col-sm-4 room">
-                        <a href="index.php?page=superior-room">
-                            <img class="img-responsive" src="img/superior.jpg"/>
-                        </a>
-                        <h1 class="room-header">Habitación superior</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="row" id="map">
-                    <a href="contact.html">
-                        <div class="col-sm-12 nopadding">
-                            <h1 class="map-header">¿Dónde nos encontramos?</h1>
-                        </div>
-                    </a>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 nopadding">
-                        <div class="map" id="googleMap"></div>
-                    </div>
-                </div>
-            </div>
+        ';
+
+        $this->printPromotionSlider();
+        $this->printRooms();
+        $this->printMap();
+        echo '
         </section>
         ';
     }
 
+
+    /******************************/
+    /*                            */
+    /*  FIRST SECTION'S FUNCTIONS */
+    /*                            */
+    /******************************/
 
     private function printCarousel(){
         echo '
@@ -92,25 +60,25 @@ class Home
                     <li data-target="#myCarousel" data-slide-to="4"></li>
                 </ol>
                 <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
+                <div class="carousel-inner mySlider" role="listbox">
                     <div class="item active">
-                        <img src="../img/1.jpg" alt="Image">
+                        <img src="img/1.jpg" alt="Image">
                     </div>
         
                     <div class="item">
-                        <img src="../img/2.jpg" alt="Image">
+                        <img src="img/2.jpg" alt="Image">
                     </div>
         
                     <div class="item">
-                        <img src="../img/3.jpg" alt="Image">
+                        <img src="img/3.jpg" alt="Image">
                     </div>
         
                     <div class="item">
-                        <img src="../img/4.jpg" alt="Image">
+                        <img src="img/4.jpg" alt="Image">
                     </div>
         
                     <div class="item">
-                        <img src="../img/5.jpg" alt="Image">
+                        <img src="img/5.jpg" alt="Image">
                     </div>
         
                     <div class="main-text hidden-xs">
@@ -186,4 +154,139 @@ class Home
         ';
     }
 
+    /******************************/
+    /*                            */
+    /* SECOND SECTION'S FUNCTIONS */
+    /*                            */
+    /******************************/
+
+    //Function that prints the available type of rooms in home's page
+    private function printRooms(){
+        echo '
+        <!-- Habitaciones -->
+            <div class="container-fluid" id="rooms">
+                <div class="row">
+                    <a href="index.php?page=rooms">
+                        <div class="col-sm-12 nopadding">
+                            <h1 class="rooms-header">Habitaciones</h1>
+                        </div>
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 room">
+                        <a href="index.php?page=double-room">
+                            <img class="img-responsive" src="img/doble.jpg"/>
+                        </a>
+                        <h1 class="room-header">Habitación doble</h1>
+                    </div>
+                    <div class="col-sm-4 room">
+                        <a href="index.php?page=triple-room">
+                            <img class="img-responsive" src="img/triple.jpg"/>
+                        </a>
+                        <h1 class="room-header">Habitación triple</h1>
+                    </div>
+                    <div class="col-sm-4 room">
+                        <a href="index.php?page=superior-room">
+                            <img class="img-responsive" src="img/superior.jpg"/>
+                        </a>
+                        <h1 class="room-header">Habitación superior</h1>
+                    </div>
+                </div>
+            </div>
+        ';
+    }
+
+    //Function that prints promotions's slider
+    private function printPromotionSlider(){
+        echo'
+        <div class="container-fluid">
+            <div class="row">
+                <a href="index.php?page=promotions">
+                    <div class="col-sm-12 nopadding">
+                        <h1 class="rooms-header">Promociones destacadas</h1>
+                    </div>
+                </a>
+            </div>
+        </div>
+        ';
+        echo'
+        <!-- Promotion slider -->
+            <div id="promotionSlider" class="carousel slide" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="row promotion-slider">
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <div class="row background">
+                            <div class="col-sm-6 nopadding">
+                                <img class="img-responsive" src="img/promotions/5.png" alt="Promocion número cinco">
+                            </div>
+                            <div class="col-sm-6 promotion-description">
+                                <h1 class="promotion-header">Habitación doble junto con sesión de baños árabes</h1>
+                                <p class="promotion-text">Gracias a esta promoción podrá disfrutar de dos noches en una habitacion estandar acompañadas
+                                de una sesión de baños árabes en Hammam Al Ándalus Granada, en la que podrá disfrutar de la antigua tradición del Hamman.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="row background">
+                            <div class="col-sm-6 nopadding">
+                                <img class="img-responsive" src="img/promotions/espectaculo.jpg" alt="Promocion número seis">
+                            </div>
+                            <div class="col-sm-6 promotion-description">
+                                <h1 class="promotion-header">Habitación doble junto con espectáculo de flamenco</h1>
+                                <p class="promotion-text">Con esta promoción disfrutaras de dos noches en nuestro hotel y además
+                                 podrás presenciar uno de los mayores espectáculos de flamenco de la ciudad de Granada.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="row background">
+                            <div class="col-sm-6 nopadding">
+                                <img class="img-responsive" src="img/promotions/7.png" alt="Promocion número siete">
+                            </div>
+                            <div class="col-sm-6 promotion-description">
+                                <h1 class="promotion-header">Habitación doble y visita guiada a la Alhambra</h1>
+                                <p class="promotion-text">Gracias a esta promoción podrá disfrutar de dos noches en una habitacion estandar y 
+                                descubrirá con nosotros la única ciudad medieval musulmana mejor conservada del mundo, la Alhambra</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+                <!-- Left and right controls -->
+                <a class="left carousel-control promotions-button" href="#promotionSlider" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <!-- Ocultar informacion para lectores de pantalla-->
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control promotions-button" href="#promotionSlider" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <!-- Ocultar informacion para lectores de pantalla-->
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>';
+    }
+
+    //Function that prints the map of home's page
+    private function printMap(){
+        echo '
+            <div class="container-fluid">
+                <div class="row" id="map">
+                    <a href="index.php?page=contact">
+                        <div class="col-sm-12 nopadding">
+                            <h1 class="map-header">¿Dónde nos encontramos?</h1>
+                        </div>
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 nopadding">
+                        <div class="map" id="googleMap"></div>
+                    </div>
+                </div>
+            </div>
+        ';
+    }
 }

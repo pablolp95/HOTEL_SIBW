@@ -250,7 +250,7 @@ class Content{
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Oferta de dos noches</h4>
+                                        <h4 class="modal-title">Habitación doble junto con espectáculo de flamenco</h4>
                                     </div>
                                     <div class="modal-body">
                                         <p>Incluye:</p>
@@ -319,7 +319,7 @@ class Content{
 
                                         <p>La Alhambra:</p>
                                         <p>
-                                            Descubrirá con nostros la única Ciudad Medieval Musulmana mejor conservada del mundo, la Alhambra;
+                                            Descubrirá con nosotros la única ciudad medieval musulmana mejor conservada del mundo, la Alhambra;
                                             visitando sus palacios, Mexuar, Comares, Leones, Generalife; paseando por sus patios, de los Arrayenes,
                                             la Reja, la Acequia, la Sultana; y disfrutando de sus jardines, de Partal, de la Medina y por suspuesto del Generalife
                                             con sus gracioso juegos de agua, y su laberintico diseño.
@@ -365,7 +365,7 @@ class Content{
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Oferta de dos noches</h4>
+                                        <h4 class="modal-title">Habitación doble junto con trén y espectáculo de flamenco</h4>
                                     </div>
                                     <div class="modal-body">
                                         <p>Incluye:</p>

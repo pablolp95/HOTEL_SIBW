@@ -1,7 +1,7 @@
 .first-section{
-    margin-top: 0px;
+    margin-top: 0;
 }
-.carousel .carousel-inner img {
+.carousel .mySlider img {
     width: 100%; /* Set width to 100% */
     max-height: 600px;
     margin: auto;
@@ -11,6 +11,25 @@
     /*Firefox*/
     filter: contrast(50%);
 
+}
+
+.carousel-control:focus{
+    opacity: .5;
+}
+.carousel-control.left, .carousel-control.right{
+    background-image: none;
+}
+
+.carousel-control .glyphicon-chevron-left{
+    margin-left: -50px;
+}
+
+.carousel-control .glyphicon-chevron-right{
+    margin-right: -50px;
+}
+
+.carousel-control.promotions-button{
+    color: gray;
 }
 
 /* Texto principal para el slider */
@@ -31,14 +50,14 @@
     text-align: center;
 }
 
-/* Oculta el texto del carrousel */
+/* Hidden slider's text*/
 @media (max-width: 600px) {
     .carousel-caption {
         display: none;
     }
 }
 
-/*Estilo para la descripción del hotel*/
+/*Description's CSS*/
 .description{
     padding: 65px;
     background-color: white;
@@ -52,7 +71,7 @@
 }
 
 #description-text{
-    margin: 20px 0px;
+    margin: 20px 0;
     text-align: justify;
     font-size: 20px;
     font-family: 'Noto Serif','Droid Serif', serif;
@@ -69,7 +88,7 @@
     color: goldenrod;
 }
 
-/*Estilo para la descripción de los servcios del hotel*/
+/*Service's CSS*/
 .characteristics{
     right: 0;
     padding: 26px 25px 25px 60px;
@@ -95,18 +114,43 @@
     font-size: 15px;
 }
 
-/*Imagen de transicion*/
+/*Parallax section*/
 .parallax-index {
-    background:url(../img/ALHAMBRA_WEB_MOSAIC.jpg);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: url(../img/ALHAMBRA_WEB_MOSAIC.jpg) no-repeat fixed 50% 50%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    padding: 125px 0px;
+    padding: 125px 0;
     font-family: 'Noto Serif', 'Droid Serif', serif;
+}
+
+/*Promotions's slider CSS*/
+.promotion-slider{
+    padding: 25px 120px;
+    background-color: #ebebeb;
+    color: #232528;
+    font-family: 'Noto Serif','Droid Serif', serif;
+}
+
+.promotion-slider .background{
+    background-color: white;
+}
+
+.promotion-slider .promotion-description{
+    padding: 25px;
+    background-color: white;
+}
+
+.promotion-slider .promotion-header{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.promotion-slider .promotion-text{
+    margin: 10px 0;
+    text-align: justify;
+    font-size: 20px;
 }
 
 .second-section .rooms-header{
@@ -114,15 +158,15 @@
     text-align: center;
     font-size: 35px;
     font-weight: bold;
-    margin: 0px;
-    padding: 40px 0px;
+    margin: 0;
+    padding: 40px 0;
     background-color: white;
     color: #232528;
 }
 
-/*CSS para las habitaciones*/
+/*Rooms's CSS*/
 .room{
-    padding: 30px 30px 0px 30px;
+    padding: 30px 30px 0 30px;
     background-color: #ebebeb;
 }
 
@@ -136,8 +180,8 @@
     text-align: center;
     font-size: 25px;
     font-weight: bold;
-    margin: 0px;
-    padding: 20px 0px;
+    margin: 0;
+    padding: 20px 0;
     color: #232528;
 }
 
@@ -164,8 +208,8 @@
     text-align: center;
     font-size: 2em;
     font-weight: bold;
-    margin: 0px;
-    padding: 40px 0px;
+    margin: 0;
+    padding: 40px 0;
     background-color: white;
     color: #232528;
 }
