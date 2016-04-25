@@ -67,8 +67,7 @@
                 <link type=\'text/css\' rel=\'stylesheet\' href=\'css/footer.css\'/>
                 <link type=\'text/css\' rel=\'stylesheet\' href=\'css/bar.css\'/>
                 <link type=\'text/css\' rel=\'stylesheet\' href=\'css/font/flaticon.css\'/>
-                <link type=\'text/css\' rel=\'stylesheet\' href=\'css/topbar.css\'/>
-    
+
                 <!-- GOOGLE FONT -->
                  <link href=\'http://fonts.googleapis.com/css?family=Roboto:500,300,700,400\' rel=\'stylesheet\' type=\'text/css\'>
                  <link href=\'http://fonts.googleapis.com/css?family=Numans\' rel="stylesheet" type=\'text/css\'/>

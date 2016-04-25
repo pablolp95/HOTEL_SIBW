@@ -46,10 +46,11 @@ class Bar
     }
 
     private function menu($page){
+
         switch ($page) {
             case 'double-room':
                 echo '
-                <ul>
+                <ul class="enlaces">
                     <li><a href="index.php?page=triple-room">Habitación triple</a></li>
                     <li><a href="index.php?page=superior-room">Habitación superior</a></li>
                 <ul>
@@ -57,7 +58,7 @@ class Bar
                 break;
             case 'triple-room':
                 echo '
-                <ul>
+                <ul class="enlaces">
                     <li><a href="index.php?page=double-room">Habitación doble</a></li>
                     <li><a href="index.php?page=superior-room">Habitación superior</a></li>
                 <ul>
@@ -65,7 +66,7 @@ class Bar
                 break;
             case 'superior-room':
                 echo '
-                <ul>
+                <ul class="enlaces">
                     <li><a href="index.php?page=double-room">Habitación doble</a></li>
                     <li><a href="index.php?page=triple-room">Habitación triple</a></li>
                 <ul>
@@ -73,7 +74,7 @@ class Bar
                 break;
             case 'promotions':
                 echo '
-                <ul>
+                <ul class="enlaces">
                     <li><a href="index.php?page=rooms">Habitaciones</a></li>
                     <li><a href="index.php?page=gallery">Galería</a></li>
                     <li><a href="index.php?page=contact">Contacto</a></li>
@@ -82,7 +83,7 @@ class Bar
                 break;
             case 'gallery':
                 echo '
-                <ul>
+                <ul class="enlaces">
                     <li><a href="index.php?page=triple-room">Habitación triple</a></li>
                     <li><a href="index.php?page=superior-room">Habitación superior</a></li>
                 <ul>

@@ -62,7 +62,7 @@ class Rooms
 
     function printRoom($page){
         $bar = new Bar();
-
+        $this->printBanner($page);
         echo '<section>';
         $bar->contextBar($page);
         echo '</section>';
@@ -123,5 +123,46 @@ class Rooms
                 </section>';
                 break;
         }
+    }
+    function printBanner($page){
+        switch($page){
+            case 'double-room':
+                echo '
+        <!-- Banner -->
+        <section class="parallax-room">
+            <div class="row">
+                <div class="col-sm-12">7
+
+                    <h1>Habitacion doble</h1>
+                </div>
+            </div>
+        </section>';
+                break;
+            case 'triple-room':
+                echo '
+        <!-- Banner -->
+        <section class="parallax-room">
+            <div class="row">
+                <div class="col-sm-12">7
+
+                    <h1>Habitacion triple</h1>
+                </div>
+            </div>
+        </section>';
+                break;
+            case 'superior-room':
+                echo '
+        <!-- Banner -->
+        <section class="parallax-room">
+            <div class="row">
+                <div class="col-sm-12">7
+
+                    <h1>Habitacion superior</h1>
+                </div>
+            </div>
+        </section>';
+                break;
+        }
+
     }
 }
