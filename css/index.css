@@ -153,7 +153,7 @@
     font-size: 20px;
 }
 
-.second-section .rooms-header{
+.second-section .rooms-header,.second-section .promotions-header{
     font-family: 'Noto Serif','Droid Serif', serif;
     text-align: center;
     font-size: 35px;

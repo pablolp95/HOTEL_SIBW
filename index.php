@@ -7,13 +7,13 @@ include_once 'Head.php';
 include_once 'Nav.php';
 include_once 'Content.php';
 include_once 'Footer.php';
-include_once 'Topbar.php';
+include_once 'Bar.php';
 
 $content = new Content();
 $head = new Head();
 $nav = new Nav();
 $footer = new Footer();
-$bar = new TopBar();
+$bar = new Bar();
 
 
 if(isset($_GET['page'])){

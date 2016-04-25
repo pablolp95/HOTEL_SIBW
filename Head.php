@@ -65,6 +65,7 @@
                 <link type=\'text/css\' rel=\'stylesheet\' href=\'css/nav.css\'/>
                 <link type=\'text/css\' rel=\'stylesheet\' href=\'css/'.$css.'\'/>
                 <link type=\'text/css\' rel=\'stylesheet\' href=\'css/footer.css\'/>
+                <link type=\'text/css\' rel=\'stylesheet\' href=\'css/bar.css\'/>
                 <link type=\'text/css\' rel=\'stylesheet\' href=\'css/font/flaticon.css\'/>
                 <link type=\'text/css\' rel=\'stylesheet\' href=\'css/topbar.css\'/>
     

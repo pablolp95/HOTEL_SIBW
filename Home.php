@@ -112,7 +112,6 @@ class Home
                         <p id="description-text">Situado en pleno centro monumental, comercial y administrativo de Granada,
                             nuestro hotel ofrece una gran variedad de servicios que satisfarán cualquier necesidad que le surja.
                         </p>
-                        <a id="description-link" href="#">Leer más</a>
                     </div>
                     <div class="col-sm-6 characteristics" id="service">
                         <p>Tiene a su disposición los siguientes servicios:</p>
@@ -203,7 +202,7 @@ class Home
             <div class="row">
                 <a href="index.php?page=promotions">
                     <div class="col-sm-12 nopadding">
-                        <h1 class="rooms-header">Promociones destacadas</h1>
+                        <h1 class="promotions-header">Promociones destacadas</h1>
                     </div>
                 </a>
             </div>
