@@ -128,6 +128,7 @@
 /*Promotions's slider CSS*/
 .promotion-slider{
     padding: 25px 120px;
+    margin: 0;
     background-color: #ebebeb;
     color: #232528;
     font-family: 'Noto Serif','Droid Serif', serif;

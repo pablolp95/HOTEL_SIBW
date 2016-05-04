@@ -4,7 +4,6 @@ class Rooms
 {
     //This function prints Rooms's page
     function printAllRooms(){
-        $bar = new Bar();
 
         echo '
         <!-- Banner -->
@@ -14,11 +13,8 @@ class Rooms
                     <h1>Habitaciones</h1>
                 </div>
             </div>
-        </section>';
-
-        $bar->roomsBar('rooms');
-
-        echo '<section class="section">
+        </section>
+        <section class="section">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 text-center description">
@@ -28,14 +24,14 @@ class Rooms
                 </div>
                 <div class="col-sm-6">
                     <figure>
-                        <img class="img-responsive" src="img/doble.jpg" alt="Habitación doble">
+                        <img class="img-responsive" src="../../img/doble.jpg" alt="Habitación doble">
                     </figure>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
                     <figure>
-                        <img class="img-responsive" src="img/triple.jpg" alt="Habitación triple">
+                        <img class="img-responsive" src="../../img/triple.jpg" alt="Habitación triple">
                     </figure>
                 </div>
                 <div class="col-sm-6 text-center description">
@@ -52,7 +48,7 @@ class Rooms
                 </div>
                 <div class="col-sm-6">
                     <figure>
-                        <img class="img-responsive" src="img/superior.jpg" alt="Habitación superior">
+                        <img class="img-responsive" src="../../img/superior.jpg" alt="Habitación superior">
                     </figure>
                 </div>
             </div>
@@ -61,11 +57,6 @@ class Rooms
     }
 
     function printRoom($page){
-        $bar = new Bar();
-        $this->printBanner($page);
-        echo '<section>';
-        $bar->contextBar($page);
-        echo '</section>';
 
         switch ($page){
             case 'double-room':
@@ -79,7 +70,7 @@ class Rooms
                                 </div>
                                 <div class="col-sm-6">
                                     <figure>
-                                        <img class="img-responsive" src="img/doble.jpg" alt="Habitación doble">
+                                        <img class="img-responsive" src="../../img/doble.jpg" alt="Habitación doble">
                                     </figure>
                                 </div>
                             </div>
@@ -97,7 +88,7 @@ class Rooms
                                 </div>
                                 <div class="col-sm-6">
                                     <figure>
-                                        <img class="img-responsive" src="img/triple.jpg" alt="Habitación triple">
+                                        <img class="img-responsive" src="../../img/triple.jpg" alt="Habitación triple">
                                     </figure>
                                 </div>
                             </div>
@@ -115,7 +106,7 @@ class Rooms
                                 </div>
                                 <div class="col-sm-6">
                                     <figure>
-                                        <img class="img-responsive" src="img/superior.jpg" alt="Habitación superior">
+                                        <img class="img-responsive" src="../../img/superior.jpg" alt="Habitación superior">
                                     </figure>
                                 </div>
                             </div>
@@ -123,46 +114,5 @@ class Rooms
                 </section>';
                 break;
         }
-    }
-    function printBanner($page){
-        switch($page){
-            case 'double-room':
-                echo '
-        <!-- Banner -->
-        <section class="parallax-room">
-            <div class="row">
-                <div class="col-sm-12">7
-
-                    <h1>Habitacion doble</h1>
-                </div>
-            </div>
-        </section>';
-                break;
-            case 'triple-room':
-                echo '
-        <!-- Banner -->
-        <section class="parallax-room">
-            <div class="row">
-                <div class="col-sm-12">7
-
-                    <h1>Habitacion triple</h1>
-                </div>
-            </div>
-        </section>';
-                break;
-            case 'superior-room':
-                echo '
-        <!-- Banner -->
-        <section class="parallax-room">
-            <div class="row">
-                <div class="col-sm-12">7
-
-                    <h1>Habitacion superior</h1>
-                </div>
-            </div>
-        </section>';
-                break;
-        }
-
     }
 }

@@ -3,18 +3,15 @@
 
 <?php
 
-include_once 'Head.php';
-include_once 'Nav.php';
-include_once 'Content.php';
-include_once 'Footer.php';
-include_once 'Bar.php';
+include_once 'resources/views/Head.php';
+include_once 'resources/views/Nav.php';
+include_once 'resources/views/Content.php';
+include_once 'resources/views/Footer.php';
 
 $content = new Content();
 $head = new Head();
 $nav = new Nav();
 $footer = new Footer();
-$bar = new Bar();
-
 
 if(isset($_GET['page'])){
     $page = isset($_GET['page']) ? $_GET['page']:'';
@@ -26,7 +23,6 @@ else{
 $head->printHead($page);
 $nav->printNav();
 
-//$bar->printBar($page);
 switch ($page){
     case 'promotions':
         $content->printPromotions();

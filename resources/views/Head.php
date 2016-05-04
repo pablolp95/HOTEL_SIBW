@@ -47,7 +47,7 @@
                 <meta name=\'viewport\' content=\'width=device-width, initial-scale=1\'>
                 <meta http-equiv=\'X-UA-Compatible\' content=\'IE=edge\'>
             
-                <link rel=\'shortcut icon\' href=\'img/favicon.ico\'/>
+                <link rel=\'shortcut icon\' href=\'../../img/favicon.ico\'/>
             
                 <!-- Latest compiled and minified CSS -->
                 <link rel=\'stylesheet\' href=\'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\'>
@@ -57,16 +57,16 @@
                 <script src=\'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js\'></script>
                 <!-- Personal scripts -->';
                 if($page = 'contact')
-                echo'<script src=\'js/emailValidation.js\'></script>';
+                echo'<script src=\'../../js/emailValidation.js\'></script>';
 
                 echo'
                 <!-- Personal CSS -->
-                <link type=\'text/css\' rel=\'stylesheet\' href=\'css/body.css\'/>
-                <link type=\'text/css\' rel=\'stylesheet\' href=\'css/nav.css\'/>
-                <link type=\'text/css\' rel=\'stylesheet\' href=\'css/'.$css.'\'/>
-                <link type=\'text/css\' rel=\'stylesheet\' href=\'css/footer.css\'/>
-                <link type=\'text/css\' rel=\'stylesheet\' href=\'css/bar.css\'/>
-                <link type=\'text/css\' rel=\'stylesheet\' href=\'css/font/flaticon.css\'/>
+                <link type=\'text/css\' rel=\'stylesheet\' href=\'../../css/body.css\'/>
+                <link type=\'text/css\' rel=\'stylesheet\' href=\'../../css/nav.css\'/>
+                <link type=\'text/css\' rel=\'stylesheet\' href=\'../../css/'.$css.'\'/>
+                <link type=\'text/css\' rel=\'stylesheet\' href=\'../../css/footer.css\'/>
+                <link type=\'text/css\' rel=\'stylesheet\' href=\'../../css/bar.css\'/>
+                <link type=\'text/css\' rel=\'stylesheet\' href=\'../../css/font/flaticon.css\'/>
 
                 <!-- GOOGLE FONT -->
                  <link href=\'http://fonts.googleapis.com/css?family=Roboto:500,300,700,400\' rel=\'stylesheet\' type=\'text/css\'>
@@ -101,7 +101,7 @@
                         };
                         var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
                         var marker=new google.maps.Marker({
-                            position:myCenter,
+                            position:myCenter
                         });
                         var infowindow = new google.maps.InfoWindow({
                             content:"¡Visitanos!"

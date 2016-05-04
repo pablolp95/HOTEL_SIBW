@@ -4,13 +4,13 @@
             echo "<footer class=\"container-fluid footer\" id=\"footer\">
                     <div class=\"row\">
                         <div class=\"col-sm-8\">
-                            <a href=\"index.php\"><img src=\"img/logo.png\" class=\"img-responsive footer-logo\" alt=\"Logo del pie de pagina\"/></a>
+                            <a href=\"../../index.php\"><img src=\"../../img/logo.png\" class=\"img-responsive footer-logo\" alt=\"Logo del pie de pagina\"/></a>
                             <ul class=\"footer-links\">
-                                <li><a href=\"index.php?page=promotions\">Promociones</a></li>
-                                <li><a href=\"index.php?page=rooms\">· Habitaciones</a></li>
-                                <li><a href=\"index.php#service\">· Servicios</a></li>
-                                <li><a href=\"index.php?page=gallery\">· Galería</a></li>
-                                <li><a href=\"index.php?page=contact\">· Contacto y ubicación</a></li>
+                                <li><a href=\"../../index.php?page=promotions\">Promociones</a></li>
+                                <li><a href=\"../../index.php?page=rooms\">· Habitaciones</a></li>
+                                <li><a href=\"../../index.php#service\">· Servicios</a></li>
+                                <li><a href=\"../../index.php?page=gallery\">· Galería</a></li>
+                                <li><a href=\"../../index.php?page=contact\">· Contacto y ubicación</a></li>
                                 <li><a href=\"#\">· Opiniones</a></li>
                                 <li><a href=\"#\">· Mi reserva</a></li>
                             </ul>

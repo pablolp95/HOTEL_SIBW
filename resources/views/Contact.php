@@ -2,16 +2,15 @@
 
 class contact{
     function printContact(){
-        $bar = new Bar();
+        
         echo '<section class="parallax-contact">
                     <div class="row">
                         <div class="col-sm-12">
                             <h1>Contacto y ubicación</h1>
                         </div>
                     </div>
-                </section>';
-                $bar->roomsBar();
-               echo'<section>
+                </section>
+                <section>
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12 center-align">
@@ -20,7 +19,7 @@ class contact{
                         </div>
                         <div class="row section">
                             <div class="col-sm-12">
-                                <form  role="form" name="myForm" onsubmit="return validate(\'myForm\')" method="POST" action="email.php">
+                                <form  role="form" name="myForm" onsubmit="return validate(\'myForm\')" method="POST" action="../scripts/email.php">
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <input type="text" class="form-control input-lg input-style" id="name" name="name" placeholder="Nombre" required>

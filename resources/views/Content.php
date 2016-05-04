@@ -1,9 +1,9 @@
 <?php
 include_once 'Home.php';
 include_once 'Rooms.php';
-include_once 'promotions.php';
-include_once 'gallery.php';
-include_once 'contact.php';
+include_once 'Promotions.php';
+include_once 'Gallery.php';
+include_once 'Contact.php';
 class Content{
 
     //Function that prints home's page
