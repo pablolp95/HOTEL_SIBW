@@ -12,4 +12,4 @@ abstract class Controllers
     abstract protected function delete();
     abstract protected function silentSave($model,$request);
 
-}
+}?>

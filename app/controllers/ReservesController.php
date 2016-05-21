@@ -27,4 +27,4 @@ class ReservesController extends Controller
     public function silentSave(&$user,$request){
 
     }
-}
+}?>

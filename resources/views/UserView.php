@@ -9,6 +9,9 @@
 class UserView
 {
 
+    public static function printCreate(){
+
+    }
     public static function printIndex($model){
 
     }

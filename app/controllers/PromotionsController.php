@@ -27,4 +27,4 @@ class PromotionsController extends Controller
     public function silentSave(&$user,$request){
 
     }
-}
+}?>

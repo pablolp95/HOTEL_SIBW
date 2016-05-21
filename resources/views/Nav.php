@@ -26,8 +26,8 @@ class Nav{
                             <li><a href=\"../../index.php?page=gallery\">Galería</a></li>
                             <li><a href=\"../../index.php?page=contact\">Contacto y ubicación</a></li>
                             <li><a href=\"#\">Opiniones</a></li>
-                            <li><a href=\"#\">Mi reserva</a></li>
-                            <li id=\"active\"><a href=\"#\">RESERVAR AHORA</a></li>
+                            <li><a href=\"\">Mi reserva</a></li>
+                            <li id=\"active\"><a href=\"../../index.php?page=reserve\">RESERVAR AHORA</a></li>
                         </ul>
                     </div>
                 </div>
