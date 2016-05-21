@@ -3,10 +3,10 @@
 
 <?php
 
-include_once 'resources/views/Head.php';
-include_once 'resources/views/Nav.php';
-include_once 'resources/views/Content.php';
-include_once 'resources/views/Footer.php';
+include_once '../resources/views/Head.php';
+include_once '../resources/views/Nav.php';
+include_once '../resources/views/Content.php';
+include_once '../resources/views/Footer.php';
 
 $content = new Content();
 $head = new Head();
@@ -47,6 +47,7 @@ switch ($page){
         break;
 
 }
+
 $footer->printFooter();
 
 ?>
