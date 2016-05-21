@@ -1,6 +1,6 @@
 <?php
 
-class contact{
+class ContactView{
     function printContact(){
         
         echo '<section class="parallax-contact">

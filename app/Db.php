@@ -5,9 +5,9 @@
  * Date: 17/05/16
  * Time: 12:16
  */
-class Db
-{
+class Db {
     private static $instance = NULL;
+    
     private function __construct() {}
 
     private function __clone() {}
@@ -16,11 +16,11 @@ class Db
 
         $dbhost = "localhost";
         $dbname = "sibw";
-        $dbuser = "root";
-        $dbpswd = "sibw";
+        $dbuser = "";
+        $dbpswd = "";
 
         if (!isset(self::$instance)) {
-            self::$instance= new mysqli($dbhost,$dbuser,$dbpswd,$dbname);
+            self::$instance = new mysqli($dbhost,$dbuser,$dbpswd,$dbname);
         }
         return self::$instance;
     }

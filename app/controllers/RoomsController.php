@@ -1,40 +1,49 @@
 <?php
 
-require ('../Rooms');
-class RoomsController extends Controller
-{
+use App\Room;
+use App\Rooms;
+
+class RoomsController extends Controller {
     public function index(){
-        $rooms=Rooms::all();
-        RoomView::printIndex($rooms);
+        $rooms = Rooms::all();
+        RoomsView::printIndex($rooms);
     }
+
     public function create(){
-        RoomView::printCreate();
+        RoomsView::printCreate();
     }
-    public function store($request){
-        $room=new Room();
-        $this->silentSave($room,$request);
+
+    public function store(){
+        $room = new Room();
+        $this->silentSave($room);
         Rooms::save($room);
     }
-    public function show($_GET){
+
+    public function show(){
         if(isset($_GET['id'])){
-            $room =Rooms::find($_GET['id']);
-            RoomView::printRoom($room);
+            $room = Rooms::find($_GET['id']);
+            RoomsView::printRoom($room);
         }
     }
-    public function edit($_GET){
 
+    public function edit(){
         if(isset($_GET['id'])){
-            $room =Rooms::find($_GET['id']);
-            RoomView::printEditRoom($room);
+            $room = Rooms::find($_GET['id']);
+            RoomsView::printEditRoom($room);
         }
     }
-    public function update($request){
+
+    public function update(){
 
     }
+
     public function delete(){
 
     }
-    public function silentSave(&$room,$request){
+
+    public function silentSave($room){
 
     }
-}?>
+}
+
+?>

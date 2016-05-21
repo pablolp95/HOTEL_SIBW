@@ -1,8 +1,13 @@
 <?php
-
+namespace App;
 
 class Promotion
 {
-    var $id,$number,$description,$cod_promotions,$F_inicio,$F_fin;
+    var $id;
+    var $number;
+    var $description;
+    var $promotion_code;
+    var $start_date;
+    var $end_date;
 
-}?>
+}

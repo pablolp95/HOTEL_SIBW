@@ -1,84 +1,24 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <title>Hotel Plaza Nueva - Promociones</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<?php
 
-    <link rel="shortcut icon" href="../img/favicon.ico"/>
+class PromotionsView{
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    function printPromotions(){
+        
+        echo '<!-- Banner -->
+        <section class="parallax-promotion">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>Promociones</h1>
+                </div>
+            </div>
+        </section>
 
-    <!-- Personal CSS -->
-    <link type="text/css" rel="stylesheet" href="../css/body.css"/>
-    <link type="text/css" rel="stylesheet" href="../css/nav.css"/>
-    <link type="text/css" rel="stylesheet" href="../css/promotions.css"/>
-    <link type="text/css" rel="stylesheet" href="../css/footer.css"/>
-    <link type="text/css" rel="stylesheet" href="../css/font/flaticon.css"/>
-
-    <!-- GOOGLE FONT -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto:500,300,700,400' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Numans' rel="stylesheet" type='text/css'/>
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'/>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic' rel='stylesheet' type='text/css'>
-</head>
-<body>
-
-<!-- Barra de navegación -->
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html"><img class="img-responsive" src="../img/logo.png" alt="logo de la pagina"></a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="promotions.html">Promociones</a></li>
-                <li class="dropdown">
-                    <a href="rooms.html">Habitaciones</a>
-                    <ul class="dropdown-menu dropdown-menu-left">
-                        <li><a href="double_room.html">Habitación doble</a></li>
-                        <li><a href="triple_room.html">Habitación triple</a></li>
-                        <li><a href="superior_room.html">Habitación superior</a></li>
-                    </ul>
-                <li><a href="index.html#service">Servicios</a></li>
-                <li><a href="gallery.html">Galería</a></li>
-                <li><a href="contact.html">Contacto y ubicación</a></li>
-                <li><a href="#">Opiniones</a></li>
-                <li><a href="#">Mi reserva</a></li>
-                <li id="active"><a href="#">RESERVAR AHORA</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- Banner -->
-<section class="parallax-promotion">
-    <div class="row">
-        <div class="col-sm-12">
-            <h1>Promociones</h1>
-        </div>
-    </div>
-</section>
-
-<!-- Content -->
-<section>
-    <div class="container-fluid promotions-container">
+        <section>
+        <div class="container-fluid promotions-container">
         <div class="row promotions">
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="../img/promotions/1.png" alt="Promocion número uno">
+                    <img class="img-responsive" src="/img/promotions/1.png" alt="Promocion número uno">
                     <div class="caption">
                         <h3>Oferta de dos noches</h3>
                         <div class="promotion-more">
@@ -111,7 +51,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="../img/promotions/2.png" alt="Promocion número dos">
+                    <img class="img-responsive" src="/img/promotions/2.png" alt="Promocion número dos">
                     <div class="caption">
                         <h3>Oferta de 10% de descuento</h3>
                         <div class="promotion-more">
@@ -144,7 +84,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="../img/promotions/3.png" alt="Promocion número tres">
+                    <img class="img-responsive" src="/img/promotions/3.png" alt="Promocion número tres">
                     <div class="caption">
                         <h3>Reserva anticipada</h3>
                         <div class="promotion-more">
@@ -179,7 +119,7 @@
         <div class="row promotions">
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="../img/promotions/4.png" alt="Promocion número cuatro">
+                    <img class="img-responsive" src="/img/promotions/4.png" alt="Promocion número cuatro">
                     <div class="caption">
                         <h3>Habitación doble junto con tren turístico</h3>
                         <div class="promotion-more">
@@ -233,7 +173,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="../img/promotions/5.png" alt="Promocion número cinco">
+                    <img class="img-responsive" src="/img/promotions/5.png" alt="Promocion número cinco">
                     <div class="caption">
                         <h3>Habitación doble junto con sesión de baños árabes</h3>
                         <div class="promotion-more">
@@ -287,7 +227,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="../img/promotions/6.png" alt="Promocion número seis">
+                    <img class="img-responsive" src="/img/promotions/6.png" alt="Promocion número seis">
                     <div class="caption">
                         <h3>Habitación doble junto con espectáculo de flamenco</h3>
                         <div class="promotion-more">
@@ -303,7 +243,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Oferta de dos noches</h4>
+                                        <h4 class="modal-title">Habitación doble junto con espectáculo de flamenco</h4>
                                     </div>
                                     <div class="modal-body">
                                         <p>Incluye:</p>
@@ -344,7 +284,7 @@
         <div class="row table-row promotions">
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="../img/promotions/7.png" alt="Promocion número siete">
+                    <img class="img-responsive" src="/img/promotions/7.png" alt="Promocion número siete">
                     <div class="caption">
                         <h3>Habitación doble y visita guiada a la Alhambra</h3>
                         <div class="promotion-more">
@@ -372,7 +312,7 @@
 
                                         <p>La Alhambra:</p>
                                         <p>
-                                            Descubrirá con nostros la única Ciudad Medieval Musulmana mejor conservada del mundo, la Alhambra;
+                                            Descubrirá con nosotros la única ciudad medieval musulmana mejor conservada del mundo, la Alhambra;
                                             visitando sus palacios, Mexuar, Comares, Leones, Generalife; paseando por sus patios, de los Arrayenes,
                                             la Reja, la Acequia, la Sultana; y disfrutando de sus jardines, de Partal, de la Medina y por suspuesto del Generalife
                                             con sus gracioso juegos de agua, y su laberintico diseño.
@@ -402,7 +342,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="../img/promotions/8.png" alt="Promocion número ocho">
+                    <img class="img-responsive" src="/img/promotions/8.png" alt="Promocion número ocho">
                     <div class="caption">
                         <h3>Habitación doble junto con trén y espectáculo de flamenco</h3>
                         <div class="promotion-more">
@@ -418,7 +358,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Oferta de dos noches</h4>
+                                        <h4 class="modal-title">Habitación doble junto con trén y espectáculo de flamenco</h4>
                                     </div>
                                     <div class="modal-body">
                                         <p>Incluye:</p>
@@ -441,47 +381,9 @@
             </div>
         </div>
     </div>
-</section>
+    </section>';
 
-<footer class="container-fluid footer" id="footer">
-    <div class="row">
-        <div class="col-sm-8">
-            <a href="index.html"><img src="../img/logo.png" class="img-responsive footer-logo" alt="Logo del pie de pagina"/></a>
-            <ul class="footer-links">
-                <li><a href="promotions.html">Promociones</a></li>
-                <li><a href="rooms.html">· Habitaciones</a></li>
-                <li><a href="index.html#service">· Servicios</a></li>
-                <li><a href="gallery.html">· Galería</a></li>
-                <li><a href="contact.html">· Contacto y ubicación</a></li>
-                <li><a href="#">· Opiniones</a></li>
-                <li><a href="#">· Mi reserva</a></li>
-            </ul>
-        </div>
-        <div class="col-sm-4 footer-right">
-            <div>
-                <i class="fa fa-map-marker"></i>
-                <p><span>c/ Imprenta Nº2</span> 18010 Granada, España</p>
-            </div>
-            <div>
-                <i class="fa fa-phone"></i>
-                <p>+34 958 215 273</p>
-            </div>
-            <div>
-                <i class="fa fa-fax"></i>
-                <p>+34 958 225 765</p>
-            </div>
-            <div>
-                <i class="fa fa-envelope"></i>
-                <p><a href="mailto:info@hotel-plazanueva.com">info@hotel-plazanueva.com</a></p>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12 company">
-            <p class="footer-company-name">Desarrollado con <i class="fa fa-fw fa-coffee"></i> y <i class="fa fa-fw fa-heart"></i> por José Conejero y Pablo Lara</p>
-        </div>
-    </div>
-</footer>
+    }
+}
 
-</body>
-</html>
+?>

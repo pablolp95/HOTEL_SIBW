@@ -1,6 +1,6 @@
 <?php
 
-class gallery{
+class GalleryView{
 
     function printGallery(){
         
@@ -23,7 +23,7 @@ class gallery{
                     <div class="col-sm-4">
                         <div class="responsive">
                             <div class="img">
-                                <img src="../../img/doble.jpg" alt="doble" >
+                                <img src="/img/doble.jpg" alt="doble" >
                                 <div class="desc">Habitación doble</div>
                             </div>
                         </div>
@@ -32,7 +32,7 @@ class gallery{
                     <div class="col-sm-4">
                         <div class="responsive">
                             <div class="img">
-                                <img src="../../img/doble1.jpg" alt="doble1">
+                                <img src="/img/doble1.jpg" alt="doble1">
                                 <div class="desc">Habitación doble</div>
                             </div>
                         </div>
@@ -40,7 +40,7 @@ class gallery{
                     <div class="col-sm-4">
                         <div class="responsive">
                             <div class="img">
-                                <img src="../../img/doble3.png" alt="doble3">
+                                <img src="/img/doble3.png" alt="doble3">
                                 <div class="desc">Habitación Doble</div>
                             </div>
                         </div>
@@ -50,7 +50,7 @@ class gallery{
                     <div class="col-sm-4">
                         <div class="responsive">
                             <div class="img">
-                                <img src="../../img/triple.jpg" alt="triple">
+                                <img src="/img/triple.jpg" alt="triple">
                                 <div class="desc">Habitación triple</div>
                             </div>
                         </div>
@@ -58,7 +58,7 @@ class gallery{
                     <div class="col-sm-4">
                         <div class="responsive">
                             <div class="img">
-                                <img src="../../img/superior.jpg" alt="superior">
+                                <img src="/img/superior.jpg" alt="superior">
                                 <div class="desc">Habitación superior</div>
                             </div>
                         </div>
@@ -66,7 +66,7 @@ class gallery{
                     <div class="col-sm-4">
                         <div class="responsive">
                             <div class="img">
-                                <img src="../../img/superior1.jpg" alt="superior1">
+                                <img src="/img/superior1.jpg" alt="superior1">
                                 <div class="desc">Habitación superior</div>
                             </div>
                         </div>
@@ -76,7 +76,7 @@ class gallery{
                     <div class="col-sm-4">
                         <div class="responsive">
                             <div class="img">
-                                <img src="../../img/Hamman.1800.jpg" alt="hamman">
+                                <img src="/img/Hamman.1800.jpg" alt="hamman">
                                 <div class="desc">Hamman</div>
                             </div>
                         </div>
@@ -84,7 +84,7 @@ class gallery{
                     <div class="col-sm-4">
                         <div class="responsive">
                             <div class="img">
-                                <img src="../../img/patio.jpg" alt="patio">
+                                <img src="/img/patio.jpg" alt="patio">
                                 <div class="desc">Patio</div>
                             </div>
                         </div>
@@ -92,7 +92,7 @@ class gallery{
                     <div class="col-sm-4">
                         <div class="responsive">
                             <div class="img">
-                                <img src="../../img/fachada.jpeg" alt="fachada">
+                                <img src="/img/fachada.jpeg" alt="fachada">
                                 <div class="desc">Fachada</div>
                             </div>
                         </div>
@@ -102,7 +102,7 @@ class gallery{
                         <div class="col-sm-4">
                             <div class="responsive">
                                 <div class="img">
-                                    <img src="../../img/s3.png" alt="buffet">
+                                    <img src="/img/s3.png" alt="buffet">
                                     <div class="Buffet">Patio interior</div>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@ class gallery{
                     <div class="col-sm-4">
                         <div class="responsive">
                             <div class="img">
-                                <img src="../../img/s2.png" alt="servicios">
+                                <img src="/img/s2.png" alt="servicios">
                                 <div class="desc">Servicios</div>
                             </div>
                         </div>
@@ -118,7 +118,7 @@ class gallery{
                     <div class="col-sm-4">
                         <div class="responsive">
                             <div class="img">
-                                <img src="../../img/s1.png" alt="servicios">
+                                <img src="/img/s1.png" alt="servicios">
                                 <div class="desc">Servicios</div>
                             </div>
                         </div>
@@ -128,7 +128,7 @@ class gallery{
                     <div class="col-sm-4">
                         <div class="responsive">
                             <div class="img">
-                                <img src="../../img/3.jpg" alt="patioi">
+                                <img src="/img/3.jpg" alt="patioi">
                                 <div class="Patio interior">Patio interior</div>
                             </div>
                         </div>
@@ -136,7 +136,7 @@ class gallery{
                     <div class="col-sm-4">
                         <div class="responsive">
                             <div class="img">
-                                <img src="../../img/patio_interior.png" alt="patio">
+                                <img src="/img/patio_interior.png" alt="patio">
                                 <div class="desc">Patio interior</div>
                             </div>
                         </div>

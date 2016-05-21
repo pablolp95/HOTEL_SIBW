@@ -1,8 +1,25 @@
 <?php
+namespace App;
 
-
-class reserve
+class Reserve
 {
-    var $id,$F_entrada,$F_salida,$num_Habitacion,$num_adultos,$num_niños,$Cod_Promocion,$nombre,$Apellidos,$Pais,$telefono,$Email,$Observaciones,$TitularTarjeta,$TipoTarjeta,$NumTarjeta,$Caducidad,$CVC;
+    var $id;
+    var $start_date;
+    var $end_date;
+    var $rooms_number;
+    var $adults_number;
+    var $children_number;
+    var $promotion_code;
+    var $name;
+    var $surname;
+    var $country;
+    var $phone;
+    var $email;
+    var $observations;
+    var $cardholder;
+    var $card_type;
+    var $card_number;
+    var $card_expiration;
+    var $card_cvc;
 
-}?>
+}

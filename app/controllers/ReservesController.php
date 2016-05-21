@@ -9,22 +9,22 @@ class ReservesController extends Controller
     public function create(){
 
     }
-    public function store($request){
+    public function store(){
 
     }
-    public function show($_GET){
+    public function show(){
 
     }
-    public function edit($_GET){
+    public function edit(){
 
     }
-    public function update($request){
+    public function update(){
 
     }
     public function delete(){
 
     }
-    public function silentSave(&$user,$request){
+    public function silentSave($reserve){
 
     }
-}?>
+}

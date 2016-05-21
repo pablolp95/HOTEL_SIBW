@@ -1,17 +1,7 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: joseccf
- * Date: 16/05/16
- * Time: 18:47
- */
-class UserView
-{
+class UserView{
 
-    public static function printCreate(){
-
-    }
     public static function printIndex($model){
 
     }
