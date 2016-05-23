@@ -1,5 +1,4 @@
 <?php
-namespace App;
 
 class Reserves extends Model{
     static function all(){
@@ -15,13 +14,13 @@ class Reserves extends Model{
 
     static function find($id){
         $db = Db::getInstance();
-        $req = $db->query('SELECT * FROM RESERVES WHRERE ID='%$id%'');
+        $req = $db->query('SELECT * FROM RESERVES WHERE ID='%$id%'');
         return $req;
     }
 
     static function delete($id){
         $db = Db::getInstance();
-        return $db->query('DELETE FROM RESERVES WHRERE ID=\'%$id%\'');
+        return $db->query('DELETE FROM RESERVES WHERE ID=\'%$id%\'');
     }
 
     static function update(){

@@ -1,7 +1,6 @@
 <?php
     class Head{
-        function printHead($page){
-
+        function print_head($page){
             switch($page){
                 case 'homepage':
                     $css = 'index.css';
@@ -38,42 +37,48 @@
                     $title = ' - Contacto y ubicación';
                     $css = 'contact.css';
                     break;
+                default:
+                    $css = 'index.css';
+                    break;
             }
 
             echo '
                 <head>
                 <title>Hotel Plaza Nueva'.$title.'</title>
-                <meta charset=\'utf-8\'>
-                <meta name=\'viewport\' content=\'width=device-width, initial-scale=1\'>
-                <meta http-equiv=\'X-UA-Compatible\' content=\'IE=edge\'>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
             
-                <link rel=\'shortcut icon\' href=\'../../img/favicon.ico\'/>
+                <link rel="shortcut icon" href="../../img/favicon.ico"/>
             
                 <!-- Latest compiled and minified CSS -->
-                <link rel=\'stylesheet\' href=\'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\'>
+                <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
                 <!-- jQuery library -->
-                <script src=\'https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js\'></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
                 <!-- Latest compiled JavaScript -->
-                <script src=\'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js\'></script>
+                <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
                 <!-- Personal scripts -->';
-                if($page = 'contact')
-                echo'<script src=\'../../js/emailValidation.js\'></script>';
+                if($page == 'contact')
+                    echo'<script src="js/emailValidation.js"></script>';
+                else if($page == 'intranet')
+                    echo'<script src="js/intranet.js"></script>';
 
-                echo'
+
+            echo'
                 <!-- Personal CSS -->
-                <link type=\'text/css\' rel=\'stylesheet\' href=\'../../css/body.css\'/>
-                <link type=\'text/css\' rel=\'stylesheet\' href=\'../../css/nav.css\'/>
-                <link type=\'text/css\' rel=\'stylesheet\' href=\'../../css/'.$css.'\'/>
-                <link type=\'text/css\' rel=\'stylesheet\' href=\'../../css/footer.css\'/>
-                <link type=\'text/css\' rel=\'stylesheet\' href=\'../../css/bar.css\'/>
-                <link type=\'text/css\' rel=\'stylesheet\' href=\'../../css/font/flaticon.css\'/>
+                <link type="text/css" rel="stylesheet" href="css/body.css"/>
+                <link type="text/css" rel="stylesheet" href="css/nav.css"/>
+                <link type="text/css" rel="stylesheet" href="css/'.$css.'"/>
+                <link type="text/css" rel="stylesheet" href="css/footer.css"/>
+                <link type="text/css" rel="stylesheet" href="css/bar.css"/>
+                <link type="text/css" rel="stylesheet" href="css/font/flaticon.css"/>
 
                 <!-- GOOGLE FONT -->
-                 <link href=\'http://fonts.googleapis.com/css?family=Roboto:500,300,700,400\' rel=\'stylesheet\' type=\'text/css\'>
-                 <link href=\'http://fonts.googleapis.com/css?family=Numans\' rel="stylesheet" type=\'text/css\'/>
-                <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type=\'text/css\'/>
-                <link href=\'https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic\' rel=\'stylesheet\' type=\'text/css\'>
-                <link href=\'https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic\' rel=\'stylesheet\' type=\'text/css\'>';
+                 <link href="http://fonts.googleapis.com/css?family=Roboto:500,300,700,400" rel="stylesheet" type="text/css">
+                 <link href="http://fonts.googleapis.com/css?family=Numans" rel="stylesheet" type="text/css"/>
+                <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+                <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic" rel="stylesheet" type="text/css">
+                <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic" rel="stylesheet" type="text/css">';
 
                 if($page == 'homepage' || $page = 'contact')
                     $this->printGoogleMap();
@@ -109,7 +114,7 @@
                         infowindow.open(map,marker);
                         marker.setMap(map);
                     }
-                    google.maps.event.addDomListener(window, \'load\', initialize);
+                    google.maps.event.addDomListener(window, "load", initialize);
                 </script>
             ';
         }

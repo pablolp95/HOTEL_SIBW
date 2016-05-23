@@ -1,35 +1,32 @@
 <?php
 
-use App\Room;
-use App\Rooms;
-
 class RoomsController extends Controller {
     public function index(){
         $rooms = Rooms::all();
-        RoomsView::printIndex($rooms);
+        RoomsView::print_index($rooms);
     }
 
     public function create(){
-        RoomsView::printCreate();
+        RoomsView::print_create();
     }
 
     public function store(){
         $room = new Room();
-        $this->silentSave($room);
+        $this->silent_save($room);
         Rooms::save($room);
     }
 
     public function show(){
         if(isset($_GET['id'])){
             $room = Rooms::find($_GET['id']);
-            RoomsView::printRoom($room);
+            RoomsView::print_room($room);
         }
     }
 
     public function edit(){
         if(isset($_GET['id'])){
             $room = Rooms::find($_GET['id']);
-            RoomsView::printEditRoom($room);
+            RoomsView::print_edit($room);
         }
     }
 
@@ -41,7 +38,7 @@ class RoomsController extends Controller {
 
     }
 
-    public function silentSave($room){
+    public function silent_save($room){
 
     }
 }

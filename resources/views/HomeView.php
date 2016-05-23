@@ -2,22 +2,22 @@
 
 class HomeView{
     //Function that prints home's page
-    function printHome(){
-        $this->firstSection();
-        $this->printParallax();
-        $this->secondSection();
+    function print_home(){
+        $this->first_section();
+        $this->print_parallax();
+        $this->second_section();
     }
 
     //Function that prints the first section of home's page
-    private function firstSection(){
+    private function first_section(){
         echo '<section class="first-section">';
-        $this->printCarousel();
-        $this->printDescription();
+        $this->print_carousel();
+        $this->print_description();
         echo '</section>';
     }
 
     //Function that prints a simple parallax on home's page
-    private function printParallax(){
+    private function print_parallax(){
         echo '
             <!-- Imagen de transicion -->
             <section class="parallax-index"/>
@@ -26,14 +26,14 @@ class HomeView{
     }
 
     //Function that prints the second section of home's page
-    private function secondSection(){
+    private function second_section(){
         echo '
             <section class="second-section">
         ';
 
-        $this->printPromotionSlider();
-        $this->printRooms();
-        $this->printMap();
+        $this->print_promotion_slider();
+        $this->print_rooms();
+        $this->print_map();
         echo '
         </section>
         ';
@@ -46,7 +46,7 @@ class HomeView{
     /*                            */
     /******************************/
 
-    private function printCarousel(){
+    private function print_carousel(){
         echo '
             <!-- Slide de imagenes -->
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -61,23 +61,23 @@ class HomeView{
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner mySlider" role="listbox">
                     <div class="item active">
-                        <img src="/img/1.jpg" alt="Image">
+                        <img src="img/1.jpg" alt="Image">
                     </div>
         
                     <div class="item">
-                        <img src="/img/2.jpg" alt="Image">
+                        <img src="img/2.jpg" alt="Image">
                     </div>
         
                     <div class="item">
-                        <img src="/img/3.jpg" alt="Image">
+                        <img src="img/3.jpg" alt="Image">
                     </div>
         
                     <div class="item">
-                        <img src="/img/4.jpg" alt="Image">
+                        <img src="img/4.jpg" alt="Image">
                     </div>
         
                     <div class="item">
-                        <img src="/img/5.jpg" alt="Image">
+                        <img src="img/5.jpg" alt="Image">
                     </div>
         
                     <div class="main-text hidden-xs">
@@ -102,7 +102,7 @@ class HomeView{
         ';
     }
 
-    private function printDescription(){
+    private function print_description(){
         echo '
             <div class="container-fluid">
                 <div class="row">
@@ -159,12 +159,12 @@ class HomeView{
     /******************************/
 
     //Function that prints the available type of rooms in home's page
-    private function printRooms(){
+    private function print_rooms(){
         echo '
         <!-- Habitaciones -->
             <div class="container-fluid" id="rooms">
                 <div class="row">
-                    <a href="/index.php?page=rooms">
+                    <a href="index.php?page=rooms">
                         <div class="col-sm-12 nopadding">
                             <h1 class="rooms-header">Habitaciones</h1>
                         </div>
@@ -172,20 +172,20 @@ class HomeView{
                 </div>
                 <div class="row">
                     <div class="col-sm-4 room">
-                        <a href="/index.php?page=double-room">
-                            <img class="img-responsive" src="/img/doble.jpg"/>
+                        <a href="index.php?page=double-room">
+                            <img class="img-responsive" src="img/doble.jpg"/>
                         </a>
                         <h1 class="room-header">Habitación doble</h1>
                     </div>
                     <div class="col-sm-4 room">
-                        <a href="/index.php?page=triple-room">
-                            <img class="img-responsive" src="/img/triple.jpg"/>
+                        <a href="index.php?page=triple-room">
+                            <img class="img-responsive" src="img/triple.jpg"/>
                         </a>
                         <h1 class="room-header">Habitación triple</h1>
                     </div>
                     <div class="col-sm-4 room">
-                        <a href="/index.php?page=superior-room">
-                            <img class="img-responsive" src="/img/superior.jpg"/>
+                        <a href="index.php?page=superior-room">
+                            <img class="img-responsive" src="img/superior.jpg"/>
                         </a>
                         <h1 class="room-header">Habitación superior</h1>
                     </div>
@@ -195,11 +195,11 @@ class HomeView{
     }
 
     //Function that prints promotions's slider
-    private function printPromotionSlider(){
+    private function print_promotion_slider(){
         echo'
         <div class="container-fluid">
             <div class="row">
-                <a href="/index.php?page=promotions">
+                <a href="index.php?page=promotions">
                     <div class="col-sm-12 nopadding">
                         <h1 class="promotions-header">Promociones destacadas</h1>
                     </div>
@@ -216,7 +216,7 @@ class HomeView{
                     <div class="item active">
                         <div class="row background">
                             <div class="col-sm-6 nopadding">
-                                <img class="img-responsive" src="/img/promotions/5.png" alt="Promocion número cinco">
+                                <img class="img-responsive" src="img/promotions/5.png" alt="Promocion número cinco">
                             </div>
                             <div class="col-sm-6 promotion-description">
                                 <h1 class="promotion-header">Habitación doble junto con sesión de baños árabes</h1>
@@ -229,7 +229,7 @@ class HomeView{
                     <div class="item">
                         <div class="row background">
                             <div class="col-sm-6 nopadding">
-                                <img class="img-responsive" src="/img/promotions/espectaculo.jpg" alt="Promocion número seis">
+                                <img class="img-responsive" src="img/promotions/espectaculo.jpg" alt="Promocion número seis">
                             </div>
                             <div class="col-sm-6 promotion-description">
                                 <h1 class="promotion-header">Habitación doble junto con espectáculo de flamenco</h1>
@@ -242,7 +242,7 @@ class HomeView{
                     <div class="item">
                         <div class="row background">
                             <div class="col-sm-6 nopadding">
-                                <img class="img-responsive" src="/img/promotions/7.png" alt="Promocion número siete">
+                                <img class="img-responsive" src="img/promotions/7.png" alt="Promocion número siete">
                             </div>
                             <div class="col-sm-6 promotion-description">
                                 <h1 class="promotion-header">Habitación doble y visita guiada a la Alhambra</h1>
@@ -269,11 +269,11 @@ class HomeView{
     }
 
     //Function that prints the map of home's page
-    private function printMap(){
+    private function print_map(){
         echo '
             <div class="container-fluid">
                 <div class="row" id="map">
-                    <a href="/index.php?page=contact">
+                    <a href="index.php?page=contact">
                         <div class="col-sm-12 nopadding">
                             <h1 class="map-header">¿Dónde nos encontramos?</h1>
                         </div>

@@ -8,39 +8,39 @@ include_once 'ContactView.php';
 class Content{
 
     //Function that prints home's page
-    function printHome(){
+    function print_home(){
         $home = new HomeView();
-        $home->printHome();
+        $home->print_home();
     }
     
     //This functions prints promotion's page
-    function printPromotions(){
+    function print_promotions(){
         $promotions = new PromotionsView();
-        $promotions->printPromotions();
+        $promotions->print_promotions();
     }
 
     //This function prints Rooms's page
-    function printAllRooms(){
+    function print_all_rooms(){
         $rooms = new RoomsView();
-        $rooms->printAllRooms();
+        $rooms->print_all_rooms();
     }
 
     //This function prints a specific room page
-    function printRoom($page){
+    function print_room($page){
         $rooms = new RoomsView();
-        $rooms->printRoom($page);
+        $rooms->print_room($page);
     }
 
     //This funciton prints Galery's page
-    function printGallery(){
+    function print_gallery(){
         $gallery = new GalleryView();
-        $gallery->printGallery();
+        $gallery->print_gallery();
     }
 
     //This function prints contact's page
-    function printContact(){
+    function print_contact(){
         $contact = new ContactView();
-        $contact->printContact();
+        $contact->print_contact();
     }
 }
 

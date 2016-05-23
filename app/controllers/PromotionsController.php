@@ -1,6 +1,5 @@
 <?php
 
-
 class PromotionsController extends Controller
 {
     /**
@@ -27,7 +26,7 @@ class PromotionsController extends Controller
     public function delete(){
 
     }
-    public function silentSave($promotion){
+    public function silent_save($promotion){
 
     }
 }

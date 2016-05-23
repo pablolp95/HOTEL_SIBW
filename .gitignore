@@ -2,3 +2,4 @@
 /public/components
 /vendor
 /phpmyadmin
+/app/Db.php

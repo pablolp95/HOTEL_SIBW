@@ -1,5 +1,4 @@
 <?php
-namespace App;
 
 class Promotions extends Model{
     static function all(){

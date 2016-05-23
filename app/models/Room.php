@@ -1,7 +1,5 @@
 <?php
 
-namespace App;
-
 class Room
 {
     var $id;

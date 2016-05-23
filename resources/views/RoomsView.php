@@ -1,7 +1,7 @@
 <?php
 class RoomsView{
     //This function prints Rooms's page
-    function printAllRooms(){
+    function print_all_rooms(){
 
         echo '
         <!-- Banner -->
@@ -22,14 +22,14 @@ class RoomsView{
                 </div>
                 <div class="col-sm-6">
                     <figure>
-                        <img class="img-responsive" src="/img/doble.jpg" alt="Habitación doble">
+                        <img class="img-responsive" src="img/doble.jpg" alt="Habitación doble">
                     </figure>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
                     <figure>
-                        <img class="img-responsive" src="/img/triple.jpg" alt="Habitación triple">
+                        <img class="img-responsive" src="img/triple.jpg" alt="Habitación triple">
                     </figure>
                 </div>
                 <div class="col-sm-6 text-center description">
@@ -46,7 +46,7 @@ class RoomsView{
                 </div>
                 <div class="col-sm-6">
                     <figure>
-                        <img class="img-responsive" src="/img/superior.jpg" alt="Habitación superior">
+                        <img class="img-responsive" src="img/superior.jpg" alt="Habitación superior">
                     </figure>
                 </div>
             </div>
@@ -54,7 +54,7 @@ class RoomsView{
         </section>';
     }
 
-    function printRoom($page){
+    function print_room($page){
 
         switch ($page){
             case 'double-room':
@@ -68,7 +68,7 @@ class RoomsView{
                                 </div>
                                 <div class="col-sm-6">
                                     <figure>
-                                        <img class="img-responsive" src="/img/doble.jpg" alt="Habitación doble">
+                                        <img class="img-responsive" src="img/doble.jpg" alt="Habitación doble">
                                     </figure>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@ class RoomsView{
                                 </div>
                                 <div class="col-sm-6">
                                     <figure>
-                                        <img class="img-responsive" src="/img/triple.jpg" alt="Habitación triple">
+                                        <img class="img-responsive" src="img/triple.jpg" alt="Habitación triple">
                                     </figure>
                                 </div>
                             </div>
@@ -104,7 +104,7 @@ class RoomsView{
                                 </div>
                                 <div class="col-sm-6">
                                     <figure>
-                                        <img class="img-responsive" src="/img/superior.jpg" alt="Habitación superior">
+                                        <img class="img-responsive" src="img/superior.jpg" alt="Habitación superior">
                                     </figure>
                                 </div>
                             </div>

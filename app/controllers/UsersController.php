@@ -1,6 +1,4 @@
 <?php
-
-use App\User;
 include_once '../../resources/views/intranet/UsersView.php';
 
 class UsersController extends Controller
@@ -10,14 +8,14 @@ class UsersController extends Controller
      */
     public function index(){
         $users = Users::all();
-        UsersView::printIndex($users);
+        UsersView::print_index($users);
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create(){
-        UsersView::printCreate();
+        UsersView::print_create();
     }
 
     /**
@@ -25,7 +23,7 @@ class UsersController extends Controller
      */
     public function store(){
         $user = new User();
-        $this->silentSave($user);
+        $this->silent_save($user);
         Users::save($user); //guardo,Añado el usuario a la base de datos
     }
 
@@ -39,7 +37,7 @@ class UsersController extends Controller
         }
         else{
             $user = Users::find($_GET['id']);
-            UsersView::printUser($user);
+            UsersView::print_show($user);
         }
     }
 
@@ -49,7 +47,7 @@ class UsersController extends Controller
     public function edit(){
         if(isset($_GET['id'])){
             $user = Users::find($_GET['id']);
-            UsersView::printEditUser($user);
+            UsersView::print_edit($user);
         }
     }
 
@@ -59,7 +57,7 @@ class UsersController extends Controller
     public function update(){
         $user = new User();
         $user = Users::find($_GET['id']);
-        $this->silentSave($user);
+        $this->silent_save($user);
         Users::save($user);
     }
 
@@ -75,7 +73,7 @@ class UsersController extends Controller
      *
      * @param $user
      */
-    public function silentSave($user){
+    public function silent_save($user){
         $user->name = $_GET->name;
         $user->password = $_GET->password;
         $user->RememberToken = $_GET->RememberToken;

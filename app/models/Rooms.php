@@ -1,5 +1,4 @@
 <?php
-namespace App;
 
 class Rooms extends Model{
     static function all(){

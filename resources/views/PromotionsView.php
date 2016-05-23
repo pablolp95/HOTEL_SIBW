@@ -2,7 +2,7 @@
 
 class PromotionsView{
 
-    function printPromotions(){
+    function print_promotions(){
         
         echo '<!-- Banner -->
         <section class="parallax-promotion">
@@ -18,7 +18,7 @@ class PromotionsView{
         <div class="row promotions">
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="/img/promotions/1.png" alt="Promocion número uno">
+                    <img class="img-responsive" src="img/promotions/1.png" alt="Promocion número uno">
                     <div class="caption">
                         <h3>Oferta de dos noches</h3>
                         <div class="promotion-more">
@@ -51,7 +51,7 @@ class PromotionsView{
             </div>
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="/img/promotions/2.png" alt="Promocion número dos">
+                    <img class="img-responsive" src="img/promotions/2.png" alt="Promocion número dos">
                     <div class="caption">
                         <h3>Oferta de 10% de descuento</h3>
                         <div class="promotion-more">
@@ -84,7 +84,7 @@ class PromotionsView{
             </div>
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="/img/promotions/3.png" alt="Promocion número tres">
+                    <img class="img-responsive" src="img/promotions/3.png" alt="Promocion número tres">
                     <div class="caption">
                         <h3>Reserva anticipada</h3>
                         <div class="promotion-more">
@@ -119,7 +119,7 @@ class PromotionsView{
         <div class="row promotions">
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="/img/promotions/4.png" alt="Promocion número cuatro">
+                    <img class="img-responsive" src="img/promotions/4.png" alt="Promocion número cuatro">
                     <div class="caption">
                         <h3>Habitación doble junto con tren turístico</h3>
                         <div class="promotion-more">
@@ -173,7 +173,7 @@ class PromotionsView{
             </div>
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="/img/promotions/5.png" alt="Promocion número cinco">
+                    <img class="img-responsive" src="img/promotions/5.png" alt="Promocion número cinco">
                     <div class="caption">
                         <h3>Habitación doble junto con sesión de baños árabes</h3>
                         <div class="promotion-more">
@@ -227,7 +227,7 @@ class PromotionsView{
             </div>
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="/img/promotions/6.png" alt="Promocion número seis">
+                    <img class="img-responsive" src="img/promotions/6.png" alt="Promocion número seis">
                     <div class="caption">
                         <h3>Habitación doble junto con espectáculo de flamenco</h3>
                         <div class="promotion-more">
@@ -284,7 +284,7 @@ class PromotionsView{
         <div class="row table-row promotions">
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="/img/promotions/7.png" alt="Promocion número siete">
+                    <img class="img-responsive" src="img/promotions/7.png" alt="Promocion número siete">
                     <div class="caption">
                         <h3>Habitación doble y visita guiada a la Alhambra</h3>
                         <div class="promotion-more">
@@ -342,7 +342,7 @@ class PromotionsView{
             </div>
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="/img/promotions/8.png" alt="Promocion número ocho">
+                    <img class="img-responsive" src="img/promotions/8.png" alt="Promocion número ocho">
                     <div class="caption">
                         <h3>Habitación doble junto con trén y espectáculo de flamenco</h3>
                         <div class="promotion-more">

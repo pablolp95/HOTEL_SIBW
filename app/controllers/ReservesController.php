@@ -1,6 +1,5 @@
 <?php
 
-
 class ReservesController extends Controller
 {
     public function index(){
@@ -24,7 +23,7 @@ class ReservesController extends Controller
     public function delete(){
 
     }
-    public function silentSave($reserve){
+    public function silent_save($reserve){
 
     }
 }
