@@ -1,7 +1,7 @@
 <?php
 
 class Users extends Model {
-    function all(){
+    static function all(){
         $list = [];
         $db = Db::getInstance();
         $statement = 'SELECT * FROM users';
@@ -13,7 +13,7 @@ class Users extends Model {
         return $list;
     }
 
-    function find($id){
+    static function find($id){
         $db = Db::getInstance();
         $statement = 'SELECT * FROM users WHERE id = '.$id;
         $result = $db->query($statement);
@@ -24,9 +24,9 @@ class Users extends Model {
         return $user;
     }
 
-    function find_by_email($email){
+    static function find_by_email($email){
         $db = Db::getInstance();
-        $statement = 'SELECT * FROM users WHERE email = admin@gmail.com';
+        $statement = 'SELECT * FROM users WHERE email = '.$email;
         $result = $db->query($statement);
         $user = null;
         if($result->num_rows() > 0){
@@ -35,17 +35,17 @@ class Users extends Model {
         return $user;
     }
 
-    function delete($id){
+    static function delete($id){
         $db = Db::getInstance();
         $statement = 'DELETE * FROM users WHERE id = '.$id;
         $db->query($statement);
     }
 
-    function update(){
+    static function update(){
         $db = Db::getInstance();
     }
 
-    function save($user){
+    static function save($user){
         $db = Db::getInstance();
         $statement = 'INSERT INTO users (name,email,password) VALUES ('.$user->name.','.$user->email.','.$user->password.')';
         return $db->query($statement);
