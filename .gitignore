@@ -1,5 +1,4 @@
-/.idea
-/public/components
-/vendor
-/phpmyadmin
+.idea
+public/components
+vendor
 app/Db.php

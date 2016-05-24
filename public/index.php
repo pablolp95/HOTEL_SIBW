@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-
 <?php
 
 include_once '../app/controllers/PublicController.php';
@@ -17,4 +14,3 @@ else{
 }
 
 ?>
-</html>

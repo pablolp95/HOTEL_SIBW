@@ -11,8 +11,8 @@ class IntranetHead{
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             <link href="components/Materialize/dist/css/materialize.css" type="text/css" rel="stylesheet"  media="screen"/>
             <link href="css/intranet/style.css" type="text/css" rel="stylesheet" media="screen"/>
-            <link href="css/intranet/login.css" type="text/css" rel="stylesheet" media="screen"/>
-            <link href="css/intranet/footer.css" type="text/css" rel="stylesheet" media="screen"/>
+          
+            <link href="css/font/flaticon.css" type="text/css" rel="stylesheet"/>
         
             <!--  Scripts-->
             <script src="components/jquery/dist/jquery.min.js"></script>

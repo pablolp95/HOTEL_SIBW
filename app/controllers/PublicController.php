@@ -11,12 +11,15 @@ include_once '../resources/views/Content.php';
 
 class PublicController{
     function print_page(){
+        echo'<!DOCTYPE html>
+        <html lang="es">';
         $page = $_GET['page'];
         $head = new Head();
         $nav = new Nav();
         $footer = new Footer();
 
         $head->print_head($page);
+        echo '<body>';
         $nav->print_nav();
 
         switch ($page) {
@@ -49,5 +52,8 @@ class PublicController{
         }
 
         $footer->print_footer();
+
+        echo '</body>
+        </html>';
     }
 }

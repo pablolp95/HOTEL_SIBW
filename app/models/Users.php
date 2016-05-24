@@ -1,7 +1,10 @@
 <?php
+include_once '../app/models/User.php';
+include_once '../app/Db.php';
+include_once '../app/models/Model.php';
 
 class Users extends Model {
-    static function all(){
+    function all(){
         $list = [];
         $db = Db::getInstance();
         $statement = 'SELECT * FROM users';
@@ -13,39 +16,41 @@ class Users extends Model {
         return $list;
     }
 
-    static function find($id){
+    function find($id){
         $db = Db::getInstance();
-        $statement = 'SELECT * FROM users WHERE id = '.$id;
+        $statement = 'SELECT * FROM users WHERE id = \''.$id.'\'';
         $result = $db->query($statement);
         $user = null;
         if($result->num_rows() > 0){
-            $user = new User($result['name'], $result['email'], $result['password']);
+            $row = $result->fetch_assoc();
+            $user = new User($row['name'], $row['email'], $row['password']);
         }
         return $user;
     }
 
-    static function find_by_email($email){
+    function find_by_email($email){
         $db = Db::getInstance();
-        $statement = 'SELECT * FROM users WHERE email = '.$email;
+        $statement = 'SELECT * FROM users WHERE email = \''.$email.'\'';
         $result = $db->query($statement);
         $user = null;
-        if($result->num_rows() > 0){
-            $user = new User($result['name'], $result['email'], $result['password']);
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+            $user = new User($row['name'], $row['email'], $row['password']);
         }
         return $user;
     }
 
-    static function delete($id){
+    function delete($id){
         $db = Db::getInstance();
-        $statement = 'DELETE * FROM users WHERE id = '.$id;
+        $statement = 'DELETE * FROM users WHERE id = \''.$id.'\'';
         $db->query($statement);
     }
 
-    static function update(){
+    function update(){
         $db = Db::getInstance();
     }
 
-    static function save($user){
+    function save($user){
         $db = Db::getInstance();
         $statement = 'INSERT INTO users (name,email,password) VALUES ('.$user->name.','.$user->email.','.$user->password.')';
         return $db->query($statement);

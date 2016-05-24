@@ -7,7 +7,7 @@ class IntranetNav{
             <div class="navbar-fixed">
                 <nav class="indigo">
                     <div class="nav-wrapper container">
-                        <a href="#" class="brand-logo">Administración</a>
+                        <a href="index.php?page=intranet" class="brand-logo">Administración</a>
                         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                         <ul class="right hide-on-med-and-down">
                             <li>
@@ -19,12 +19,12 @@ class IntranetNav{
                                     </div>
                                 </form>
                             </li>
-                            <li><a href="#" class="uppercase">Panel</a></li>
-                            <li><a href="#" class="uppercase">Cerrar sesión</a></li>
+                            <li><a href="index.php?page=intranet" class="uppercase">Panel</a></li>
+                            <li><a href="index.php?page=intranet&action=logout" class="uppercase">Cerrar sesión</a></li>
                         </ul>
                         <ul class="side-nav" id="mobile-demo">
-                            <li><a href="#" class="uppercase">Panel</a></li>
-                            <li><a href="#" class="uppercase">Cerrar sesión</a></li>
+                            <li><a href="index.php?page=intranet" class="uppercase">Panel</a></li>
+                            <li><a href="index.php?page=intranet&action=logout" class="uppercase">Cerrar sesión</a></li>
                         </ul>
                     </div>
                 </nav>
