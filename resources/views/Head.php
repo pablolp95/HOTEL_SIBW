@@ -37,6 +37,10 @@
                     $title = ' - Contacto y ubicación';
                     $css = 'contact.css';
                     break;
+                case 'reserve':
+                    $title = ' - Reservar';
+                    $css = 'reserve.css';
+                    break;
                 default:
                     $css = 'index.css';
                     break;
@@ -49,7 +53,7 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
             
-                <link rel="shortcut icon" href="../../img/favicon.ico"/>
+                <link rel="shortcut icon" href="img/favicon.ico"/>
             
                 <!-- Latest compiled and minified CSS -->
                 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">

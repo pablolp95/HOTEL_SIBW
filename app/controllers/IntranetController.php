@@ -11,15 +11,25 @@ class IntranetController{
         session_start();
         $head = new IntranetHead();
 
+        if(isset($_SESSION['expire']) && time()>$_SESSION['expire']){
+            session_unset();
+            session_destroy();
+        }
+
+        echo '<!DOCTYPE html>
+        <html lang="es">';
         //Si el usuario ya ha iniciado sesión
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
             $head->print_head();
             $nav = new IntranetNav();
+            echo'<body>';
             $nav->print_nav();
+
             if(isset($_GET['action']) && $_GET['action']=='logout'){
                 session_destroy();
                 session_unset();
                 header("Location: /?page=intranet");
+                exit();
             }
 
             if(isset($_GET['section'])){
@@ -32,6 +42,7 @@ class IntranetController{
 
             $footer = new IntranetFooter();
             $footer->print_footer();
+            echo'</body>';
         }
         else{
             //Si la acción es iniciar sesión
@@ -40,10 +51,12 @@ class IntranetController{
                 $logged = $login->get_login($_POST['email'],$_POST['password']);
                 if($logged){
                     header("Location: /?page=intranet");
+                    exit();
                 }
                 else{
                     //Abria que mostrar que ha habido un error
                     header("Location: /?page=intranet");
+                    exit();
                 }
             }
             else {
@@ -52,5 +65,6 @@ class IntranetController{
                 $login->print_login();
             }
         }
+        echo '</html>';
     }
 }

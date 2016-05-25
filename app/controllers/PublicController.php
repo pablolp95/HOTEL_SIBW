@@ -7,7 +7,7 @@ include_once '../resources/views/HomeView.php';
 include_once '../resources/views/Nav.php';
 include_once '../resources/views/PromotionsView.php';
 include_once '../resources/views/RoomsView.php';
-include_once '../resources/views/Content.php';
+include_once '../resources/views/ReserveView.php';
 
 class PublicController{
     function print_page(){
@@ -44,6 +44,10 @@ class PublicController{
             case 'contact':
                 $contact = new ContactView();
                 $contact->print_contact();
+                break;
+            case 'reserve':
+                $reserve = new ReserveView();
+                $reserve->print_reserve();
                 break;
             default:
                 $home = new HomeView();
