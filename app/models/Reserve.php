@@ -1,7 +1,6 @@
 <?php
 
-class Reserve
-{
+class Reserve {
     var $id;
     var $start_date;
     var $end_date;

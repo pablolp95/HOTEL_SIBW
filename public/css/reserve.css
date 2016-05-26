@@ -14,13 +14,13 @@
 .bs-wizard > .bs-wizard-step + .bs-wizard-step {}
 .bs-wizard > .bs-wizard-step .bs-wizard-stepnum {
     color: #595959;
-    font-size: 16px;
+    font-size: 1.15em;
     margin-bottom: 5px;
 }
 
 .bs-wizard > .bs-wizard-step .bs-wizard-info {
     color: #999;
-    font-size: 14px;
+    font-size: 1em;
 }
 
 .bs-wizard > .bs-wizard-step > .bs-wizard-dot {
