@@ -28,7 +28,7 @@ class Nav{
                             <li><a href="index.php?page=contact">Contacto y ubicación</a></li>
                             <li><a href="index.php?page=opinions">Opiniones</a></li>
                             <li><a href="index.php?page=myreserve">Mi reserva</a></li>
-                            <li id="active"><a href="index.php?page=reserve">RESERVAR AHORA</a></li>
+                            <li id="active"><a href="index.php?page=reserve&step=select_room">RESERVAR AHORA</a></li>
                         </ul>
                     </div>
                 </div>

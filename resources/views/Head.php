@@ -67,7 +67,6 @@
                 else if($page == 'intranet')
                     echo'<script src="js/intranet.js"></script>';
 
-
             echo'
                 <!-- Personal CSS -->
                 <link type="text/css" rel="stylesheet" href="css/body.css"/>
@@ -84,7 +83,7 @@
                 <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic" rel="stylesheet" type="text/css">
                 <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic" rel="stylesheet" type="text/css">';
 
-                if($page == 'homepage' || $page = 'contact')
+                if($page == 'homepage' || $page == 'contact')
                     $this->printGoogleMap();
 
                 echo'</head>';

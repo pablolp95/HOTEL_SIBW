@@ -1,29 +1,37 @@
 <?php
+include_once "../app/controllers/Controller.php";
 
 class ReservesController extends Controller
 {
-    public function index(){
+    function index(){
 
     }
-    public function create(){
+
+    function create(){
 
     }
-    public function store(){
+
+    function store(){
 
     }
-    public function show(){
+
+    function show($id){
 
     }
-    public function edit(){
+
+    function edit($id){
 
     }
-    public function update(){
+
+    function update(){
 
     }
-    public function delete(){
+
+    function delete($id){
 
     }
-    public function silent_save($reserve){
+
+    private function silent_save($reserve){
 
     }
 }

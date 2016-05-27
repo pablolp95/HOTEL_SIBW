@@ -1,4 +1,10 @@
-.bs-wizard {margin-top: 40px;}
+.steps{
+    background-color: #ebebeb;
+}
+
+.bs-wizard {
+    margin-top: 40px;
+}
 
 /*Form Wizard*/
 .bs-wizard {
@@ -98,3 +104,57 @@
     pointer-events: none;
 }
 /*END Form Wizard*/
+
+.select-room-title{
+    font-family: 'Noto Serif','Droid Serif', serif;
+    margin: 0px;
+    padding: 10px 0px;
+    background-color: white;
+    color: #232528;
+}
+
+.select-room-title h1{
+    font-size: 2em;
+}
+
+.section{
+    padding-bottom: 30px;
+}
+
+.input-style{
+    border-radius: 0
+}
+
+.noresize {
+    resize: none;
+}
+
+.button {
+    background-color: transparent;
+    border: 1px solid goldenrod;
+    border-radius: 0;
+    color:goldenrod;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.button:hover {
+    text-decoration: none;
+    color:white;
+    background-color: goldenrod;
+}
+
+.button:focus {
+    outline:0;
+}
+
+.form-control:focus {
+    border-color: goldenrod;
+    box-shadow: none;
+}
+
+.select-room-submit{
+    padding-top: 25px;
+}

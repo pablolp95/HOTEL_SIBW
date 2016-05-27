@@ -5,6 +5,7 @@ include_once '../resources/views/intranet/DashboardView.php';
 include_once '../resources/views/intranet/IntranetNav.php';
 include_once '../resources/views/intranet/IntranetFooter.php';
 include_once '../app/controllers/LoginController.php';
+include_once '../app/controllers/ReservesController.php';
 
 class IntranetController{
     function print_page(){
@@ -25,14 +26,57 @@ class IntranetController{
             echo'<body>';
             $nav->print_nav();
 
-            if(isset($_GET['action']) && $_GET['action']=='logout'){
+            if(isset($_REQUEST['action']) && $_REQUEST['action']=='logout'){
                 session_destroy();
                 session_unset();
                 header("Location: /?page=intranet");
                 exit();
             }
 
-            if(isset($_GET['section'])){
+            if(isset($_REQUEST['section'])){
+                switch ($_REQUEST['section']){
+                    case 'reserves':
+                        $controller = new ReservesController();
+                        break;
+                    case 'promotions':
+                        $controller = new PromotionsController();
+                        break;
+                    case 'rooms':
+                        $controller = new RoomsController();
+                        break;
+                    case 'users':
+                        $controller = new UsersController();
+                        break;
+                }
+
+                if(isset($_REQUEST['action'])){
+                    if(isset($_REQUEST['id'])){
+                        switch ($_REQUEST['action']){
+                            case 'edit':
+                                $controller->edit();
+                                break;
+                            case 'delete':
+                                $controller->delete($_REQUEST['id']);
+                                break;
+                            case 'store':
+                                $controller->store();
+                                break;
+                            case 'update':
+                                $controller->update($_REQUEST['id']);
+                                break;
+                        }
+                    }else{
+                        if($_REQUEST['action'] == 'create'){
+                            $controller->create();
+                        }
+                    }
+                }else{
+                    if(isset($_REQUEST['id'])){
+                        $controller->show($_GET['id']);
+                    }else{
+                        $controller->index();
+                    }
+                }
 
             }
             else{
@@ -46,9 +90,9 @@ class IntranetController{
         }
         else{
             //Si la acción es iniciar sesión
-            if(isset($_POST['action']) && $_POST['action']=='login'){
+            if(isset($_REQUEST['action']) && $_REQUEST['action']=='login'){
                 $login = new LoginController();
-                $logged = $login->get_login($_POST['email'],$_POST['password']);
+                $logged = $login->get_login($_REQUEST['email'],$_REQUEST['password']);
                 if($logged){
                     header("Location: /?page=intranet");
                     exit();

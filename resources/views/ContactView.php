@@ -18,7 +18,7 @@ class ContactView{
                         </div>
                         <div class="row section">
                             <div class="col-sm-12">
-                                <form  role="form" name="myForm" onsubmit="return validate(\'myForm\')" method="POST" action="../../resources/scripts/email.php">
+                                <form  role="form" name="myForm" onsubmit="return validate(\'myForm\')" method="POST" action="../resources/scripts/email.php">
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <input type="text" class="form-control input-lg input-style" id="name" name="name" placeholder="Nombre" required>

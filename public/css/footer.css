@@ -37,12 +37,13 @@
 .footer .footer-links li a{
     color: #FFFFFF;
     text-decoration: none;
+    font-size: 0.95em;
 }
 
 .footer .footer-company-name{
     text-align: center;
     color:  #8f9296;
-    font-size: 14px;
+    font-size: 1em;
     font-weight: normal;
     margin-top: 30px;
     padding-top: 20px;

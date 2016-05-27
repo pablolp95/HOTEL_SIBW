@@ -47,7 +47,8 @@ class PublicController{
                 break;
             case 'reserve':
                 $reserve = new ReserveView();
-                $reserve->print_reserve();
+                $step = $_GET['step'];
+                $reserve->print_reserve($step);
                 break;
             default:
                 $home = new HomeView();
@@ -56,7 +57,6 @@ class PublicController{
         }
 
         $footer->print_footer();
-
         echo '</body>
         </html>';
     }
