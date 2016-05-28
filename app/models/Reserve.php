@@ -26,7 +26,7 @@ class Reserve {
     /**
      * @return mixed
      */
-    public function get_id()
+    public function getId()
     {
         return $this->id;
     }
@@ -52,7 +52,7 @@ class Reserve {
      */
     public function setStartingDate($starting_date)
     {
-        $this->start_date = $starting_date;
+        $this->starting_date = $starting_date;
     }
 
     /**
@@ -68,7 +68,7 @@ class Reserve {
      */
     public function setEndingDate($ending_date)
     {
-        $this->end_date = $ending_date;
+        $this->ending_date = $ending_date;
     }
 
     /**

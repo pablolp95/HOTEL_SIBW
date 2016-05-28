@@ -1,18 +1,23 @@
 <?php
 include_once '../app/models/Roomtype.php';
 include_once '../app/models/Roomtypes.php';
+include_once '../app/models/Reserve.php';
+include_once '../app/models/Model.php';
 
 class Reserves extends Model{
     function all(){
-        $list = [];
+        $list = array();
         $statement = 'SELECT * FROM reserves';
         $result = Db::getInstance()->query($statement);
 
-        foreach($result->fetch_all() as $row){
-            $reserve = new Reserve();
-            $this->silentSave($reserve, $row);
-            $list[] = $reserve;
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                $reserve = new Reserve();
+                $this->silentSave($reserve, $row);
+                array_push($list,$reserve);
+            }
         }
+        
         return $list;
     }
 
@@ -21,7 +26,7 @@ class Reserves extends Model{
         $statement = 'SELECT * FROM reserves WHERE id = \''.$id.'\'';
         $result = $db->query($statement);
         $reserve = null;
-        if($result->num_rows() > 0){
+        if($result->num_rows > 0){
             $row = $result->fetch_assoc();
             $reserve = new Reserve();
             $this->silentSave($reserve, $row);
@@ -34,7 +39,7 @@ class Reserves extends Model{
         return Db::getInstance()->query($statement);
     }
 
-    function update(){
+    function update($reserve){
 
     }
 
@@ -43,7 +48,7 @@ class Reserves extends Model{
     }
 
     private function silentSave($reserve,$row){
-        $reserve->setId($row['$id']);
+        $reserve->setId($row['id']);
         $reserve->setStartingDate($row['starting_date']);
         $reserve->setEndingDate($row['ending_date']);
         $reserve->setRoomsNumber($row['rooms_number']);
@@ -63,14 +68,17 @@ class Reserves extends Model{
         $reserve->setCardExpirationYear($row['card_expiration_year']);
         $reserve->setCardCvc($row['card_cvc']);
 
-        $statement = 'SELECT * FROM reserves_rooms WHERE reserve_id = \''.$row['$id'].'\'';
+        $statement = 'SELECT * FROM reserves_rooms WHERE reserve_id = \''.$row['id'].'\'';
         $result = Db::getInstance()->query($statement);
 
         $list = null;
         $roomtypes = new Roomtypes();
-        foreach($result->fetch_all() as $reserve_room){
-            $roomtype = $roomtypes->find($reserve_room['roomtype_id']);
-            $list[$roomtype->getName()] = $reserve_room['rooms_number'];
+
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                $roomtype = $roomtypes->find($row['roomtype_id']);
+                $list[$roomtype->getName()] = $row['rooms_number'];
+            }
         }
 
         $reserve->setReservedRooms($list);

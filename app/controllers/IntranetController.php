@@ -8,6 +8,7 @@ include_once '../app/controllers/LoginController.php';
 include_once '../app/controllers/UsersController.php';
 include_once '../app/controllers/RoomsController.php';
 include_once '../app/controllers/PromotionsController.php';
+include_once '../app/controllers/ReservesController.php';
 
 class IntranetController{
     function print_page(){

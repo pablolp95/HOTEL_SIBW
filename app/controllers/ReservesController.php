@@ -1,14 +1,19 @@
 <?php
-include_once "../app/controllers/Controller.php";
+include_once '../app/controllers/Controller.php';
+include_once '../resources/views/intranet/IntranetReservesView.php';
+include_once '../app/models/Reserve.php';
+include_once '../app/models/Reserves.php';
 
 class ReservesController extends Controller
 {
     function index(){
-
+        $reserves = new Reserves();
+        $list = $reserves->all();
+        IntranetReservesView::print_index($list);
     }
 
     function create(){
-
+        IntranetReservesView::print_create();
     }
 
     function store(){
@@ -23,7 +28,7 @@ class ReservesController extends Controller
 
     }
 
-    function update(){
+    function update($id){
 
     }
 
