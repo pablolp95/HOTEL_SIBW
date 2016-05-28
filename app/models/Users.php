@@ -60,6 +60,6 @@ class Users extends Model {
     function save($user){
         $db = Db::getInstance();
         return $db->query("INSERT INTO users (id, name, email,password,created_at,updated_at)
-    VALUES ('','{$user->get_name()}','{$user->get_email()}','{$user->get_password()}',NULL , NULL)");
+                          VALUES ('','{$user->get_name()}','{$user->get_email()}','{$user->get_password()}',NULL , NULL)");
     }
 }

@@ -101,8 +101,8 @@ class IRoomsView {
                         <div class="col s12">
                             <div class="row">
                                 <div class="col s12 m6">
-                                    <p><strong>Nombre:</strong> '.$room->get_type().'</p>
-                                    <p><strong>Numero habitación:</strong> '.$room->get_number().'</p>
+                                    <p><strong>Tipo:</strong> '.$room->get_type().'</p>
+                                    <p><strong>Número habitación:</strong> '.$room->get_number().'</p>
                                 </div>
                             </div>
                         </div>

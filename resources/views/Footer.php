@@ -4,16 +4,16 @@
             echo '<footer class="container-fluid footer" id="footer">
                     <div class="row">
                         <div class="col-sm-8">
-                            <a href="index.php"><img src="img/logo.png" class="img-responsive footer-logo" alt="Logo del pie de pagina"/></a>
+                            <a href="/"><img src="img/logo.png" class="img-responsive footer-logo" alt="Logo del pie de pagina"/></a>
                             <ul class="footer-links">
-                                <li><a href="index.php?page=promotions">Promociones</a></li>
-                                <li><a href="index.php?page=rooms">· Habitaciones</a></li>
-                                <li><a href="index.php#service">· Servicios</a></li>
-                                <li><a href="index.php?page=gallery">· Galería</a></li>
-                                <li><a href="index.php?page=contact">· Contacto y ubicación</a></li>
-                                <li><a href="index.php?page=opinions">· Opiniones</a></li>
-                                <li><a href="index.php?page=myreserve">· Mi reserva</a></li>
-                                <li><a href="index.php?page=intranet">· Intranet</a></li>
+                                <li><a href="?page=promotions">Promociones</a></li>
+                                <li><a href="?page=rooms">· Habitaciones</a></li>
+                                <li><a href="#service">· Servicios</a></li>
+                                <li><a href="?page=gallery">· Galería</a></li>
+                                <li><a href="?page=contact">· Contacto y ubicación</a></li>
+                                <li><a href="?page=opinions">· Opiniones</a></li>
+                                <li><a href="?page=myreserve">· Mi reserva</a></li>
+                                <li><a href="?page=intranet">· Intranet</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-4 footer-right">

@@ -62,14 +62,15 @@ CREATE TABLE `roomtypes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `roomtypes` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
-  (1, 'Doble', null, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
-  (2, 'Triple', null, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
-  (3, 'Familiar', null, '2016-05-08 17:27:13', '2016-05-22 15:23:08');
+  (1, 'Individual', null, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (2, 'Doble', null, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (3, 'Triple', null, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (4, 'Familiar', null, '2016-05-08 17:27:13', '2016-05-22 15:23:08');
 
 DROP TABLE IF EXISTS `rooms`;
 CREATE TABLE `rooms` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `room_number` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `room_number` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
   `roomtype_id` int(10) unsigned DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -79,16 +80,49 @@ CREATE TABLE `rooms` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `rooms` (`id`, `room_number`, `roomtype_id`, `created_at`, `updated_at`) VALUES
+  /*5 habitaciones individuales*/
   (1, '1', 1, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
   (2, '2', 1, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
-  (3, '3', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
-  (4, '4', 3, '2016-05-08 17:27:13', '2016-05-22 15:23:08');
+  (3, '3', 1, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (4, '4', 1, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (5, '5', 1, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  /*25 habitaciones dobles*/
+  (6, '6', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (7, '7', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (8, '8', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (9, '9', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (10, '10', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (11, '11', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (12, '12', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (13, '13', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (14, '14', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (15, '15', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (16, '16', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (17, '17', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (18, '18', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (19, '19', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (20, '20', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (21, '21', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (22, '22', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (23, '23', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (24, '24', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (25, '25', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (26, '26', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (27, '27', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (28, '28', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (29, '29', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (30, '30', 2, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  /*1 habitaciones triple*/
+  (31, '31', 3, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  /*2 habitaciones familiares*/
+  (32, '32', 4, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (33, '33', 4, '2016-05-08 17:27:13', '2016-05-22 15:23:08');
 
 DROP TABLE IF EXISTS `reserves`;
 CREATE TABLE `reserves` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `start_date` datetime NOT NULL,
-  `end_date` datetime NOT NULL,
+  `starting_date` date NOT NULL,
+  `ending_date` date NOT NULL,
   `adults_number` varchar(2) COLLATE utf8_unicode_ci  DEFAULT '0' NOT NULL,
   `children_numer` varchar(2) COLLATE utf8_unicode_ci DEFAULT '0' NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -108,6 +142,9 @@ CREATE TABLE `reserves` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+INSERT INTO `reserves` (`id`, `starting_date`, `ending_date`, `adults_number`, `children_numer`, `name`, `surname`, `email`, `observations`, `address`, `city`, `phone`, `card_number`, `card_type`, `card_expiration_month`, `card_expiration_year`, `card_cvc`, `created_at`, `updated_at`) VALUES
+  ('1', '2016-05-11', '2016-05-19', '2', '0', 'Pablo', 'Lara', 'pablo@gmail.com', NULL, 'calle', 'Madrid', '123456789', '123456789', 'VISA', '12', '16', '123', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000');
+
 DROP TABLE IF EXISTS `reserves_rooms`;
 CREATE TABLE `reserves_rooms` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -121,11 +158,14 @@ CREATE TABLE `reserves_rooms` (
   CONSTRAINT `rerserves_rooms_roomtype_id_foreign` FOREIGN KEY (`roomtype_id`) REFERENCES `roomtypes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+INSERT INTO `sibw`.`reserves_rooms` (`id`, `reserve_id`, `roomtype_id`, `rooms_number`, `created_at`, `updated_at`) VALUES
+  (NULL, '1', '2', '2', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000');
+
 DROP TABLE IF EXISTS `price_dates`;
 CREATE TABLE `price_dates` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `start_date` datetime NOT NULL,
-  `end_date` datetime NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
   `roomtype_id` int(10) unsigned NOT NULL,
   `price` decimal(8,2) unsigned NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
