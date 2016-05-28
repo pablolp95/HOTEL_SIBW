@@ -44,7 +44,7 @@ class Users extends Model {
         $db->query($statement);
     }
 
-    function update(){
+    function update($model){
         $db = Db::getInstance();
     }
 

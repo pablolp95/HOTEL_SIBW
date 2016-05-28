@@ -6,11 +6,9 @@ class Room
     var $type;
     var $room_number;
 
-    function __construct($id, $type, $room_number){
-        $this->id = $id;
+    function __construct($type, $room_number){
         $this->type = $type;
         $this->room_number = $room_number;
-
     }
 
     public function get_id(){

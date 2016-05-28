@@ -1,6 +1,6 @@
 <?php
 
-class ReservesView{
+class IntranetReservesView{
     public static function print_create(){
 
     }

@@ -44,7 +44,7 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(){
+    public function edit($id){
         if(isset($_GET['id'])){
             $user = Users::find($_GET['id']);
             UsersView::print_edit($user);
@@ -54,7 +54,7 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(){
+    public function update($id){
         $user = new User();
         $user = Users::find($_GET['id']);
         $this->silent_save($user);
@@ -64,7 +64,7 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function delete(){
+    public function delete($id){
 
     }
 

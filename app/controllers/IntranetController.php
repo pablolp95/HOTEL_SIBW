@@ -5,7 +5,7 @@ include_once '../resources/views/intranet/DashboardView.php';
 include_once '../resources/views/intranet/Nav.php';
 include_once '../resources/views/intranet/Footer.php';
 include_once '../app/controllers/LoginController.php';
-include_once '../app/controllers/ReservesController.php';
+include_once '../app/controllers/RoomsController.php';
 
 class IntranetController{
     function print_page(){

@@ -7,6 +7,6 @@ abstract class Controller
     abstract protected function store();
     abstract protected function show($id);
     abstract protected function edit($id);
-    abstract protected function update();
+    abstract protected function update($id);
     abstract protected function delete($id);
 }
