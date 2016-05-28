@@ -29,7 +29,7 @@ class ReserveView
                             <h1>¿Cuando quieres alojarte?</h1>
                         </div>
                     </div>
-                    <form role="form" name="myForm" method="POST" action="../resources/scripts/email.php">
+                    <form role="form" name="myForm" method="get" action="../resources/scripts/email.php">
                             <div class="row section">
                                 <div class="col-sm-3">
                                     <div class="form-group">
@@ -81,6 +81,64 @@ class ReserveView
                                 </div> 
                                 <div class="col-sm-2 text-center select-room-submit">
                                     <button type="button" class="button btn-lg" style="text-align: center">Comprobar</button>
+                                </div>
+                            </div>
+                            <div class="row nopadding">
+                                <div class="panel panel-default">
+                                    <table class="table table-roomtypes"> 
+                                        <thead> 
+                                            <tr> 
+                                                <th>Tipo</th> 
+                                                <th>Precio</th> 
+                                                <th>Cantidad</th> 
+                                            </tr> 
+                                        </thead> 
+                                        <tbody> 
+                                            <tr> 
+                                                <td>Doble</td> 
+                                                <td>65\'99</td>
+                                                <td>
+                                                    <select class="form-control input-lg input-style" id="select_doble" name="select_doble">
+                                                        <option value="0">0</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </td>
+                                            </tr> 
+                                            <tr> 
+                                                <td>Triple</td> 
+                                                <td>95\'99</td>
+                                                <td>
+                                                    <select class="form-control input-lg input-style" id="select_children" name="select_children">
+                                                        <option value="0">0</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </td>
+                                            </tr> 
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-offset-10 col-sm-2">
+                                    <button class="button btn-lg" style="text-align: center">Comprobar</button>
                                 </div>
                             </div>
                     </form>

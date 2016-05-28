@@ -158,3 +158,8 @@
 .select-room-submit{
     padding-top: 25px;
 }
+
+.panel{
+    border-radius: 0;
+
+}

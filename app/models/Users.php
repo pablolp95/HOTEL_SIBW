@@ -6,9 +6,8 @@ include_once '../app/models/Model.php';
 class Users extends Model {
     function all(){
         $list = [];
-        $db = Db::getInstance();
         $statement = 'SELECT * FROM users';
-        $result = $db->query($statement);
+        $result = Db::getInstance()->query($statement);
 
         foreach($result->fetch_all() as $user){
             $list[] = new User($user['name'],$user['email'],$user['password']);
@@ -17,9 +16,8 @@ class Users extends Model {
     }
 
     function find($id){
-        $db = Db::getInstance();
         $statement = 'SELECT * FROM users WHERE id = \''.$id.'\'';
-        $result = $db->query($statement);
+        $result = Db::getInstance()->query($statement);
         $user = null;
         if($result->num_rows() > 0){
             $row = $result->fetch_assoc();
@@ -31,7 +29,7 @@ class Users extends Model {
     function find_by_email($email){
         $db = Db::getInstance();
         $statement = 'SELECT * FROM users WHERE email = \''.$email.'\'';
-        $result = $db->query($statement);
+        $result = Db::getInstance()->query($statement);
         $user = null;
         if($result->num_rows > 0){
             $row = $result->fetch_assoc();
