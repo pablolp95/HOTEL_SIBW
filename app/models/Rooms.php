@@ -1,7 +1,7 @@
 <?php
-include_once '../app/models/Model.php';
 include_once '../app/models/Room.php';
 include_once '../app/Db.php';
+include_once '../app/models/Model.php';
 class Rooms extends Model{
     public function all(){
         $list = array();

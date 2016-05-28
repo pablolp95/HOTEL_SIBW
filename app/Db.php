@@ -16,8 +16,8 @@ class Db {
 
         $dbhost = "localhost";
         $dbname = "sibw";
-        $dbuser = "pablo";
-        $dbpswd = "bumer";
+        $dbuser = "root";
+        $dbpswd = "sibw";
 
         if (!isset(self::$instance)) {
             self::$instance = new mysqli($dbhost,$dbuser,$dbpswd,$dbname);

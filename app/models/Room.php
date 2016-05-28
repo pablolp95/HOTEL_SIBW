@@ -26,5 +26,11 @@ class Room
     public function set_type($type){
         $this->type = $type;
     }
+    public function set_number($n){
+        $this->room_number=$n;
+    }
+    public function get_number(){
+        return $this->room_number;
+    }
 
 }

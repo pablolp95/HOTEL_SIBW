@@ -1,7 +1,6 @@
 <?php
 include_once '../app/models/Room.php';
-
-class RoomsView {
+class IRoomsView {
     public static function print_create(){
         echo"<div class=\"container padded\">
         <div class=\"row\">
@@ -13,28 +12,28 @@ class RoomsView {
             <div class=\"col s12\">
                 <div class=\"row\">
     <!-- Email field -->
-    <form  role=\"form\" name=\"myForm\" method=\"POST\" action='?page=intranet&section=rooms&action=store' '>
-   <div class=\"col s12 m6\">
-        <label>Tipo de habitación </label>
-        <select class='browser-default' name='select'>
-            <option value='1'>Doble</option>
-            <option value='2'>Triple</option>
-            <option value='3'>Familiar</option>
-        </select>
+                    <form  role=\"form\" name=\"myForm\" method=\"POST\" action='?page=intranet&section=rooms&action=store' '>
+                         <div class=\"col s12 m6\">
+                            <label>Tipo de habitación </label>
+                            <select class='browser-default' name='select'>
+                                <option value='1'>Doble</option>
+                                <option value='2'>Triple</option>
+                                <option value='3'>Familiar</option>
+                            </select>
 
-    </div>
-    <!-- Name field -->
-    <div class=\"input-field col s12 m6\">
-        <input class='validate' type='number' name='number_room' min=5 placeholder='Numero de habitación'>
-    </div>
-    <div class=\"col s12\">
-              <button type='submit' class='btn waves-effect waves-light right indigo'>Guardar</button>
-    </div>
-    <div class=\"col s12\">
-        <div class=\"clearfix\"></div>
-    </div>
-</div>
-</form>
+                        </div>
+                    <!-- Name field -->
+                        <div class=\"input-field col s12 m6\">
+                            <input class='validate' type='number' name='number_room' min=1 placeholder='Numero de habitación'>
+                        </div>
+                        <div class=\"col s12\">
+                                  <button type='submit' class='btn waves-effect waves-light right indigo'>Guardar</button>
+                        </div>
+                        <div class=\"col s12\">
+                            <div class=\"clearfix\"></div>
+                        </div>
+                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -140,29 +139,29 @@ class RoomsView {
             <div class=\"col s12\">
                 <div class=\"row\">
     <!-- Email field -->
-    <form  role=\"form\" name=\"myForm\" method=\"POST\" action='?page=intranet&section=rooms&action=update&id={$room->get_id()}'>
-   <div class=\"col s12 m6\">
-        <label>Tipo de habitación </label>
-        <select class='browser-default' name='select1' required>
-            <option></option>
-            <option value='1'";if($val==1){echo "selected";}echo">Doble</option>
-            <option value='2'";if($val==2){echo "selected";}echo">Triple</option>
-            <option value='3'";if($val==3){echo "selected";}echo">Familiar</option>
-        </select>
+                 <form  role=\"form\" name=\"myForm\" method=\"POST\" action='?page=intranet&section=rooms&action=update&id={$room->get_id()}'>
+                         <div class=\"col s12 m6\">
+                            <label>Tipo de habitación </label>
+                            <select class='browser-default' name='select1' required>
+                                <option></option>
+                                <option value='1'";if($val==1){echo "selected";}echo">Doble</option>
+                                <option value='2'";if($val==2){echo "selected";}echo">Triple</option>
+                                <option value='3'";if($val==3){echo "selected";}echo">Familiar</option>
+                            </select>
 
-    </div>
-    <!-- Name field -->
-    <div class=\"input-field col s12 m6\">
-        <input class='validate' type='number' value='{$room->get_number()}' name='number_room1' min=5 placeholder='Numero de habitación'>
-    </div>
-    <div class=\"col s12\">
-              <button type='submit' class='btn waves-effect waves-light right indigo'>Guardar</button>
-    </div>
-    <div class=\"col s12\">
-        <div class=\"clearfix\"></div>
-    </div>
-</div>
-</form>
+                        </div>
+                        <!-- Name field -->
+                        <div class=\"input-field col s12 m6\">
+                            <input class='validate' type='number' value='{$room->get_number()}' name='number_room1' min=1 placeholder='Numero de habitación'>
+                        </div>
+                        <div class=\"col s12\">
+                                  <button type='submit' class='btn waves-effect waves-light right indigo'>Guardar</button>
+                        </div>
+                        <div class=\"col s12\">
+                            <div class=\"clearfix\"></div>
+                        </div>
+                    </div>
+                 </form>
             </div>
         </div>
     </div>

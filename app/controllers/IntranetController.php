@@ -5,7 +5,9 @@ include_once '../resources/views/intranet/DashboardView.php';
 include_once '../resources/views/intranet/Nav.php';
 include_once '../resources/views/intranet/Footer.php';
 include_once '../app/controllers/LoginController.php';
+include_once '../app/controllers/UsersController.php';
 include_once '../app/controllers/RoomsController.php';
+include_once '../app/controllers/PromotionsController.php';
 
 class IntranetController{
     function print_page(){
@@ -53,7 +55,7 @@ class IntranetController{
                     if(isset($_REQUEST['id'])){
                         switch ($_REQUEST['action']){
                             case 'edit':
-                                $controller->edit();
+                                $controller->edit($_REQUEST['id']);
                                 break;
                             case 'delete':
                                 $controller->delete($_REQUEST['id']);
