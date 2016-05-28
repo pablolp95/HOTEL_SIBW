@@ -130,10 +130,10 @@
 }
 
 .button {
-    background-color: transparent;
+    background-color: goldenrod;
     border: 1px solid goldenrod;
     border-radius: 0;
-    color:goldenrod;
+    color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -142,8 +142,8 @@
 
 .button:hover {
     text-decoration: none;
-    color:white;
-    background-color: goldenrod;
+    color:goldenrod;
+    background-color: transparent;
 }
 
 .button:focus {
@@ -161,5 +161,14 @@
 
 .panel{
     border-radius: 0;
+}
 
+.table-room{
+    padding: 0px 40px 0px 0px;
+    margin: 0 !important;
+}
+
+.next{
+    padding: 0px 0px 20px 155px;
+    margin: 0 !important;
 }

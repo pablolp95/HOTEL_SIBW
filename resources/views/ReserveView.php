@@ -29,18 +29,18 @@ class ReserveView
                             <h1>¿Cuando quieres alojarte?</h1>
                         </div>
                     </div>
-                    <form role="form" name="myForm" method="get" action="../resources/scripts/email.php">
+                    <form role="form" name="myForm" method="get" action="?page=reserve&action=getrooms">
                             <div class="row section">
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label for="stating_date">Entrada</label>
-                                        <input type="date" class="datepicker form-control input-lg input-style" id="stating_date">
+                                        <input type="date" class="datepicker form-control input-lg input-style" id="stating_date" name="starting_date">
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label for="ending_date">Salida</label>
-                                        <input type="date" class="datepicker form-control input-lg input-style" id="ending_date">
+                                        <input type="date" class="datepicker form-control input-lg input-style" id="ending_date" name="ending_date">
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
@@ -79,11 +79,11 @@ class ReserveView
                                         </select>
                                     </div>
                                 </div> 
-                                <div class="col-sm-2 text-center select-room-submit">
+                                <div class="col-sm-2 select-room-submit">
                                     <button type="button" class="button btn-lg" style="text-align: center">Comprobar</button>
                                 </div>
                             </div>
-                            <div class="row nopadding">
+                            <div class="row table-room">
                                 <div class="panel panel-default">
                                     <table class="table table-roomtypes"> 
                                         <thead> 
@@ -117,7 +117,7 @@ class ReserveView
                                                 <td>Triple</td> 
                                                 <td>95\'99</td>
                                                 <td>
-                                                    <select class="form-control input-lg input-style" id="select_children" name="select_children">
+                                                    <select class="form-control input-lg input-style" id="select_triple" name="select_triple">
                                                         <option value="0">0</option>
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
@@ -136,9 +136,9 @@ class ReserveView
                                     </table>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row next">
                                 <div class="col-sm-offset-10 col-sm-2">
-                                    <button class="button btn-lg" style="text-align: center">Comprobar</button>
+                                    <button class="button btn-lg" style="text-align: center">Siguiente</button>
                                 </div>
                             </div>
                     </form>

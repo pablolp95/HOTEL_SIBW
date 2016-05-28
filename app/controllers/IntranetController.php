@@ -1,9 +1,9 @@
 <?php
 include_once '../resources/views/intranet/LoginView.php';
-include_once '../resources/views/intranet/IntranetHead.php';
+include_once '../resources/views/intranet/Head.php';
 include_once '../resources/views/intranet/DashboardView.php';
-include_once '../resources/views/intranet/IntranetNav.php';
-include_once '../resources/views/intranet/IntranetFooter.php';
+include_once '../resources/views/intranet/Nav.php';
+include_once '../resources/views/intranet/Footer.php';
 include_once '../app/controllers/LoginController.php';
 include_once '../app/controllers/ReservesController.php';
 
@@ -58,16 +58,18 @@ class IntranetController{
                             case 'delete':
                                 $controller->delete($_REQUEST['id']);
                                 break;
-                            case 'store':
-                                $controller->store();
-                                break;
                             case 'update':
                                 $controller->update($_REQUEST['id']);
                                 break;
                         }
                     }else{
-                        if($_REQUEST['action'] == 'create'){
-                            $controller->create();
+                        switch ($_REQUEST['action']){
+                            case 'create':
+                                $controller->create();
+                                break;
+                            case 'store':
+                                $controller->store();
+                                break;
                         }
                     }
                 }else{
