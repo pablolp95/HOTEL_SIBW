@@ -6,12 +6,14 @@ class DashboardView {
         $dashboard_elems = [
             "?page=intranet&section=reserves" => ["calendar", "Reservas",["admin","recepcionist"]],
             "?page=intranet&section=reserves&action=create" => ["deployment", "Realizar reserva",["admin","recepcionist"]],
-            "?page=intranet&section=promotions" => ["add_database", "Promociones",["admin"]],
+            "?page=intranet&section=promotions" => ["database", "Promociones",["admin"]],
             "?page=intranet&section=promotions&action=create" => ["add_database", "Crear promocion",["admin"]],
-            "?page=intranet&section=rooms" => ["add_database", "Habitaciones",["admin"]],
-            "?page=intranet&section=rooms&action=create" => ["add_database", "Crear habitación",["admin"]],
+            "?page=intranet&section=rooms" => ["list", "Habitaciones",["admin"]],
+            "?page=intranet&section=rooms&action=create" => ["plus", "Crear habitación",["admin"]],
             "?page=intranet&section=users" => ["address_book", "Usuarios",["admin"]],
-            "?page=intranet&section=users&action=create" => ["key", "Crear usuario",["admin"]]
+            "?page=intranet&section=users&action=create" => ["key", "Crear usuario",["admin"]],
+            "?page=intranet&section=roomtypes" => ["view_details", "Tipos de habitación",["admin"]],
+            "?page=intranet&section=roomtypes&action=create" => ["internal", "Crear tipo de habitación",["admin"]]
         ];
         $i=1;
 

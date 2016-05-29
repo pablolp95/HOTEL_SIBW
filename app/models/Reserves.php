@@ -41,11 +41,23 @@ class Reserves extends Model{
     }
 
     function update($reserve){
-
+        $db=Db::getInstance();
+        return $db->query("UPDATE reserve SET starting_date={$reserve->getStartingDate()} WHERE id={$reserve->getId()}");
     }
 
     function save($reserve){
-
+        $db = Db::getInstance();
+        $correct = $db->query("INSERT INTO reserves (id, starting_date, ending_date, adults_number, children_number,
+                            promotion_code, name, surname, phone, email, observations, cardholder, card_number, card_type, card_expiration_month,
+                            card_expiration_year, card_cvc, created_at, updated_at)
+                          VALUES ('','{$reserve->getStartingDate()}','{$reserve->getEndingDate()}','{$reserve->getRoomsNumber()}',
+                          '{$reserve->getAdultsNumber()}', '{$reserve->getChildrenNumber()}','{$reserve->getPromotionCode()}'
+                          '{$reserve->getName()}','{$reserve->getSurname()}','{$reserve->getPhone()}'
+                          '{$reserve->getEmail()}','{$reserve->getObservations()}','{$reserve->getCardholder()}',
+                          '{$reserve->getCardType()}','{$reserve->getCardNumber()}','{$reserve->getCardExpirationMonth()}',
+                          '{$reserve->getCardExpirationYear()}','{$reserve->getCardCvc()}',NULL,NULL)");
+        //Introduzco en la tabla reserves_rooms las habitaciones asociadas a la reserva
+        return $correct;
     }
 
     function allByDate($starting_date, $ending_date){
@@ -68,22 +80,23 @@ class Reserves extends Model{
         $reserve->setId($row['id']);
         $reserve->setStartingDate($row['starting_date']);
         $reserve->setEndingDate($row['ending_date']);
-        $reserve->setRoomsNumber($row['rooms_number']);
         $reserve->setAdultsNumber($row['adults_number']);
         $reserve->setChildrenNumber($row['children_number']);
         $reserve->setPromotionCode($row['promotion_code']);
         $reserve->setName($row['name']);
         $reserve->setSurname($row['surname']);
-        $reserve->setCountry($row['country']);
-        $reserve->setPhone($row['phone']);
         $reserve->setEmail($row['email']);
         $reserve->setObservations($row['observations']);
+        $reserve->setAddress($row['address']);
+        $reserve->setCity($row['city']);
+        $reserve->setPhone($row['phone']);
         $reserve->setCardholder($row['cardholder']);
         $reserve->setCardType($row['card_type']);
         $reserve->setCardNumber($row['card_number']);
         $reserve->setCardExpirationMonth($row['card_expiration_month']);
         $reserve->setCardExpirationYear($row['card_expiration_year']);
         $reserve->setCardCvc($row['card_cvc']);
+        $reserve->setTotalAmount($row['total_amount']);
 
         //Obtengo la(s) habitacion(es) asociada(s) a la reserva
         $statement = 'SELECT * FROM reserves_rooms WHERE reserve_id = \''.$row['id'].'\'';

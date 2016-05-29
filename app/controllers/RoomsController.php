@@ -17,8 +17,8 @@ class RoomsController extends Controller {
 
     public function store(){
         if(isset($_POST['select'])&& isset($_POST['number_room'])){
-            $room = new Room($_POST['select'], $_POST['number_room']);
-            $rooms=new Rooms();
+            $room = new Room(null,$_POST['select'], $_POST['number_room']);
+            $rooms = new Rooms();
             if($rooms->save($room)){
                 header("Location: /?page=intranet&section=rooms");
             }
@@ -30,21 +30,22 @@ class RoomsController extends Controller {
     }
 
     public function show($id){
-        $room = Rooms::find($id);
+        $rooms = new Rooms();
+        $room = $rooms->find($id);
         IRoomsView::print_room($room);
 
     }
 
     public function edit($id){
-            $use = Rooms::find($id);
-            IRoomsView::print_edit($use);
+        $rooms = new Rooms();
+        $room = $rooms->find($id);
+        IRoomsView::print_edit($room);
     }
 
     public function update($id){
         $u=new Rooms();
         if(isset($_POST['select1'])&& isset($_POST['number_room1'])){
-            $room = new Room($_POST['select1'], $_POST['number_room1']);
-            $room->set_id($id);
+            $room = new Room($id, $_POST['select1'], $_POST['number_room1']);
             if($u->update($room)){
                 header("Location: /?page=intranet&section=rooms");
             }

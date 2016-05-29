@@ -64,15 +64,16 @@ class UsersView {
                             <div class="row">
                                 <form  role="form" name="myForm" method="POST" action="?page=intranet&section=users&action=store" ">
                                     <div class="input-field col s12 m6">
-                                        <input class="validate" id="email" type="email" name="email1" placeholder="Email del usuario" required>
+                                        <label>Email:</label>
+                                        <input class="validate" id="email" type="email" name="email1" required>
                                     </div>
-                                
                                     <div class="input-field col s12 m6">
-                                        <input class="validate" type="text"  name="password1" placeholder="Contraseña del usuario">
+                                        <label>Contraseña</label>
+                                        <input class="validate" type="text"  name="password1">
                                     </div>
-                                
                                     <div class="input-field col s12 m6">
-                                        <input class="validate" type="text" name="name1" placeholder="Nombre">
+                                        <label>Nombre</label>
+                                        <input class="validate" type="text" name="name1">
                                     </div>
                                     <!--Role dropdown select-->
                                     <div class="col s12 m6">
@@ -134,18 +135,19 @@ class UsersView {
                             <div class="row">
                                 <!-- Email field -->
                                 <form  role="form" name="myForm2" method="POST" action="?page=intranet&section=users&action=update&id='.$user->get_id().'">
-                                   <div class="input-field col s12 m6">
-                                        <input class="validate" type="email" name="email2" value="'.$user->get_email().'" placeholder="Email del usuario">
-                                   </div>
-                                
+                                    <div class="input-field col s12 m6">
+                                        <label>Email:</label>
+                                        <input class="validate" type="email" name="email2" value="'.$user->get_email().'" required>
+                                    </div>
                                     <!-- Status field -->
                                     <div class="input-field col s12 m6">
-                                        <input class="validate" type="password" name="password2" value="'.$user->get_password().'" placeholder="Contraseña del usuario">
+                                        <label>Contraseña:</label>
+                                        <input class="validate" type="password" name="password2" required>
                                     </div>
-                                
                                     <!-- Name field -->
                                     <div class="input-field col s12 m6">
-                                        <input class="validate" type="text" name="name2" value="'.$user->get_name().'" placeholder="Nombre">
+                                        <label>Nombre:</label>
+                                        <input class="validate" type="text" name="name2" value="'.$user->get_name().'">
                                     </div>
                                 
                                      <!-- Role dropdown select -->

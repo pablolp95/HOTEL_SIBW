@@ -1,8 +1,8 @@
 <?php
-include_once '../app/models/Room.php';
-class IRoomsView {
+include_once '../app/models/Roomtype.php';
+class IntranetRoomtypesView {
 
-    public static function print_index($rooms){
+    public static function print_index($roomtypes){
         echo'
             <section>
                 <div class="container">
@@ -10,8 +10,8 @@ class IRoomsView {
                         <div class="col s12">
                             <div class="row">
                                 <div class="col s12">
-                                    <h1 class="grey-text text-darken-4">Habitaciones</h1>
-                                    <h5 class="grey-text text-darken-1">Estas son todas las habitaciones del sistema ¿quieres crear una <a href="?page=intranet&section=rooms&action=create">habitación?</a></h5>
+                                    <h1 class="grey-text text-darken-4">Tipos de habitaciones</h1>
+                                    <h5 class="grey-text text-darken-1">Estos son todos los  tipos de habitaciones del sistema ¿quieres crear un <a href="?page=intranet&section=roomtypes&action=create">tipo nuevo?</a></h5>
                                 </div>
                             </div>
                         </div>
@@ -21,21 +21,21 @@ class IRoomsView {
                             <table class="responsive-table hoverable-table">
                                 <thead>
                                     <tr>
-                                        <th>Numero habitación</th>
-                                        <th>Tipo</th>
+                                        <th>ID</th>
+                                        <th>Nombre</th>
                                         <th class="center-align">Acciones</th>
                                     </tr>
                                 </thead>';
                                 $i=1;
-                                while($i<=count($rooms)) {
+                                while($i<=count($roomtypes)) {
                                     echo'
                                       <tr>
-                                        <td>'.$rooms[$i-1]->get_number().'</td>
-                                        <td>'.$rooms[$i-1]->get_type().'</td>
+                                        <td>'.$roomtypes[$i-1]->getId().'</td>
+                                        <td>'.$roomtypes[$i-1]->getName().'</td>
                                         <td class="center-align">
-                                            <a class="btn-floating btn-large waves-effect waves-light deep-orange" href="?page=intranet&section=rooms&action=edit&id='.$rooms[$i-1]->get_id().'"><i class="material-icons">edit</i></a>
-                                            <a class="btn-floating btn-large waves-effect waves-light red" href="?page=intranet&section=rooms&id='.$rooms[$i-1]->get_id().'"><i class="material-icons">visibility</i></a>
-                                            <a class="btn-floating btn-large waves-effect waves-light blue" href="?page=intranet&section=rooms&action=delete&id='.$rooms[$i-1]->get_id().'"><i class="material-icons">delete</i></a>
+                                            <a class="btn-floating btn-large waves-effect waves-light deep-orange" href="?page=intranet&section=roomtypes&action=edit&id='.$roomtypes[$i-1]->getId().'"><i class="material-icons">edit</i></a>
+                                            <a class="btn-floating btn-large waves-effect waves-light red" href="?page=intranet&section=roomtypes&id='.$roomtypes[$i-1]->getId().'"><i class="material-icons">visibility</i></a>
+                                            <a class="btn-floating btn-large waves-effect waves-light blue" href="?page=intranet&section=roomtypes&action=delete&id='.$roomtypes[$i-1]->getId().'"><i class="material-icons">delete</i></a>
                                         </td>
                                       </tr>';
                                     $i++;
@@ -61,23 +61,24 @@ class IRoomsView {
                         <div class="col s12">
                             <div class="row">
                                 <!-- Email field -->
-                                <form  role="form" name="myForm" method="POST" action="?page=intranet&section=rooms&action=store" ">
-                                     <div class="col s12 m6">
-                                        <label>Tipo de habitación </label>
-                                        <select class="browser-default" name="select">
-                                            <option value="1">Doble</option>
-                                            <option value="2">Triple</option>
-                                            <option value="3">Familiar</option>
-                                        </select>
-                                    </div>
-                                    <!-- Name field -->
+                                <form  role="form" name="myForm" method="POST" action="?page=intranet&section=roomtypes&action=store" ">
                                     <div class="input-field col s12 m6">
-                                        <label>Numero de habitación</label>
-                                        <input class="validate" type="number" name="number_room">
+                                        <label>Nombre del tipo:</label>
+                                        <input class="validate" id="name" type="text" name="name" required>
                                     </div>
+                                    <div class="input-field col s12 m6">
+                                        <label>Precio base:</label>
+                                        <input class="validate" id="base_price" type="text" name="base_price" required>
+                                    </div>
+                                    <div class="input-field col s12 m12">
+                                        <label>Descripción:</label>
+                                        <textarea class="materialize-textarea" type="text" name="description"></textarea>
+                                    </div>
+                                    
                                     <div class="col s12">
                                         <button type="submit" class="btn waves-effect waves-light right indigo">Guardar</button>
                                     </div>
+                                    
                                     <div class="col s12">
                                         <div class="clearfix"></div>
                                     </div>
@@ -89,21 +90,22 @@ class IRoomsView {
             </section>';
     }
 
-    public static function print_room($room){
+    public static function print_show($roomtype){
         echo'
             <section>
                 <div class="container padded">
                     <div class="row">
                         <div class="col s12">
-                            <h1 class="grey-text text-darken-3">Habitacion número '.$room->get_number().'</h1>
+                            <h1 class="grey-text text-darken-3">Tipo de habitación: '.$roomtype->getName().'</h1>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s12">
                             <div class="row">
                                 <div class="col s12 m6">
-                                    <p><strong>Tipo:</strong> '.$room->get_type().'</p>
-                                    <p><strong>Número habitación:</strong> '.$room->get_number().'</p>
+                                    <p>Nombre: '.$roomtype->getName().'</p>
+                                    <p>Precio base: '.$roomtype->getBasePrice().'</p>
+                                    <p>Descripción: '.$roomtype->getDescription().'</p>
                                 </div>
                             </div>
                         </div>
@@ -112,39 +114,30 @@ class IRoomsView {
             </section>';
     }
 
-    public static function print_edit($room){
-        if($room->get_type()=='Doble'){
-            $val=1;
-        }
-        else if($room->get_type()=='Triple'){
-            $val=2;
-        }
-        else
-            $val=3;
-
+    public static function print_edit($roomtype){
         echo'
             <section>
                 <div class="container padded">
                     <div class="row">
                         <div class="col s12">
-                            <h1 class="grey-text text-darken-3">Editar habitación número '.$room->get_number().'</h1>
+                            <h1 class="grey-text text-darken-3">Editando tipo de habitación: '.$roomtype->getName().'</h1>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s12">
                             <div class="row">
-                                 <form  role="form" name="myForm" method="POST" action="?page=intranet&section=rooms&action=update&id='.$room->get_id().'">
-                                    <div class="col s12 m6">
-                                        <label>Tipo de habitación </label>
-                                        <select class="browser-default" name="select1" required>
-                                            <option value="1"';if($val==1){echo "selected";}echo'>Doble</option>
-                                            <option value="2"';if($val==2){echo "selected";}echo'>Triple</option>
-                                            <option value="3"';if($val==3){echo "selected";}echo'>Familiar</option>
-                                        </select>
+                                 <form  role="form" name="myForm" method="POST" action="?page=intranet&section=roomtypes&action=update&id='.$roomtype->getId().'">
+                                    <div class="input-field col s12 m6">
+                                        <label>Nombre del tipo:</label>
+                                        <input class="validate" id="name" type="text" name="name" value="'.$roomtype->getName().'"required>
                                     </div>
                                     <div class="input-field col s12 m6">
-                                        <label>Numero de habitación</label>
-                                        <input class="validate" type="number" value="'.$room->get_number().'" name="number_room1" min=1>
+                                        <label>Precio base:</label>
+                                        <input class="validate" id="base_price" type="text" name="base_price" value="'.$roomtype->getBasePrice().'"required>
+                                    </div>
+                                    <div class="input-field col s12 m12">
+                                        <label>Descripción:</label>
+                                        <textarea class="materialize-textarea" type="text" name="description">'.$roomtype->getDescription().'</textarea>
                                     </div>
                                     <div class="col s12">
                                         <button type="submit" class="btn waves-effect waves-light right indigo">Guardar</button>

@@ -34,21 +34,25 @@ class Roomtypes extends Model {
     }
 
     function delete($id){
-        $statement = 'DELETE * FROM roomtype WHERE id = \''.$id.'\'';
+        $statement = 'DELETE FROM roomtypes WHERE id = \''.$id.'\'';
         return Db::getInstance()->query($statement);
     }
 
     function update($roomtype){
-
+        $db=Db::getInstance();
+        return $db ->query("UPDATE roomtypes SET name='{$roomtype->getName()}', description='{$roomtype->getDescription()}', base_price={$roomtype->getBasePrice()} WHERE id={$roomtype->getId()}");
     }
 
     function save($roomtype){
-
+        $db = Db::getInstance();
+        return $db->query("INSERT INTO roomtypes (id, name, description, base_price, created_at, updated_at)
+    VALUES ('','{$roomtype->getName()}','{$roomtype->getDescription()}','{$roomtype->getBasePrice()}',NULL , NULL)");
     }
 
     private function silentSave($reserve,$row){
         $reserve->setId($row['id']);
         $reserve->setName($row['name']);
         $reserve->setDescription($row['description']);
+        $reserve->setBasePrice($row['base_price']);
     }
 }

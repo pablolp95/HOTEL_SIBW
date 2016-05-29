@@ -9,6 +9,7 @@ include_once '../app/controllers/UsersController.php';
 include_once '../app/controllers/RoomsController.php';
 include_once '../app/controllers/PromotionsController.php';
 include_once '../app/controllers/ReservesController.php';
+include_once '../app/controllers/RoomtypesController.php';
 
 class IntranetController{
     function print_page(){
@@ -49,6 +50,9 @@ class IntranetController{
                         break;
                     case 'users':
                         $controller = new UsersController();
+                        break;
+                    case 'roomtypes':
+                        $controller = new RoomtypesController();
                         break;
                 }
 
@@ -114,6 +118,13 @@ class IntranetController{
                 $login->print_login();
             }
         }
+        if(isset($_REQUEST['section']) && isset($_REQUEST['action']) && $_REQUEST['section']=='reserves' &&($_REQUEST['action']=='edit' || $_REQUEST['action']=='create')){
+            echo '<script>
+                 $(\'.datepicker\').pickadate();
+                    initServiceValidation();
+                </script>';
+        }
+
         echo '</html>';
     }
 }

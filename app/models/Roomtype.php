@@ -5,11 +5,13 @@ class Roomtype
     var $id;
     var $name;
     var $description;
+    var $base_price;
 
-    function __construct($id, $name, $description){
+    function __construct($id, $name, $description, $base_price){
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
+        $this->base_price = $base_price;
     }
 
     /**
@@ -58,6 +60,22 @@ class Roomtype
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBasePrice()
+    {
+        return $this->base_price;
+    }
+
+    /**
+     * @param mixed $base_price
+     */
+    public function setBasePrice($base_price)
+    {
+        $this->base_price = $base_price;
     }
 
 }

@@ -49,7 +49,7 @@ class PublicController{
                 if(isset($_GET['action']) && $_GET['action']=='getrooms'){
                     
                 }
-                else{
+                else if(isset($_GET['step'])){
                     $reserve = new ReserveView();
                     $step = $_GET['step'];
                     $reserve->print_reserve($step);

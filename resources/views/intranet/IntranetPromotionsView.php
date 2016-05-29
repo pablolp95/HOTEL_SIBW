@@ -61,24 +61,24 @@ class IPromotionsView {
                     <div class="row">
                         <div class="col s12">
                             <div class="row">
-                                <!-- Email field -->
                                 <form  role="form" name="myForm" method="POST" action="?page=intranet&section=promotions&action=store">
-                                   <div class="input-field col s12 m6">
-                                        <input class="validate" id="email" type="text" name="name" placeholder="Nombre promoción" required>
-                                    </div>
-                                
-                                    <!-- Status field -->
                                     <div class="input-field col s12 m6">
-                                        <input class="validate" type="text"  name="code" placeholder="Codigo promoción">
+                                        <label>Nombre promoción:</label>
+                                        <input class="validate" id="email" type="text" name="name" required>
                                     </div>
                                 
-                                    <!-- Name field -->
+                                    <div class="input-field col s12 m6">
+                                        <label>Codigo promoción:</label>
+                                        <input class="validate" type="text" name="code">
+                                    </div>
+                                
                                     <div class="input-field col s12 m12">
-                                        <input class="validate" type="text" name="description" placeholder="Descripción">
+                                        <label>Descripción:</label>
+                                        <textarea class="materialize-textarea" type="text" name="description"></textarea>
                                     </div>
                                 
                                     <div class="col s12">
-                                              <button type="submit" class="btn waves-effect waves-light right indigo">Guardar</button>
+                                        <button type="submit" class="btn waves-effect waves-light right indigo">Guardar</button>
                                     </div>
                                     <div class="col s12">
                                         <div class="clearfix"></div>
@@ -129,18 +129,21 @@ class IPromotionsView {
                             <div class="row">
                                 <!-- Email field -->
                                 <form  role="form" name="myForm" method="POST" action="?page=intranet&section=promotions&action=update&id='.$promotion->get_id().'" ">
-                                   <div class="input-field col s12 m6">
-                                        <input class="validate" id="email" type="text" name="name1" value="'.$promotion->get_name().'" placeholder="Nombre promoción" required>
+                                    <div class="input-field col s12 m6">
+                                        <label>Nombre:</label>
+                                        <input class="validate" id="email" type="text" name="name1" value="'.$promotion->get_name().'"required>
                                     </div>
                                 
                                     <!-- Status field -->
                                     <div class="input-field col s12 m6">
-                                        <input class="validate" type="text"  name="code1"  value="'.$promotion->get_code().'" placeholder="Codigo promoción">
+                                        <label>Codigo promoción:</label>
+                                        <input class="validate" type="text"  name="code1"  value="'.$promotion->get_code().'">
                                     </div>
                                 
                                     <!-- Name field -->
                                     <div class="input-field col s12 m12">
-                                        <input class="validate" type="text" name="description1"  value="'.$promotion->get_description().'" placeholder="Descripción">
+                                        <label>Descripción:</label>
+                                        <textarea class="materialize-textarea" type="text" name="description1">'.$promotion->get_description().'</textarea>
                                     </div>
                                 
                                     <div class="col s12">
