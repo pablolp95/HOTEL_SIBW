@@ -1,6 +1,9 @@
 <?php
 include_once '../app/models/Reserve.php';
 include_once '../app/models/Reserves.php';
+include_once '../app/models/Room.php';
+include_once '../app/models/Rooms.php';
+include_once '../app/models/Roomtypes.php';
 
 class IntranetReservesView{
     static function print_index($reserves){
@@ -56,6 +59,12 @@ class IntranetReservesView{
     }
 
     static function print_create(){
+        $isset = false;
+        if(isset($_POST['starting_date_submit'],$_POST['ending_date_submit'])){
+            $_SESSION['starting_date_submit'] = $_POST['starting_date_submit'];
+            $_SESSION['ending_date_submit'] = $_POST['ending_date_submit'];
+            $isset = true;
+        }
         echo'
             <section>
                 <div class="container padded">
@@ -67,109 +76,179 @@ class IntranetReservesView{
                     <div class="row">
                         <div class="col s12">
                             <div class="row">
-                                <!-- Email field -->
-                                <form  role="form" name="myForm" method="POST" action="?page=intranet&section=reserves&action=store" ">
-                                    <div class="input-field col s12 m6">
+                                <form  role="form" name="myForm" method="POST" action="?page=intranet&section=reserves&action=create">
+                                    <div class="input-field col s12 m4">
                                         <label for="stating_date">Entrada:*</label>
-                                        <input type="date" class="datepicker form-control input-lg input-style" id="stating_date" name="starting_date" required>
+                                        <input type="date" class="datepicker form-control input-lg input-style" id="stating_date_submit" name="starting_date_submit" value="'.$_SESSION['starting_date_submit'].'" required>
                                     </div>
-                                    
-                                    <div class="input-field col s12 m6">
+                                    <div class="input-field col s12 m4">
                                         <label for="stating_date">Salida:*</label>
-                                        <input type="date" class="datepicker form-control input-lg input-style" id="ending_date" name="ending_date" required>
+                                        <input type="date" class="datepicker form-control input-lg input-style" id="ending_date_submit" name="ending_date_submit" value="'.$_SESSION['ending_date_submit'].'" required>
                                     </div>
-                                    
-                                    <div class="input-field col s12 m6">
-                                        <label>Número de adultos:*</label>
-                                        <input class="validate" type="text" name="adults_number" required>
-                                    </div>
-                                    
-                                    <div class="input-field col s12 m6">
-                                        <label>Número de niños:*</label>
-                                        <input class="validate" type="text" name="children_number" required>
-                                    </div>
-                                    
-                                    <div class="input-field col s12 m6">
-                                        <label>Nombre:*</label>
-                                        <input class="validate" type="text" name="name" required>
-                                    </div>
-                                    
-                                    <div class="input-field col s12 m6">
-                                        <label>Apellidos:*</label>
-                                        <input class="validate" type="text" name="surname" required>
-                                    </div>
-                                    
-                                    <div class="input-field col s12 m6">
-                                        <label>Email:*</label>
-                                        <input class="validate" type="text" name="email" required>
-                                    </div>
-                                    
-                                    <div class="input-field col s12 m12">
-                                        <label>Observaciones:</label>
-                                        <textarea class="materialize-textarea" type="text" name="observations"></textarea>
-                                    </div>
-                                    
-                                    <div class="input-field col s12 m6">
-                                        <label>Dirección:*</label>
-                                        <input class="validate" type="text" name="address" required>
-                                    </div>
-                                    
-                                    <div class="input-field col s12 m6">
-                                        <label>Ciudad:*</label>
-                                        <input class="validate" type="text" name="city" required>
-                                    </div>
-                                    
-                                    <div class="input-field col s12 m6">
-                                        <label>Teléfono:*</label>
-                                        <input class="validate" type="text" name="phone" required>
-                                    </div>
-                                    
-                                    <div class="input-field col s12 m6">
-                                        <label>Titular de la tarjeta:*</label>
-                                        <input class="validate" type="text" name="cardholder" required>
-                                    </div>
-                                    
-                                    <div class="input-field col s12 m6">
-                                        <label>Número de la tarjeta:*</label>
-                                        <input class="validate" type="text" name="card_number" required>
-                                    </div>
-                                    
-                                    <div class="input-field col s12 m6">
-                                        <label>Tipo de tarjeta:*</label>
-                                        <input class="validate" type="text" name="card_type" required>
-                                    </div>
-                                    
-                                    <div class="input-field col s12 m6">
-                                        <label>Mes de caducidad de la tarjeta:*</label>
-                                        <input class="validate" type="text" name="card_expiration_month" required>
-                                    </div>
-                                    
-                                    <div class="input-field col s12 m6">
-                                        <label>Año de caducidad de la tarjeta:*</label>
-                                        <input class="validate" type="text" name="card_expiration_year" required>
-                                    </div>
-                                    
-                                    <div class="input-field col s12 m6">
-                                        <label>CVC de la tarjeta:*</label>
-                                        <input class="validate" type="text" name="card_cvc" required>
-                                    </div>
-                                    
-                                    <div class="input-field col s12 m6">
-                                        <label>Código de promoción:*</label>
-                                        <input class="validate" type="text" name="promotion_code">
-                                    </div>
-                                    
-                                    <div class="col s12">
-                                        <button type="submit" class="btn waves-effect waves-light right indigo">Guardar</button>
-                                    </div>
-                                    
-                                    <div class="col s12">
-                                        <div class="clearfix"></div>
+                                    <div class="input-field col s12 m4">
+                                        <button class="btn waves-effect waves-light right indigo" style="text-align: center">Comprobar</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </div>';
+        if($isset){
+            $reserves = new ReservesController();
+            $availables = $reserves->getRoomsAvailable($_POST['starting_date_submit'],$_POST['ending_date_submit']);//Obtengo para cada tipo el número de habitaciones disponibles
+            $roomtypes = new Roomtypes();//Objeto contendor de tipos de habitaciones
+            $roomtype_list = array();//Esta variable almaenara los tipos de habitaciones
+            //Para cada tipo de habitacion obtengo su objeto para manejar la información relacionada a ella
+            while($element = current($availables)) {
+                $roomtype = $roomtypes->findByName(key($availables));
+                array_push($roomtype_list,$roomtype);
+                next($availables);
+            }
+            $available = false;
+            foreach ($availables as $type=>$number){
+                if($number > 0){
+                    $available = true;
+                }
+            }
+            if($available){
+                echo'
+                <div class="row">    
+                    <form  role="form" name="myForm" method="POST" action="?page=intranet&section=reserves&action=store">
+                        <div class="row table-room">
+                            <div class="panel panel-default">
+                                <table class="table table-roomtypes"> 
+                                    <thead> 
+                                        <tr> 
+                                            <th>Tipo</th> 
+                                            <th>Precio</th> 
+                                            <th>Cantidad</th> 
+                                        </tr> 
+                                    </thead> 
+                                    <tbody>';
+                                    foreach ($roomtype_list as $roomtype){
+                                        if($availables[$roomtype->getName()] > 0){
+                                        echo '
+                                            <tr> 
+                                                <td>'.$roomtype->getName().'</td> 
+                                                <td id="price_'.$roomtype->getName().'">'.$roomtype->getBasePrice().'</td>
+                                                <td>
+                                                    <select class="form-control input-lg input-style" id="select_'.$roomtype->getName().'" name="select_'.$roomtype->getName().'">';
+                                                        echo '<option value="0">0</option>';
+                                                    for($i=1;$i<=$availables[$roomtype->getName()];$i++){
+                                                        echo '<option value="'.$i.'">'.$i.'</option>';
+                                                        }
+                                                    echo'
+                                                    </select>
+                                                </td>
+                                            </tr>';
+                                        }
+                                    }
+                                echo'
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div><!--Fin row table-room-->
+                        <div class="row next">
+                            <div class="col-sm-2 nopadding">
+                                <p>TOTAL: <span id="total_amount">0</span>€</p>
+                            </div>
+                        </div>
+                                
+                        <div class="row">
+                            <div class="input-field col s12 m6">
+                                <label>Número de adultos:*</label>
+                                <input class="validate" type="text" name="adults_number" required>
+                            </div>
+                                    
+                            <div class="input-field col s12 m6">
+                                <label>Número de niños:*</label>
+                                <input class="validate" type="text" name="children_number" required>
+                            </div>
+                                    
+                            <div class="input-field col s12 m6">
+                                <label>Nombre:*</label>
+                                <input class="validate" type="text" name="name" required>
+                            </div>
+                                    
+                            <div class="input-field col s12 m6">
+                                <label>Apellidos:*</label>
+                                <input class="validate" type="text" name="surname" required>
+                            </div>
+                                    
+                            <div class="input-field col s12 m6">
+                                <label>Email:*</label>
+                                <input class="validate" type="text" name="email" required>
+                            </div>
+                                    
+                            <div class="input-field col s12 m12">
+                                <label>Observaciones:</label>
+                                <textarea class="materialize-textarea" type="text" name="observations"></textarea>
+                            </div>
+                                    
+                            <div class="input-field col s12 m6">
+                                <label>Dirección:*</label>
+                                <input class="validate" type="text" name="address" required>
+                            </div>
+                                    
+                            <div class="input-field col s12 m6">
+                                <label>Ciudad:*</label>
+                                <input class="validate" type="text" name="city" required>
+                            </div>
+                                    
+                            <div class="input-field col s12 m6">
+                                <label>Teléfono:*</label>
+                                <input class="validate" type="text" name="phone" required>
+                            </div>
+                                    
+                            <div class="input-field col s12 m6">
+                                <label>Titular de la tarjeta:*</label>
+                                <input class="validate" type="text" name="cardholder" required>
+                            </div>
+                                   
+                            <div class="input-field col s12 m6">
+                                <label>Número de la tarjeta:*</label>
+                                <input class="validate" type="text" name="card_number" required>
+                            </div>
+                                    
+                            <div class="input-field col s12 m6">
+                                <label>Tipo de tarjeta:*</label>
+                                <input class="validate" type="text" name="card_type" required>
+                            </div>
+                                    
+                            <div class="input-field col s12 m6">
+                                <label>Mes de caducidad de la tarjeta:*</label>
+                                <input class="validate" type="text" name="card_expiration_month" required>
+                            </div>
+                                    
+                            <div class="input-field col s12 m6">
+                                <label>Año de caducidad de la tarjeta:*</label>
+                                <input class="validate" type="text" name="card_expiration_year" required>
+                            </div>
+                                    
+                            <div class="input-field col s12 m6">
+                                <label>CVC de la tarjeta:*</label>
+                                <input class="validate" type="text" name="card_cvc" required>
+                            </div>
+                                    
+                            <div class="input-field col s12 m6">
+                                <label>Código de promoción:*</label>
+                                <input class="validate" type="text" name="promotion_code">
+                            </div>
+                                    
+                            <div class="col s12">
+                                <button type="submit" class="btn waves-effect waves-light right indigo">Guardar</button>
+                            </div>
+                                    
+                            <div class="col s12">
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>';
+            }
+        }
+        echo'
                 </div>
             </section>';
     }

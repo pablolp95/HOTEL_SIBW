@@ -64,13 +64,13 @@ class ReserveView
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label for="stating_date_submit">Entrada</label>
-                                        <input type="date" class="datepicker form-control input-lg input-style" id="starting_date_submit" name="starting_date_submit" value="'.$_SESSION['starting_date_submit'].'"required>
+                                        <input type="date" class="datepicker form-control input-lg input-style" id="starting_date_submit" name="starting_date_submit" value="'.$_SESSION['starting_date_submit'].'" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label for="ending_date">Salida</label>
-                                        <input type="date" class="datepicker form-control input-lg input-style" id="ending_date_submit" name="ending_date_submit" value="'.$_SESSION['ending_date_submit'].'"required>
+                                        <input type="date" class="datepicker form-control input-lg input-style" id="ending_date_submit" name="ending_date_submit" value="'.$_SESSION['ending_date_submit'].'" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
@@ -111,7 +111,7 @@ class ReserveView
                     </form>';
         if($isset){
             $reserves = new ReservesController();
-            $availables = $reserves->getRoomsAvailable($_POST['starting_date'],$_POST['ending_date']);//Obtengo para cada tipo el número de habitaciones disponibles
+            $availables = $reserves->getRoomsAvailable($_POST['starting_date_submit'],$_POST['ending_date_submit']);//Obtengo para cada tipo el número de habitaciones disponibles
             $roomtypes = new Roomtypes();//Objeto contendor de tipos de habitaciones
             $roomtype_list = array();//Esta variable almaenara los tipos de habitaciones
             //Para cada tipo de habitacion obtengo su objeto para manejar la información relacionada a ella
