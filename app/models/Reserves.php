@@ -54,7 +54,7 @@ class Reserves extends Model{
 
     function save($reserve){
         $db = Db::getInstance();
-        return $db->query("INSERT INTO reserves (id, starting_date, ending_date, adults_number, children_number,
+        $db->query("INSERT INTO reserves (id, starting_date, ending_date, adults_number, children_number,
                             promotion_code, name, surname, email, observations, address, city, phone,cardholder, card_number, card_type, card_expiration_month,
                             card_expiration_year, card_cvc, total_amount,created_at, updated_at)
                           VALUES ('','{$reserve->getStartingDate()}','{$reserve->getEndingDate()}',
@@ -63,7 +63,7 @@ class Reserves extends Model{
                           '{$reserve->getObservations()}', '{$reserve->getAddress()}', '{$reserve->getCity()}', '{$reserve->getPhone()}',
                           '{$reserve->getCardholder()}', '{$reserve->getCardNumber()}','{$reserve->getCardType()}','{$reserve->getCardExpirationMonth()}',
                           '{$reserve->getCardExpirationYear()}','{$reserve->getCardCvc()}',0,NULL,NULL)");
-        //Introduzco en la tabla reserves_rooms las habitaciones asociadas a la reserva
+        return $db->insert_id;
     }
 
     function allByDate($starting_date, $ending_date){

@@ -6,6 +6,8 @@ include_once '../app/models/Reserves.php';
 include_once '../app/models/Rooms.php';
 include_once '../app/models/Roomtype.php';
 include_once '../app/models/Roomtypes.php';
+include_once '../app/models/ReserveRooms.php';
+include_once '../app/models/ReservesRooms.php';
 
 class ReservesController extends Controller
 {
@@ -35,7 +37,9 @@ class ReservesController extends Controller
         $reserve = new Reserve();
         $this->silentSave($reserve);
         $reserves = new Reserves();
-        if($reserves->save($reserve)){
+        $id = $reserves->save($reserve);
+        if($id != null){
+            $this->insertReservedRooms($id);
             header("Location: /?page=reserve&step=summary");
         }
         else{
@@ -95,10 +99,10 @@ class ReservesController extends Controller
         $reserve->setCardExpirationYear($_POST['card_expiration_year']);
         $reserve->setCardCvc($_POST['card_cvc']);
         $reserve->setTotalAmount($_POST['total_amount']);
-        
+
         //Obtengo la(s) habitacion(es) asociada(s) a la reserva de la petición y creo un arraylist del tipo
         //['tipo de habitacion']=>['numero de habitaciones reservadas']. Asigno este arraylist a la reserva
-        $statement = 'SELECT * FROM reserves_rooms WHERE reserve_id = \''.$_POST['id'].'\'';
+        /*$statement = 'SELECT * FROM reserves_rooms WHERE reserve_id = \''.$_POST['id'].'\'';
         $result = Db::getInstance()->query($statement);
 
         $list = null;
@@ -110,7 +114,7 @@ class ReservesController extends Controller
             }
         }
 
-        $reserve->setReservedRooms($list);
+        $reserve->setReservedRooms($list);*/
     }
 
     function getRoomsAvailable($starting_date, $ending_date){
@@ -141,4 +145,44 @@ class ReservesController extends Controller
 
         return $available;
     }
+
+    function insertReservedRooms($id){
+        if($_POST['select_Individual'] != 0){
+            $reserverooms = new ReserveRooms();
+            $reserverooms->setReserveId($id);
+            $reserverooms->setRoomtypeId(1);
+            $reserverooms->setRoomsNumber(intval($_POST['select_Individual']));
+
+            $reservesrooms = new ReservesRooms();
+            $reservesrooms->save($reserverooms);
+        }
+        if($_POST['select_Doble'] != 0){
+            $reserverooms = new ReserveRooms();
+            $reserverooms->setReserveId($id);
+            $reserverooms->setRoomtypeId(2);
+            $reserverooms->setRoomsNumber(intval($_POST['select_Doble']));
+
+            $reservesrooms = new ReservesRooms();
+            $reservesrooms->save($reserverooms);
+        }
+        if($_POST['select_Triple'] != 0){
+            $reserverooms = new ReserveRooms();
+            $reserverooms->setReserveId($id);
+            $reserverooms->setRoomtypeId(3);
+            $reserverooms->setRoomsNumber(intval($_POST['select_Triple']));
+
+            $reservesrooms = new ReservesRooms();
+            $reservesrooms->save($reserverooms);
+        }
+        if($_POST['select_Familiar'] != 0){
+            $reserverooms = new ReserveRooms();
+            $reserverooms->setReserveId($id);
+            $reserverooms->setRoomtypeId(4);
+            $reserverooms->setRoomsNumber(intval($_POST['select_Familiar']));
+
+            $reservesrooms = new ReservesRooms();
+            $reservesrooms->save($reserverooms);
+        }
+    }
+
 }

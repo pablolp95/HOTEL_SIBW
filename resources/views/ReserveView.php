@@ -264,7 +264,14 @@ class ReserveView
     }
 
     private function print_confirm(){
-        session_destroy();
+        session_start();
+        $_SESSION['name'] = $_POST['name'];
+        $_SESSION['surname'] = $_POST['surname'];
+        $_SESSION['city'] = $_POST['city'];
+        $_SESSION['address'] = $_POST['address'];
+        $_SESSION['phone'] = $_POST['phone'];
+        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['observations'] = $_POST['observations'];
 
         echo '
             <section>
@@ -348,6 +355,8 @@ class ReserveView
     }
 
     private function print_summary(){
+        session_start();
+
         echo '
             <section>
                 <div class="container">
@@ -357,51 +366,24 @@ class ReserveView
                         </div>
                     </div>
                     <div class="row">
-                            <div class="col-sm-12 warranty">
-                                <h4>Garantía de reserva</h4>
-                            </div>
-                               
-                            <div class="col-sm-6">
-                                 <div class="form-group">
-                                    <label for="cardholder">Titular de la tarjeta:</label>
-                                    <input type="text" class="form-control input-lg input-style" id="cardholder" name="cardholder" required>
-                                 </div>
-                            </div>
-                                
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="cardnumber">Número de tarjeta:</label>
-                                    <input type="text" class="form-control input-lg input-style" id="card_number" name="card_number" required>
-                                </div>
-                            </div>
-                                
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="card_type">Tipo de tajeta:</label>
-                                    <input type="text" class="form-control input-lg input-style" id="card_type" name="card_type" required>
-                                </div>
-                            </div>
-                                
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="card_expiration_month">Mes de caducidad de la tarjeta:</label>
-                                    <input type="text" class="form-control input-lg input-style" id="card_expiration_month" name="card_expiration_month" required>
-                                </div>
-                            </div>
-                                
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="card_expiration_year">Mes de caducidad de la tarjeta:</label>
-                                    <input class="form-control input-lg noresize input-style" id="card_expiration_year" name="card_expiration_year" required>
-                                </div>
-                            </div>
-                                
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="card_cvc">CVC:</label>
-                                    <input class="form-control input-lg noresize input-style" id="card_cvc" name="card_cvc" required>
-                                </div>
-                            </div>
+                        <div class="col-sm-6">
+                            <p><strong>Fecha de entrada:</strong> '.$_SESSION['starting_date_submit'].'</p>
+                            <p><strong>Fecha de salida:</strong> '.$_SESSION['ending_date_submit'].'</p>
+                            <p><strong>Número de adultos:</strong> '.$_SESSION['adults_number'].'</p>
+                            <p><strong>Número de niños:</strong> '.$_SESSION['children_number'].'</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p><strong>Nombre:</strong> '.$_SESSION['name'].'</p>
+                            <p><strong>Apellidos:</strong> '.$_SESSION['surname'].'</p>
+                            <p><strong>Ciudad:</strong> '.$_SESSION['city'].'</p>
+                            <p><strong>Dirección:</strong> '.$_SESSION['address'].'</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p><strong>Teléfono:</strong> '.$_SESSION['phone'].'</p>
+                            <p><strong>Email:</strong> '.$_SESSION['email'].'</p>
+                        </div>
                     </div>
                 </div>
             </section>';
