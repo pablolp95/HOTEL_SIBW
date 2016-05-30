@@ -66,7 +66,7 @@ INSERT INTO `roomtypes` (`id`, `name`, `description`, `base_price`, `created_at`
   (1, 'Individual', null, 49.99, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
   (2, 'Doble', null, 69.99,'2016-05-08 17:27:13', '2016-05-22 15:23:08'),
   (3, 'Triple', null, 75.99,'2016-05-08 17:27:13', '2016-05-22 15:23:08'),
-  (4, 'Familiar', null, 8.99,'2016-05-08 17:27:13', '2016-05-22 15:23:08');
+  (4, 'Familiar', null, 89.99,'2016-05-08 17:27:13', '2016-05-22 15:23:08');
 
 DROP TABLE IF EXISTS `rooms`;
 CREATE TABLE `rooms` (

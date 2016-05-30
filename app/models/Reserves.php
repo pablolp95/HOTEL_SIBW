@@ -36,28 +36,34 @@ class Reserves extends Model{
     }
 
     function delete($id){
-        $statement = 'DELETE * FROM reserves WHERE id = \''.$id.'\'';
+        $statement = 'DELETE FROM reserves WHERE id = \''.$id.'\'';
         return Db::getInstance()->query($statement);
     }
 
     function update($reserve){
         $db=Db::getInstance();
-        return $db->query("UPDATE reserve SET starting_date={$reserve->getStartingDate()} WHERE id={$reserve->getId()}");
+        return $db->query("UPDATE reserves SET starting_date='{$reserve->getStartingDate()}', ending_date='{$reserve->getEndingDate()}', 
+                             adults_number='{$reserve->getAdultsNumber()}', children_number='{$reserve->getChildrenNumber()}',
+                             promotion_code='{$reserve->getPromotionCode()}', name='{$reserve->getName()}', 
+                             surname='{$reserve->getSurname()}', phone='{$reserve->getPhone()}',
+                             email='{$reserve->getEmail()}', observations='{$reserve->getObservations()}',
+                             cardholder='{$reserve->getCardholder()}', card_number='{$reserve->getCardNumber()}',
+                             card_type='{$reserve->getCardType()}', card_expiration_month='{$reserve->getCardExpirationMonth()}',
+                             card_expiration_year='{$reserve->getCardExpirationYear()}', card_cvc='{$reserve->getCardCvc()}' WHERE id={$reserve->getId()}");
     }
 
     function save($reserve){
         $db = Db::getInstance();
-        $correct = $db->query("INSERT INTO reserves (id, starting_date, ending_date, adults_number, children_number,
-                            promotion_code, name, surname, phone, email, observations, cardholder, card_number, card_type, card_expiration_month,
-                            card_expiration_year, card_cvc, created_at, updated_at)
-                          VALUES ('','{$reserve->getStartingDate()}','{$reserve->getEndingDate()}','{$reserve->getRoomsNumber()}',
-                          '{$reserve->getAdultsNumber()}', '{$reserve->getChildrenNumber()}','{$reserve->getPromotionCode()}'
-                          '{$reserve->getName()}','{$reserve->getSurname()}','{$reserve->getPhone()}'
-                          '{$reserve->getEmail()}','{$reserve->getObservations()}','{$reserve->getCardholder()}',
-                          '{$reserve->getCardType()}','{$reserve->getCardNumber()}','{$reserve->getCardExpirationMonth()}',
-                          '{$reserve->getCardExpirationYear()}','{$reserve->getCardCvc()}',NULL,NULL)");
+        return $db->query("INSERT INTO reserves (id, starting_date, ending_date, adults_number, children_number,
+                            promotion_code, name, surname, email, observations, address, city, phone,cardholder, card_number, card_type, card_expiration_month,
+                            card_expiration_year, card_cvc, total_amount,created_at, updated_at)
+                          VALUES ('','{$reserve->getStartingDate()}','{$reserve->getEndingDate()}',
+                          '{$reserve->getAdultsNumber()}', '{$reserve->getChildrenNumber()}','{$reserve->getPromotionCode()}',
+                          '{$reserve->getName()}','{$reserve->getSurname()}','{$reserve->getEmail()}',
+                          '{$reserve->getObservations()}', '{$reserve->getAddress()}', '{$reserve->getCity()}', '{$reserve->getPhone()}',
+                          '{$reserve->getCardholder()}', '{$reserve->getCardNumber()}','{$reserve->getCardType()}','{$reserve->getCardExpirationMonth()}',
+                          '{$reserve->getCardExpirationYear()}','{$reserve->getCardCvc()}',0,NULL,NULL)");
         //Introduzco en la tabla reserves_rooms las habitaciones asociadas a la reserva
-        return $correct;
     }
 
     function allByDate($starting_date, $ending_date){

@@ -8,9 +8,18 @@ include_once '../resources/views/Nav.php';
 include_once '../resources/views/PromotionsView.php';
 include_once '../resources/views/RoomsView.php';
 include_once '../resources/views/ReserveView.php';
+include_once '../app/controllers/ReservesController.php';
 
 class PublicController{
     function print_page(){
+        if($_GET['page']!='reserve'){
+            session_start();
+            if(isset($_SESSION['expire'])){
+                session_unset();
+                session_destroy();
+            }
+        }
+
         echo'<!DOCTYPE html>
         <html lang="es">';
         $page = $_GET['page'];
@@ -46,12 +55,9 @@ class PublicController{
                 $contact->print_contact();
                 break;
             case 'reserve':
-                if(isset($_GET['action']) && $_GET['action']=='getrooms'){
-                    
-                }
-                else if(isset($_GET['step'])){
+                if(isset($_REQUEST['step'])){
                     $reserve = new ReserveView();
-                    $step = $_GET['step'];
+                    $step = $_REQUEST['step'];
                     $reserve->print_reserve($step);
                 }
                 break;
@@ -64,5 +70,10 @@ class PublicController{
         $footer->print_footer();
         echo '</body>
         </html>';
+    }
+
+    function store_reserve(){
+        $reserves = new ReservesController();
+        $reserves->publicStore();
     }
 }

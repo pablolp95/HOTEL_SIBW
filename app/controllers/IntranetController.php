@@ -121,7 +121,6 @@ class IntranetController{
         if(isset($_REQUEST['section']) && isset($_REQUEST['action']) && $_REQUEST['section']=='reserves' &&($_REQUEST['action']=='edit' || $_REQUEST['action']=='create')){
             echo '<script>
                  $(\'.datepicker\').pickadate();
-                    initServiceValidation();
                 </script>';
         }
 

@@ -169,6 +169,37 @@
 }
 
 .next{
-    padding: 0px 0px 20px 155px;
+    padding-bottom: 20px;
     margin: 0 !important;
+}
+
+.next p{
+    font-family:'Noto Serif','Droid Serif', serif;
+    font-size:1.8em;
+}
+
+.noroom-message{
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    height: 200px;
+    padding: 70px 15px 0px 15px;
+    margin-bottom: 20px;
+    color: #808080;
+}
+
+.section-info{
+    padding-bottom: 0px;
+}
+
+.warranty{
+    font-family: 'Noto Serif','Droid Serif', serif;
+    background-color: white;
+    color: #232528;
+    padding-bottom: 20px;
+}
+
+.warranty h4{
+    border-bottom: 1px solid black;
+    margin: 0;
+    padding: 0;
 }

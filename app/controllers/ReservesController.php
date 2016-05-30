@@ -20,16 +20,26 @@ class ReservesController extends Controller
     }
 
     function store(){
-        if(isset($_POST['name']) && isset($_POST['base_price'])){
-            $reserve = new Reserve();
-            $this->silentSave($reserve);
-            $reserves = new Reserves();
-            if($reserves->save($reserve)){
-                header("Location: /?page=intranet&section=reserves");
-            }
-            else{
-                header("Location: /?page=intranet&section=reserves&action=create");
-            }
+        $reserve = new Reserve();
+        $this->silentSave($reserve);
+        $reserves = new Reserves();
+        if($reserves->save($reserve)){
+            header("Location: /?page=intranet&section=reserves");
+        }
+        else{
+            header("Location: /?page=intranet&section=reserves&action=create");
+        }
+    }
+
+    function publicStore(){
+        $reserve = new Reserve();
+        $this->silentSave($reserve);
+        $reserves = new Reserves();
+        if($reserves->save($reserve)){
+            header("Location: /?page=reserve&step=summary");
+        }
+        else{
+            header("Location: /?page=reserve&step=confirm");
         }
     }
 
@@ -46,17 +56,17 @@ class ReservesController extends Controller
     }
 
     function update($id){
-        if(isset($_POST['name']) && isset($_POST['base_price'])){
-            $reserve = new Reserve();
-            $this->silentSave($reserve);
-            $reserves = new Reserves();
-            if($reserves->update($reserve)){
-                header("Location: /?page=intranet&section=reserves");
-            }
-            else{
-                header("Location: /?page=intranet&section=reserves&action=edit&id=".$reserve->getId());
-            }
+        $reserve = new Reserve();
+        $this->silentSave($reserve);
+        $reserve->setId($id);
+        $reserves = new Reserves();
+        if($reserves->update($reserve)){
+            header("Location: /?page=intranet&section=reserves");
         }
+        else{
+            header("Location: /?page=intranet&section=reserves&action=edit&id=".$id);
+        }
+
     }
 
     function delete($id){
@@ -66,26 +76,26 @@ class ReservesController extends Controller
     }
 
     private function silentSave($reserve){
-        $reserve->setId($_POST['id']);
-        $reserve->setStartingDate($_POST['starting_date']);
-        $reserve->setEndingDate($_POST['ending_date']);
-        $reserve->setRoomsNumber($_POST['rooms_number']);
+        $reserve->setStartingDate($_POST['starting_date_submit']);
+        $reserve->setEndingDate($_POST['ending_date_submit']);
         $reserve->setAdultsNumber($_POST['adults_number']);
         $reserve->setChildrenNumber($_POST['children_number']);
         $reserve->setPromotionCode($_POST['promotion_code']);
         $reserve->setName($_POST['name']);
         $reserve->setSurname($_POST['surname']);
-        $reserve->setCountry($_POST['country']);
-        $reserve->setPhone($_POST['phone']);
         $reserve->setEmail($_POST['email']);
         $reserve->setObservations($_POST['observations']);
+        $reserve->setAddress($_POST['address']);
+        $reserve->setCity($_POST['city']);
+        $reserve->setPhone($_POST['phone']);
         $reserve->setCardholder($_POST['cardholder']);
         $reserve->setCardType($_POST['card_type']);
         $reserve->setCardNumber($_POST['card_number']);
         $reserve->setCardExpirationMonth($_POST['card_expiration_month']);
         $reserve->setCardExpirationYear($_POST['card_expiration_year']);
         $reserve->setCardCvc($_POST['card_cvc']);
-        /*
+        $reserve->setTotalAmount($_POST['total_amount']);
+        
         //Obtengo la(s) habitacion(es) asociada(s) a la reserva de la petición y creo un arraylist del tipo
         //['tipo de habitacion']=>['numero de habitaciones reservadas']. Asigno este arraylist a la reserva
         $statement = 'SELECT * FROM reserves_rooms WHERE reserve_id = \''.$_POST['id'].'\'';
@@ -100,7 +110,7 @@ class ReservesController extends Controller
             }
         }
 
-        $reserve->setReservedRooms($list);*/
+        $reserve->setReservedRooms($list);
     }
 
     function getRoomsAvailable($starting_date, $ending_date){

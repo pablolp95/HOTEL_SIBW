@@ -39,8 +39,9 @@ class IntranetReservesView{
                                         <td>'.$reserve->starting_date.'</td>
                                         <td>'.$reserve->ending_date.'</td>
                                         <td class="center-align">
-                                            <a class="btn-floating btn-large waves-effect waves-light deep-orange" href="?page=intranet&section=reserves&id='.$reserve->id.'&action=edit"><i class="material-icons">edit</i></a>
-                                            <a class="btn-floating btn-large waves-effect waves-light red" href="?page=intranet&section=reserves&id='.$reserve->id.'"><i class="material-icons">visibility</i></a>
+                                            <a class="btn-floating btn-large waves-effect waves-light deep-orange" href="?page=intranet&section=reserves&id='.$reserve->getId().'&action=edit"><i class="material-icons">edit</i></a>
+                                            <a class="btn-floating btn-large waves-effect waves-light red" href="?page=intranet&section=reserves&id='.$reserve->getId().'"><i class="material-icons">visibility</i></a>
+                                            <a class="btn-floating btn-large waves-effect waves-light blue" href="?page=intranet&section=reserves&action=delete&id='.$reserve->getId().'"><i class="material-icons">delete</i></a>
                                         </td>
                                     </tr>';
                                 }
@@ -155,7 +156,7 @@ class IntranetReservesView{
                                     
                                     <div class="input-field col s12 m6">
                                         <label>Código de promoción:*</label>
-                                        <input class="validate" type="text" name="promotion_code" required>
+                                        <input class="validate" type="text" name="promotion_code">
                                     </div>
                                     
                                     <div class="col s12">
@@ -227,7 +228,7 @@ class IntranetReservesView{
                         <div class="col s12">
                             <div class="row">
                                 <!-- Email field -->
-                                <form  role="form" name="myForm" method="POST" action="?page=intranet&section=reserves&action=store" ">
+                                <form  role="form" name="myForm" method="POST" action="?page=intranet&section=reserves&action=update&id='.$reserve->getId().'">
                                     <div class="input-field col s12 m6">
                                         <label for="stating_date">Entrada:*</label>
                                         <input type="date" class="datepicker form-control input-lg input-style" id="stating_date" name="starting_date" value="'.$reserve->getStartingDate().'"required>
@@ -315,7 +316,7 @@ class IntranetReservesView{
                                     
                                     <div class="input-field col s12 m6">
                                         <label>Código de promoción:*</label>
-                                        <input class="validate" type="text" name="promotion_code" value="'.$reserve->getPromotionCode().'" required>
+                                        <input class="validate" type="text" name="promotion_code" value="'.$reserve->getPromotionCode().'">
                                     </div>
                                     
                                     <div class="col s12">

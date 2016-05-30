@@ -33,6 +33,19 @@ class Roomtypes extends Model {
         return $roomtype;
     }
 
+    function findByName($name){
+        $db = Db::getInstance();
+        $statement = 'SELECT * FROM roomtypes WHERE name = \''.$name.'\'';
+        $result = $db->query($statement);
+        $roomtype = null;
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+            $roomtype = new Roomtype();
+            $this->silentSave($roomtype, $row);
+        }
+        return $roomtype;
+    }
+
     function delete($id){
         $statement = 'DELETE FROM roomtypes WHERE id = \''.$id.'\'';
         return Db::getInstance()->query($statement);

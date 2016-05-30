@@ -66,6 +66,8 @@
                     echo'<script src="js/emailValidation.js"></script>';
                 else if($page == 'intranet')
                     echo'<script src="js/intranet.js"></script>';
+                else if($page == 'reserve')
+                    echo'<script src="js/reserve.js"></script>';
 
             echo'
                 <!-- Personal CSS -->

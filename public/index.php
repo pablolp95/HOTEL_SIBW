@@ -12,6 +12,10 @@ if($page == 'intranet'){
 }
 else{
     $public = new PublicController();
+
+    if($page == 'reserve' && isset($_REQUEST['action']) && $_REQUEST['action'] == 'store') {
+        $public->store_reserve();
+    }
     $public->print_page();
 }
 
