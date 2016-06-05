@@ -38,6 +38,10 @@ class IntranetController{
             }
 
             if(isset($_REQUEST['section'])){
+                if($_REQUEST['section'] != 'reserves' && isset($_SESSION['starting_date_submit'],$_SESSION['ending_date_submit'])){
+                    unset($_SESSION['starting_date_submit'],$_SESSION['ending_date_submit']);
+                    echo '<script>alert("estan")</script>';
+                }
                 switch ($_REQUEST['section']){
                     case 'reserves':
                         $controller = new ReservesController();
@@ -95,6 +99,8 @@ class IntranetController{
 
             $footer = new IntranetFooter();
             $footer->print_footer();
+            if(isset($_REQUEST['section']) && $_REQUEST['section'] == 'reserves')
+                echo '<script src="js/reserve.js"></script>';
             echo'</body>';
         }
         else{
@@ -120,7 +126,9 @@ class IntranetController{
         }
         if(isset($_REQUEST['section']) && isset($_REQUEST['action']) && $_REQUEST['section']=='reserves' &&($_REQUEST['action']=='edit' || $_REQUEST['action']=='create')){
             echo '<script>
-                 $(\'.datepicker\').pickadate();
+                 $(\'.datepicker\').pickadate({
+                    formatSubmit: \'yyyymm/dd\'
+                 });
                 </script>';
         }
 

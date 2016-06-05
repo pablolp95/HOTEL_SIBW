@@ -33,9 +33,9 @@ class IntranetRoomtypesView {
                                         <td>'.$roomtypes[$i-1]->getId().'</td>
                                         <td>'.$roomtypes[$i-1]->getName().'</td>
                                         <td class="center-align">
-                                            <a class="btn-floating btn-large waves-effect waves-light deep-orange" href="?page=intranet&section=roomtypes&action=edit&id='.$roomtypes[$i-1]->getId().'"><i class="material-icons">edit</i></a>
-                                            <a class="btn-floating btn-large waves-effect waves-light red" href="?page=intranet&section=roomtypes&id='.$roomtypes[$i-1]->getId().'"><i class="material-icons">visibility</i></a>
-                                            <a class="btn-floating btn-large waves-effect waves-light blue" href="?page=intranet&section=roomtypes&action=delete&id='.$roomtypes[$i-1]->getId().'"><i class="material-icons">delete</i></a>
+                                            <a class="btn-floating btn-large waves-effect waves-light deep-orange tooltipped" href="?page=intranet&section=roomtypes&action=edit&id='.$roomtypes[$i-1]->getId().'" data-position="top" data-delay="50" data-tooltip="Editar tipo"><i class="material-icons">edit</i></a>
+                                            <a class="btn-floating btn-large waves-effect waves-light red tooltipped" href="?page=intranet&section=roomtypes&id='.$roomtypes[$i-1]->getId().'" data-position="top" data-delay="50" data-tooltip="Mostrar tipo"><i class="material-icons">visibility</i></a>
+                                            <a class="btn-floating btn-large waves-effect waves-light blue tooltipped" href="?page=intranet&section=roomtypes&action=delete&id='.$roomtypes[$i-1]->getId().'" data-position="top" data-delay="50" data-tooltip="Eliminar tipo"><i class="material-icons">delete</i></a>
                                         </td>
                                       </tr>';
                                     $i++;

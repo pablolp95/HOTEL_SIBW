@@ -25,7 +25,9 @@ class ReservesController extends Controller
         $reserve = new Reserve();
         $this->silentSave($reserve);
         $reserves = new Reserves();
-        if($reserves->save($reserve)){
+        $id = $reserves->save($reserve);
+        if($id != null){
+            $this->insertReservedRooms($id);
             header("Location: /?page=intranet&section=reserves");
         }
         else{
@@ -64,7 +66,10 @@ class ReservesController extends Controller
         $this->silentSave($reserve);
         $reserve->setId($id);
         $reserves = new Reserves();
+        $reservesRooms = new ReservesRooms();
+        $reservesRooms->deletedByReserve($id);
         if($reserves->update($reserve)){
+            $this->insertReservedRooms($id);
             header("Location: /?page=intranet&section=reserves");
         }
         else{
@@ -80,8 +85,8 @@ class ReservesController extends Controller
     }
 
     private function silentSave($reserve){
-        $reserve->setStartingDate($_POST['starting_date_submit']);
-        $reserve->setEndingDate($_POST['ending_date_submit']);
+        $reserve->setStartingDate($_POST['starting_date']);
+        $reserve->setEndingDate($_POST['ending_date']);
         $reserve->setAdultsNumber($_POST['adults_number']);
         $reserve->setChildrenNumber($_POST['children_number']);
         $reserve->setPromotionCode($_POST['promotion_code']);
@@ -98,23 +103,8 @@ class ReservesController extends Controller
         $reserve->setCardExpirationMonth($_POST['card_expiration_month']);
         $reserve->setCardExpirationYear($_POST['card_expiration_year']);
         $reserve->setCardCvc($_POST['card_cvc']);
-        $reserve->setTotalAmount($_POST['total_amount']);
+        $reserve->setTotalAmount($_POST['total_amount_submit']);
 
-        //Obtengo la(s) habitacion(es) asociada(s) a la reserva de la petición y creo un arraylist del tipo
-        //['tipo de habitacion']=>['numero de habitaciones reservadas']. Asigno este arraylist a la reserva
-        /*$statement = 'SELECT * FROM reserves_rooms WHERE reserve_id = \''.$_POST['id'].'\'';
-        $result = Db::getInstance()->query($statement);
-
-        $list = null;
-        if($result->num_rows > 0){
-            $roomtypes = new Roomtypes();
-            while($row = $result->fetch_assoc()){
-                $roomtype = $roomtypes->find($row['roomtype_id']);
-                $list[$roomtype->getName()] = $row['rooms_number'];
-            }
-        }
-
-        $reserve->setReservedRooms($list);*/
     }
 
     function getRoomsAvailable($starting_date, $ending_date){
@@ -144,6 +134,12 @@ class ReservesController extends Controller
         }
 
         return $available;
+    }
+
+    function findByEmailCode($email,$code){
+        $reserves = new Reserves();
+        $reserve = $reserves->findByEmailCode($email,$code);
+        return $reserve;
     }
 
     function insertReservedRooms($id){

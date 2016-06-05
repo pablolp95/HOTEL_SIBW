@@ -6,8 +6,8 @@ include_once '../app/controllers/Controller.php';
 
 class RoomsController extends Controller {
     public function index(){
-        $rooms=new Rooms();
-        $list=$rooms->all();
+        $rooms = new Rooms();
+        $list = $rooms->all();
         IRoomsView::print_index($list);
     }
 
@@ -43,10 +43,11 @@ class RoomsController extends Controller {
     }
 
     public function update($id){
-        $u=new Rooms();
-        if(isset($_POST['select1'])&& isset($_POST['number_room1'])){
-            $room = new Room($id, $_POST['select1'], $_POST['number_room1']);
-            if($u->update($room)){
+        $rooms = new Rooms();
+        if(isset($_POST['select'])&& isset($_POST['number_room'])){
+            $room = new Room($id, $_POST['select'], $_POST['number_room']);
+            $room->set_reserve_associated($_POST['reserve_associated']);
+            if($rooms->update($room)){
                 header("Location: /?page=intranet&section=rooms");
             }
             else{
@@ -56,8 +57,8 @@ class RoomsController extends Controller {
     }
 
     public function delete($id){
-        $u=new Rooms();
-        if($u->delete($id))
+        $rooms = new Rooms();
+        if($rooms->delete($id))
             header("Location: /?page=intranet&section=rooms");
 
     }

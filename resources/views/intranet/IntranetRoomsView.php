@@ -33,9 +33,9 @@ class IRoomsView {
                                         <td>'.$rooms[$i-1]->get_number().'</td>
                                         <td>'.$rooms[$i-1]->get_type().'</td>
                                         <td class="center-align">
-                                            <a class="btn-floating btn-large waves-effect waves-light deep-orange" href="?page=intranet&section=rooms&action=edit&id='.$rooms[$i-1]->get_id().'"><i class="material-icons">edit</i></a>
-                                            <a class="btn-floating btn-large waves-effect waves-light red" href="?page=intranet&section=rooms&id='.$rooms[$i-1]->get_id().'"><i class="material-icons">visibility</i></a>
-                                            <a class="btn-floating btn-large waves-effect waves-light blue" href="?page=intranet&section=rooms&action=delete&id='.$rooms[$i-1]->get_id().'"><i class="material-icons">delete</i></a>
+                                            <a class="btn-floating btn-large waves-effect waves-light deep-orange tooltipped" href="?page=intranet&section=rooms&action=edit&id='.$rooms[$i-1]->get_id().'" data-position="top" data-delay="50" data-tooltip="Editar habitación"><i class="material-icons">edit</i></a>
+                                            <a class="btn-floating btn-large waves-effect waves-light red tooltipped" href="?page=intranet&section=rooms&id='.$rooms[$i-1]->get_id().'" data-position="top" data-delay="50" data-tooltip="Mostrar habitación"><i class="material-icons">visibility</i></a>
+                                            <a class="btn-floating btn-large waves-effect waves-light blue tooltipped" href="?page=intranet&section=rooms&action=delete&id='.$rooms[$i-1]->get_id().'" data-position="top" data-delay="50" data-tooltip="Eliminar habitación"><i class="material-icons">delete</i></a>
                                         </td>
                                       </tr>';
                                     $i++;
@@ -49,6 +49,8 @@ class IRoomsView {
     }
 
     public static function print_create(){
+        $roomtypes = new Roomtypes();//Objeto contendor de tipos de habitaciones
+        $roomtype_list = $roomtypes->all();
         echo'
             <section>
                 <div class="container padded">
@@ -64,10 +66,11 @@ class IRoomsView {
                                 <form  role="form" name="myForm" method="POST" action="?page=intranet&section=rooms&action=store" ">
                                      <div class="col s12 m6">
                                         <label>Tipo de habitación </label>
-                                        <select class="browser-default" name="select">
-                                            <option value="1">Doble</option>
-                                            <option value="2">Triple</option>
-                                            <option value="3">Familiar</option>
+                                        <select name="select">';
+                                        foreach($roomtype_list as $roomstype){
+                                            echo '<option value="'.$roomstype->getId().'">'.$roomstype->getName().'</option>';
+                                        }
+                                        echo'
                                         </select>
                                     </div>
                                     <!-- Name field -->
@@ -104,6 +107,7 @@ class IRoomsView {
                                 <div class="col s12 m6">
                                     <p><strong>Tipo:</strong> '.$room->get_type().'</p>
                                     <p><strong>Número habitación:</strong> '.$room->get_number().'</p>
+                                    <p><strong>Reserva asignada en la habitación:</strong> '.$room->get_reserve_associated().'</p>
                                 </div>
                             </div>
                         </div>
@@ -113,14 +117,8 @@ class IRoomsView {
     }
 
     public static function print_edit($room){
-        if($room->get_type()=='Doble'){
-            $val=1;
-        }
-        else if($room->get_type()=='Triple'){
-            $val=2;
-        }
-        else
-            $val=3;
+        $roomtypes = new Roomtypes();//Objeto contendor de tipos de habitaciones
+        $roomtype_list = $roomtypes->all();
 
         echo'
             <section>
@@ -136,15 +134,23 @@ class IRoomsView {
                                  <form  role="form" name="myForm" method="POST" action="?page=intranet&section=rooms&action=update&id='.$room->get_id().'">
                                     <div class="col s12 m6">
                                         <label>Tipo de habitación </label>
-                                        <select class="browser-default" name="select1" required>
-                                            <option value="1"';if($val==1){echo "selected";}echo'>Doble</option>
-                                            <option value="2"';if($val==2){echo "selected";}echo'>Triple</option>
-                                            <option value="3"';if($val==3){echo "selected";}echo'>Familiar</option>
-                                        </select>
+                                        <select name="select" required>';
+                                        foreach($roomtype_list as $roomstype){
+                                            echo '<option value="'.$roomstype->getId().'"';
+                                            if($room->get_type() == $roomstype->getName()){
+                                                echo 'selected';
+                                            }
+                                            echo'>'.$roomstype->getName().'</option>';
+                                        }
+                                        echo'</select>
                                     </div>
                                     <div class="input-field col s12 m6">
                                         <label>Numero de habitación</label>
-                                        <input class="validate" type="number" value="'.$room->get_number().'" name="number_room1" min=1>
+                                        <input class="validate" type="number" value="'.$room->get_number().'" name="number_room" min=1>
+                                    </div>
+                                    <div class="input-field col s12 m6">
+                                        <label>Asignar reserva a la habitación:</label>
+                                        <input class="validate" type="number" value="'.$room->get_reserve_associated().'" name="reserve_associated" min=1>
                                     </div>
                                     <div class="col s12">
                                         <button type="submit" class="btn waves-effect waves-light right indigo">Guardar</button>

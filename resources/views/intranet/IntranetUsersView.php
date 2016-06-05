@@ -36,9 +36,9 @@ class UsersView {
                                         <td>'.$users[$i-1]->get_email().'</td>
                                         <td>rol</td>
                                         <td class="center-align">
-                                            <a class="btn-floating btn-large waves-effect waves-light deep-orange" href="?page=intranet&section=users&action=edit&id='.$users[$i-1]->get_id().'"><i class="material-icons">edit</i></a>
-                                            <a class="btn-floating btn-large waves-effect waves-light red" href="?page=intranet&section=users&id='.$users[$i-1]->get_id().'"><i class="material-icons">visibility</i></a>
-                                            <a class="btn-floating btn-large waves-effect waves-light blue" href="?page=intranet&section=users&action=delete&id='.$users[$i-1]->get_id().'"><i class="material-icons">delete</i></a>
+                                            <a class="btn-floating btn-large waves-effect waves-light deep-orange tooltipped" href="?page=intranet&section=users&action=edit&id='.$users[$i-1]->get_id().'" data-position="top" data-delay="50" data-tooltip="Editar usuario"><i class="material-icons">edit</i></a>
+                                            <a class="btn-floating btn-large waves-effect waves-light red tooltipped" href="?page=intranet&section=users&id='.$users[$i-1]->get_id().'" data-position="top" data-delay="50" data-tooltip="Mostrar usuario"><i class="material-icons">visibility</i></a>
+                                            <a class="btn-floating btn-large waves-effect waves-light blue tooltipped" href="?page=intranet&section=users&action=delete&id='.$users[$i-1]->get_id().'" data-position="top" data-delay="50" data-tooltip="Eliminar usuario"><i class="material-icons">delete</i></a>
                                         </td>
                                       </tr>';
                                     $i++;

@@ -51,6 +51,11 @@ class ReservesRooms extends Model {
         return Db::getInstance()->query($statement);
     }
 
+    function deletedByReserve($reserveId){
+        $statement = 'DELETE FROM reserves_rooms WHERE reserve_id = \''.$reserveId.'\'';
+        return Db::getInstance()->query($statement);
+    }
+
     function update($reserverooms){
         $db = Db::getInstance();
         return $db ->query("UPDATE reserves_rooms SET reserve_id='{$reserverooms->getReserveId()}', roomtype_id='{$reserverooms->getRoomtypeId()}', rooms_number={$reserverooms->getRoomsNumber()} WHERE id={$reserverooms->getId()}");

@@ -1,4 +1,9 @@
-$(document).ready(function(){
+    var day = 86400000;//milisegundos
+    var start = new Date($("#starting_date").val());
+    var end = new Date($("#ending_date").val());
+    var diff = new Date(end - start);
+    var days = diff/day;
+
     $("#select_Individual").change(function(){
         $price_Doble = Number($("#price_Doble").text());
         $number_Doble = Number($("#select_Doble").val());
@@ -9,8 +14,10 @@ $(document).ready(function(){
         $total = Number($("#total_amount").text());
         $price = Number($("#price_Individual").text());
         $number = Number($("#select_Individual").val());
-        $total = $price*$number+($price_Doble*$number_Doble)+($price_Triple*$number_Triple)+($price_Familiar*$number_Familiar);
+        $total = ($price*$number + ($price_Doble*$number_Doble) + ($price_Triple*$number_Triple) + ($price_Familiar*$number_Familiar)) * days;
         $("#total_amount").text($total.toString());
+        $("input[name=total_amount_submit]").val($total.toString());
+
     });
     $("#select_Doble").change(function(){
         $price_Individual = Number($("#price_Individual").text());
@@ -22,8 +29,10 @@ $(document).ready(function(){
         $total = Number($("#total_amount").text());
         $price = Number($("#price_Doble").text());
         $number = Number($("#select_Doble").val());
-        $total = $price*$number+($price_Individual*$number_Individual)+($price_Triple*$number_Triple)+($price_Familiar*$number_Familiar);
+        $total = ($price*$number + ($price_Individual*$number_Individual) + ($price_Triple*$number_Triple) + ($price_Familiar*$number_Familiar)) * days;
         $("#total_amount").text($total.toString());
+        $("input[name=total_amount_submit]").val($total.toString());
+
     });
     $("#select_Triple").change(function(){
         $price_Doble = Number($("#price_Doble").text());
@@ -35,8 +44,10 @@ $(document).ready(function(){
         $total = Number($("#total_amount").text());
         $price = Number($("#price_Triple").text());
         $number = Number($("#select_Triple").val());
-        $total = $price*$number+($price_Doble*$number_Doble)+($price_Individual*$number_Individual)+($price_Familiar*$number_Familiar);
+        $total = ($price*$number + ($price_Doble*$number_Doble) + ($price_Individual*$number_Individual) + ($price_Familiar*$number_Familiar)) * days;
         $("#total_amount").text($total.toString());
+        $("input[name=total_amount_submit]").val($total.toString());
+
     });
     $("#select_Familiar").change(function(){
         $price_Doble = Number($("#price_Doble").text());
@@ -48,7 +59,8 @@ $(document).ready(function(){
         $total = Number($("#total_amount").text());
         $price = Number($("#price_Familiar").text());
         $number = Number($("#select_Familiar").val());
-        $total = $price*$number+($price_Doble*$number_Doble)+($price_Triple*$number_Triple)+($price_Individual*$number_Individual);
+        $total = ($price*$number + ($price_Doble*$number_Doble) + ($price_Triple*$number_Triple) + ($price_Individual*$number_Individual)) * days;
         $("#total_amount").text($total.toString());
+        $("input[name=total_amount_submit]").val($total.toString());
     });
-});
+

@@ -118,8 +118,9 @@ class IntranetHead{
             <script src="components/pickadate/lib/compressed/picker.js"></script>
             <script src="components/pickadate/lib/compressed/picker.date.js"></script>
             <script src="components/pickadate/lib/compressed/translations/es_ES.js"></script>
-            <script src="js/intranet.js"></script>
+            <script src="js/intranet.js"></script>';
         
+        echo'
         </head>
         ';
     }

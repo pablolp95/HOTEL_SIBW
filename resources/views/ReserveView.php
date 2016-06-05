@@ -29,23 +29,11 @@ class ReserveView
 
     private function print_select_room(){
         session_start();
-        if(isset($_SESSION['expire'])){
-            if(time()>$_SESSION['expire']){
-                session_unset();
-                session_destroy();
-                echo '<script>alert("El plazo de tiempo máximo para realizar una reserva ha expirado")</script>';
-                header("Location: /?page=reserve&step=select_room");
-                exit();
-            }
-        }
-        else{
-            $_SESSION['expire'] = time()+(5*60);
-        }
 
         $isset = false;
-        if(isset($_POST['starting_date_submit'],$_POST['ending_date_submit'],$_POST['adults_number'],$_POST['children_number'])){
-            $_SESSION['starting_date_submit'] = $_POST['starting_date_submit'];
-            $_SESSION['ending_date_submit'] = $_POST['ending_date_submit'];
+        if(isset($_POST['starting_date'],$_POST['ending_date'],$_POST['adults_number'],$_POST['children_number'])){
+            $_SESSION['starting_date'] = $_POST['starting_date'];
+            $_SESSION['ending_date'] = $_POST['ending_date'];
             $_SESSION['adults_number'] = $_POST['adults_number'];
             $_SESSION['children_number'] = $_POST['children_number'];
             $isset = true;
@@ -63,14 +51,14 @@ class ReserveView
                             <div class="row section">
                                 <div class="col-sm-3">
                                     <div class="form-group">
-                                        <label for="stating_date_submit">Entrada</label>
-                                        <input type="date" class="datepicker form-control input-lg input-style" id="starting_date_submit" name="starting_date_submit" value="'.$_SESSION['starting_date_submit'].'" required>
+                                        <label for="stating_date">Entrada</label>
+                                        <input type="date" class="form-control input-lg input-style" id="starting_date" name="starting_date" value="'.$_SESSION['starting_date'].'" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label for="ending_date">Salida</label>
-                                        <input type="date" class="datepicker form-control input-lg input-style" id="ending_date_submit" name="ending_date_submit" value="'.$_SESSION['ending_date_submit'].'" required>
+                                        <input type="date" class="form-control input-lg input-style" id="ending_date" name="ending_date" value="'.$_SESSION['ending_date'].'" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
@@ -111,7 +99,7 @@ class ReserveView
                     </form>';
         if($isset){
             $reserves = new ReservesController();
-            $availables = $reserves->getRoomsAvailable($_POST['starting_date_submit'],$_POST['ending_date_submit']);//Obtengo para cada tipo el número de habitaciones disponibles
+            $availables = $reserves->getRoomsAvailable($_POST['starting_date'],$_POST['ending_date']);//Obtengo para cada tipo el número de habitaciones disponibles
             $roomtypes = new Roomtypes();//Objeto contendor de tipos de habitaciones
             $roomtype_list = array();//Esta variable almaenara los tipos de habitaciones
             //Para cada tipo de habitacion obtengo su objeto para manejar la información relacionada a ella
@@ -149,7 +137,7 @@ class ReserveView
                                                 <td>
                                                     <select class="form-control input-lg input-style" id="select_'.$roomtype->getName().'" name="select_'.$roomtype->getName().'">';
                                                         echo '<option value="0">0</option>';
-                                                        for($i=1;$i<=$availables[$roomtype->getName()];$i++){
+                                                        for($i=1;$i <= $availables[$roomtype->getName()];$i++){
                                                             echo '<option value="'.$i.'">'.$i.'</option>';
                                                         }
                                                         echo'
@@ -166,6 +154,7 @@ class ReserveView
                         <div class="row next">
                             <div class="col-sm-2 nopadding">
                                 <p>TOTAL: <span id="total_amount">0</span>€</p>
+                                <input type="hidden" id="total_amount_submit" name="total_amount_submit">
                             </div>
                             <div class="col-sm-offset-8 col-sm-2">
                                 <button class="button btn-lg" style="text-align: center">Siguiente</button>
@@ -193,6 +182,7 @@ class ReserveView
         $_SESSION['select_Doble'] = $_POST['select_Doble'];
         $_SESSION['select_Triple'] = $_POST['select_Triple'];
         $_SESSION['select_Familiar'] = $_POST['select_Familiar'];
+        $_SESSION['total_amount_submit'] = $_POST['total_amount_submit'];
 
         echo '
             <section>
@@ -282,8 +272,8 @@ class ReserveView
                         </div>
                     </div>
                     <form role="form" name="myForm" method="POST" action="?page=reserve&action=store">
-                        <input name="starting_date_submit" type="hidden" value="'.$_SESSION['starting_date_submit'].'">
-                        <input name="ending_date_submit" type="hidden" value="'.$_SESSION['ending_date_submit'].'">
+                        <input name="starting_date" type="hidden" value="'.$_SESSION['starting_date'].'">
+                        <input name="ending_date" type="hidden" value="'.$_SESSION['ending_date'].'">
                         <input name="adults_number" type="hidden" value="'.$_SESSION['adults_number'].'">
                         <input name="children_number" type="hidden" value="'.$_SESSION['children_number'].'">
                         <input name="select_Individual" type="hidden" value="'.$_SESSION['select_Individual'].'">
@@ -297,6 +287,7 @@ class ReserveView
                         <input name="phone" type="hidden" value="'.$_SESSION['phone'].'">
                         <input name="email" type="hidden" value="'.$_SESSION['email'].'">
                         <input name="observations" type="hidden" value="'.$_SESSION['observations'].'">
+                        <input name="total_amount_submit" type="hidden" value="'.$_SESSION['total_amount_submit'].'">
                         <div class="row">
                             <div class="col-sm-12 warranty">
                                 <h4>Garantía de reserva</h4>
@@ -365,24 +356,47 @@ class ReserveView
                             <h1>Resumen</h1>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <p><strong>Fecha de entrada:</strong> '.$_SESSION['starting_date_submit'].'</p>
-                            <p><strong>Fecha de salida:</strong> '.$_SESSION['ending_date_submit'].'</p>
-                            <p><strong>Número de adultos:</strong> '.$_SESSION['adults_number'].'</p>
-                            <p><strong>Número de niños:</strong> '.$_SESSION['children_number'].'</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p><strong>Nombre:</strong> '.$_SESSION['name'].'</p>
-                            <p><strong>Apellidos:</strong> '.$_SESSION['surname'].'</p>
-                            <p><strong>Ciudad:</strong> '.$_SESSION['city'].'</p>
-                            <p><strong>Dirección:</strong> '.$_SESSION['address'].'</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <p><strong>Teléfono:</strong> '.$_SESSION['phone'].'</p>
-                            <p><strong>Email:</strong> '.$_SESSION['email'].'</p>
+                    <div class="row" id="final_summary">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p><strong>Fecha de entrada:</strong> '.$_SESSION['starting_date'].'</p>
+                                    <p><strong>Fecha de salida:</strong> '.$_SESSION['ending_date'].'</p>
+                                    <p><strong>Número de adultos:</strong> '.$_SESSION['adults_number'].'</p>
+                                    <p><strong>Número de niños:</strong> '.$_SESSION['children_number'].'</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p><strong>Nombre:</strong> '.$_SESSION['name'].'</p>
+                                    <p><strong>Apellidos:</strong> '.$_SESSION['surname'].'</p>
+                                    <p><strong>Ciudad:</strong> '.$_SESSION['city'].'</p>
+                                    <p><strong>Dirección:</strong> '.$_SESSION['address'].'</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p><strong>Habitaciones seleccionadas:</strong></p>
+                                    <div id="selected">';
+                                    if($_SESSION['select_Individual'] > 0){
+                                        echo'<p style="font-size: 1em;margin-left: 20px">-Individual: '.$_SESSION['select_Individual'];
+                                    }
+                                    if($_SESSION['select_Doble'] > 0){
+                                        echo'<p style="font-size: 1em;margin-left: 20px">-Doble: '.$_SESSION['select_Doble'];
+                                    }
+                                    if($_SESSION['select_Triple'] > 0){
+                                        echo'<p style="font-size: 1em;margin-left: 20px">-Triple: '.$_SESSION['select_Triple'];
+                                    }
+                                    if($_SESSION['select_Familiar'] > 0){
+                                        echo'<p style="font-size: 1em;margin-left: 20px">-Familiar: '.$_SESSION['select_Familiar'];
+                                    }
+                                    echo '               
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p><strong>TOTAL: '.$_SESSION['total_amount_submit'].'<span class="glyphicon glyphicon-euro"/></strong></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

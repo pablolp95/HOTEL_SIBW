@@ -37,6 +37,10 @@
                     $title = ' - Contacto y ubicación';
                     $css = 'contact.css';
                     break;
+                case 'myreserve':
+                    $title = ' - Consultar reserva';
+                    $css = 'reserve.css';
+                    break;
                 case 'reserve':
                     $title = ' - Reservar';
                     $css = 'reserve.css';
@@ -60,14 +64,7 @@
                 <!-- jQuery library -->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
                 <!-- Latest compiled JavaScript -->
-                <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-                <!-- Personal scripts -->';
-                if($page == 'contact')
-                    echo'<script src="js/emailValidation.js"></script>';
-                else if($page == 'intranet')
-                    echo'<script src="js/intranet.js"></script>';
-                else if($page == 'reserve')
-                    echo'<script src="js/reserve.js"></script>';
+                <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>';
 
             echo'
                 <!-- Personal CSS -->

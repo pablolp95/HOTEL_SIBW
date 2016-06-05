@@ -4,6 +4,7 @@ include_once '../resources/views/Footer.php';
 include_once '../resources/views/GalleryView.php';
 include_once '../resources/views/Head.php';
 include_once '../resources/views/HomeView.php';
+include_once '../resources/views/MyReserveView.php';
 include_once '../resources/views/Nav.php';
 include_once '../resources/views/PromotionsView.php';
 include_once '../resources/views/RoomsView.php';
@@ -54,6 +55,17 @@ class PublicController{
                 $contact = new ContactView();
                 $contact->print_contact();
                 break;
+            case 'myreserve':
+                $myReserve = new MyReserveView();
+                if(isset($_REQUEST['email'],$_REQUEST['reserve_code'])) {
+                    $reserves = new ReservesController();
+                    $reserve = $reserves->findByEmailCode($_REQUEST['email'],$_REQUEST['reserve_code']);
+                    $myReserve->print_my_reserve($reserve);
+                }
+                else{
+                    $myReserve->print_form();
+                }
+                break;
             case 'reserve':
                 if(isset($_REQUEST['step'])){
                     $reserve = new ReserveView();
@@ -68,6 +80,13 @@ class PublicController{
         }
 
         $footer->print_footer();
+        echo '<!-- Personal scripts -->';
+        if($page == 'contact')
+            echo'<script src="js/emailValidation.js"></script>';
+        else if($page == 'intranet')
+            echo'<script src="js/intranet.js"></script>';
+        else if($page == 'reserve')
+            echo'<script src="js/reserve.js"></script>';
         echo '</body>
         </html>';
     }

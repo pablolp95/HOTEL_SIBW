@@ -34,9 +34,9 @@ class IPromotionsView {
                                     <td>'.$promotions[$i-1]->get_name().'</td>
                                     <td>'.$promotions[$i-1]->get_code().'</td>
                                     <td class="center-align">
-                                        <a class="btn-floating btn-large waves-effect waves-light deep-orange" href="?page=intranet&section=promotions&action=edit&id='.$promotions[$i-1]->get_id().'"><i class="material-icons">edit</i></a>
-                                        <a class="btn-floating btn-large waves-effect waves-light red" href="?page=intranet&section=promotions&id='.$promotions[$i-1]->get_id().'"><i class="material-icons">visibility</i></a>
-                                        <a class="btn-floating btn-large waves-effect waves-light blue" href="?page=intranet&section=promotions&action=delete&id='.$promotions[$i-1]->get_id().'"><i class="material-icons">delete</i></a>
+                                        <a class="btn-floating btn-large waves-effect waves-light deep-orange tooltipped" href="?page=intranet&section=promotions&action=edit&id='.$promotions[$i-1]->get_id().'" data-position="top" data-delay="50" data-tooltip="Editar promoción"><i class="material-icons">edit</i></a>
+                                        <a class="btn-floating btn-large waves-effect waves-light red tooltipped" href="?page=intranet&section=promotions&id='.$promotions[$i-1]->get_id().'" data-position="top" data-delay="50" data-tooltip="Mostrar promoción"><i class="material-icons">visibility</i></a>
+                                        <a class="btn-floating btn-large waves-effect waves-light blue tooltipped" href="?page=intranet&section=promotions&action=delete&id='.$promotions[$i-1]->get_id().'" data-position="top" data-delay="50" data-tooltip="Eliminar promoción"><i class="material-icons">delete</i></a>
                                     </td>
                                   </tr>';
                                 $i++;

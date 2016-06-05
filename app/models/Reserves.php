@@ -1,6 +1,8 @@
 <?php
 include_once '../app/models/Roomtype.php';
 include_once '../app/models/Roomtypes.php';
+include_once '../app/models/Room.php';
+include_once '../app/models/Rooms.php';
 include_once '../app/models/Reserve.php';
 include_once '../app/models/Model.php';
 include_once '../app/Db.php';
@@ -25,6 +27,19 @@ class Reserves extends Model{
     function find($id){
         $db = Db::getInstance();
         $statement = 'SELECT * FROM reserves WHERE id = \''.$id.'\'';
+        $result = $db->query($statement);
+        $reserve = null;
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+            $reserve = new Reserve();
+            $this->silentSave($reserve, $row);
+        }
+        return $reserve;
+    }
+
+    function findByEmailCode($email,$id){
+        $db = Db::getInstance();
+        $statement = 'SELECT * FROM reserves WHERE id = \''.$id.'\'AND email=\''.$email.'\'';
         $result = $db->query($statement);
         $reserve = null;
         if($result->num_rows > 0){
@@ -62,7 +77,7 @@ class Reserves extends Model{
                           '{$reserve->getName()}','{$reserve->getSurname()}','{$reserve->getEmail()}',
                           '{$reserve->getObservations()}', '{$reserve->getAddress()}', '{$reserve->getCity()}', '{$reserve->getPhone()}',
                           '{$reserve->getCardholder()}', '{$reserve->getCardNumber()}','{$reserve->getCardType()}','{$reserve->getCardExpirationMonth()}',
-                          '{$reserve->getCardExpirationYear()}','{$reserve->getCardCvc()}',0,NULL,NULL)");
+                          '{$reserve->getCardExpirationYear()}','{$reserve->getCardCvc()}','{$reserve->getTotalAmount()}',NULL,NULL)");
         return $db->insert_id;
     }
 
@@ -104,7 +119,7 @@ class Reserves extends Model{
         $reserve->setCardCvc($row['card_cvc']);
         $reserve->setTotalAmount($row['total_amount']);
 
-        //Obtengo la(s) habitacion(es) asociada(s) a la reserva
+        //Obtengo la(s) habitacion(es) reservadas asociada(s) a la reserva
         $statement = 'SELECT * FROM reserves_rooms WHERE reserve_id = \''.$row['id'].'\'';
         $result = Db::getInstance()->query($statement);
 
@@ -118,5 +133,16 @@ class Reserves extends Model{
         }
 
         $reserve->setReservedRooms($list);
+
+
+        $rooms = new Rooms();
+        $roomsAssociated = $rooms->findByReserveAssociated($reserve->getId());
+        $associatedList = null;
+        foreach ($roomsAssociated as $room){
+            $associatedList[$room->get_type()] = $room->get_number();
+        }
+
+        $reserve->setAssignedRooms($associatedList);
+
     }
 }
