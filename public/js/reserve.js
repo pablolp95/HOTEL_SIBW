@@ -67,10 +67,15 @@
         $("input[name=total_amount_submit]").val($total.toString());
     });
 
-    function showInt(str) {
+    function refreshTooltipped() {
+        $('.tooltipped').tooltip({delay: 50});
+    }
+
+    var original = document.getElementById("reserveslist").innerHTML;
+    function showReserves(str) {
+
         if (str.length == 0) {
-            document.getElementById("reserveslist").innerHTML = "";
-            return;
+            document.getElementById("reserveslist").innerHTML = original;
         } else {
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
@@ -81,4 +86,5 @@
             xmlhttp.open("GET","?page=intranet&action=findreserve&query="+str,true);
             xmlhttp.send();
         }
+        refreshTooltipped();
     }
