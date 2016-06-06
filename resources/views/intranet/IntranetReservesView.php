@@ -38,6 +38,7 @@ class IntranetReservesView{
                                 <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th>DNI</th>
                                         <th>Nombre</th>
                                         <th>Apellido</th>
                                         <th>Fecha entrada</th>
@@ -48,11 +49,12 @@ class IntranetReservesView{
                                 <tbody>';
                                 foreach($reserves as $reserve) {
                                     echo '<tr>
-                                        <td>'.$reserve->id.'</td>
-                                        <td>'.$reserve->name.'</td>
-                                        <td>'.$reserve->surname.'</td>
-                                        <td>'.$reserve->starting_date.'</td>
-                                        <td>'.$reserve->ending_date.'</td>
+                                        <td>'.$reserve->getId().'</td>
+                                        <td>'.$reserve->getDni().'</td>
+                                        <td>'.$reserve->getName().'</td>
+                                        <td>'.$reserve->getSurname().'</td>
+                                        <td>'.$reserve->getStartingDate().'</td>
+                                        <td>'.$reserve->getEndingDate().'</td>
                                         <td class="center-align">
                                             <a class="btn-floating btn-large waves-effect waves-light deep-orange tooltipped" href="?page=intranet&section=reserves&id='.$reserve->getId().'&action=edit" data-position="top" data-delay="50" data-tooltip="Editar reserva"><i class="material-icons">edit</i></a>
                                             <a class="btn-floating btn-large waves-effect waves-light red tooltipped" href="?page=intranet&section=reserves&id='.$reserve->getId().'" data-position="top" data-delay="50" data-tooltip="Mostrar reserva"><i class="material-icons">visibility</i></a>
@@ -188,6 +190,11 @@ class IntranetReservesView{
                                 <label>Apellidos:*</label>
                                 <input class="validate" type="text" name="surname" required>
                             </div>
+                            
+                            <div class="input-field col s12 m6">
+                                <label>DNI:*</label>
+                                <input class="validate" type="text" name="dni" required>
+                            </div>
                                     
                             <div class="input-field col s12 m6">
                                 <label>Email:*</label>
@@ -293,10 +300,10 @@ class IntranetReservesView{
                     </div>
                     <div class="row">
                         <div class="col s12 m6">
+                            <p><strong>DNI:</strong> '.$reserve->getDni().'</p>
                             <p><strong>Teléfono:</strong> '.$reserve->getPhone().'</p>
                             <p><strong>Email:</strong> '.$reserve->getEmail().'</p>
                             <p><strong>Titular de la tarjeta:</strong> '.$reserve->getCardholder().'</p>
-                            <p><strong>Número de tarjeta:</strong> '.$reserve->getCardNumber().'</p>
                         </div>
                         <div class="col s12 m6">
                             <p><strong>Tipo de tarjeta:</strong> '.$reserve->getCardType().'</p>
@@ -448,8 +455,6 @@ class IntranetReservesView{
                             </div>
                         </div><!--Fin row table-room-->
 
-                        <input name="starting_date" type="hidden" value="' . $_SESSION['starting_date'] . '">
-                        <input name="ending_date" type="hidden" value="' . $_SESSION['ending_date'] . '">
                         <div class="row next">
                             <div class="col-sm-2 nopadding">
                                 <p>TOTAL: <span id="total_amount">0</span>€</p>
@@ -459,6 +464,8 @@ class IntranetReservesView{
                     }
 
                     echo '
+                        <input name="starting_date" type="hidden" value="' . $starting_date. '">
+                        <input name="ending_date" type="hidden" value="' . $ending_date .'">
                         <div class="row">
                             <div class="input-field col s12 m6">
                                 <label>Número de adultos:*</label>
@@ -478,6 +485,11 @@ class IntranetReservesView{
                             <div class="input-field col s12 m6">
                                 <label>Apellidos:*</label>
                                 <input class="validate" type="text" name="surname" value="' . $reserve->getSurname() . '" required>
+                            </div>
+                            
+                            <div class="input-field col s12 m6">
+                                <label>DNI:*</label>
+                                <input class="validate" type="text" name="dni" value="' . $reserve->getDni() . '" required>
                             </div>
                                     
                             <div class="input-field col s12 m6">

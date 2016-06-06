@@ -90,6 +90,7 @@ class ReservesController extends Controller
         $reserve->setAdultsNumber($_POST['adults_number']);
         $reserve->setChildrenNumber($_POST['children_number']);
         $reserve->setPromotionCode($_POST['promotion_code']);
+        $reserve->setDni($_POST['dni']);
         $reserve->setName($_POST['name']);
         $reserve->setSurname($_POST['surname']);
         $reserve->setEmail($_POST['email']);

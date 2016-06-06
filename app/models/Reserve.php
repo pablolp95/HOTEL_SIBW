@@ -7,6 +7,7 @@ class Reserve {
     var $adults_number;
     var $children_number;
     var $promotion_code;
+    var $dni;
     var $name;
     var $surname;
     var $email;
@@ -120,6 +121,22 @@ class Reserve {
         $this->promotion_code = $promotion_code;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getDni()
+    {
+        return $this->dni;
+    }
+
+    /**
+     * @param mixed $dni
+     */
+    public function setDni($dni)
+    {
+        $this->dni = $dni;
+    }
+    
     /**
      * @return mixed
      */

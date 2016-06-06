@@ -59,7 +59,7 @@ class Reserves extends Model{
         $db=Db::getInstance();
         return $db->query("UPDATE reserves SET starting_date='{$reserve->getStartingDate()}', ending_date='{$reserve->getEndingDate()}', 
                              adults_number='{$reserve->getAdultsNumber()}', children_number='{$reserve->getChildrenNumber()}',
-                             promotion_code='{$reserve->getPromotionCode()}', name='{$reserve->getName()}', 
+                             promotion_code='{$reserve->getPromotionCode()}', ,dni='{$reserve->getDni()}', name='{$reserve->getName()}', 
                              surname='{$reserve->getSurname()}', phone='{$reserve->getPhone()}',
                              email='{$reserve->getEmail()}', observations='{$reserve->getObservations()}',
                              cardholder='{$reserve->getCardholder()}', card_number='{$reserve->getCardNumber()}',
@@ -70,11 +70,11 @@ class Reserves extends Model{
     function save($reserve){
         $db = Db::getInstance();
         $db->query("INSERT INTO reserves (id, starting_date, ending_date, adults_number, children_number,
-                            promotion_code, name, surname, email, observations, address, city, phone,cardholder, card_number, card_type, card_expiration_month,
+                            promotion_code, dni, name, surname, email, observations, address, city, phone,cardholder, card_number, card_type, card_expiration_month,
                             card_expiration_year, card_cvc, total_amount,created_at, updated_at)
                           VALUES ('','{$reserve->getStartingDate()}','{$reserve->getEndingDate()}',
                           '{$reserve->getAdultsNumber()}', '{$reserve->getChildrenNumber()}','{$reserve->getPromotionCode()}',
-                          '{$reserve->getName()}','{$reserve->getSurname()}','{$reserve->getEmail()}',
+                          '{$reserve->getDni()}','{$reserve->getName()}','{$reserve->getSurname()}','{$reserve->getEmail()}',
                           '{$reserve->getObservations()}', '{$reserve->getAddress()}', '{$reserve->getCity()}', '{$reserve->getPhone()}',
                           '{$reserve->getCardholder()}', '{$reserve->getCardNumber()}','{$reserve->getCardType()}','{$reserve->getCardExpirationMonth()}',
                           '{$reserve->getCardExpirationYear()}','{$reserve->getCardCvc()}','{$reserve->getTotalAmount()}',NULL,NULL)");
@@ -104,6 +104,7 @@ class Reserves extends Model{
         $reserve->setAdultsNumber($row['adults_number']);
         $reserve->setChildrenNumber($row['children_number']);
         $reserve->setPromotionCode($row['promotion_code']);
+        $reserve->setDni($row['dni']);
         $reserve->setName($row['name']);
         $reserve->setSurname($row['surname']);
         $reserve->setEmail($row['email']);

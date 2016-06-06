@@ -129,6 +129,7 @@ CREATE TABLE `reserves` (
   `adults_number` varchar(2) COLLATE utf8_unicode_ci  DEFAULT '0' NOT NULL,
   `children_number` varchar(2) COLLATE utf8_unicode_ci DEFAULT '0' NOT NULL,
   `promotion_code` varchar(5) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `dni` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `surname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -145,11 +146,12 @@ CREATE TABLE `reserves` (
   `total_amount` decimal(8,2) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY (`dni`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `reserves` (`id`, `starting_date`, `ending_date`, `adults_number`, `children_number`, `name`, `surname`, `email`, `observations`, `address`, `city`, `phone`, `cardholder`, `card_number`, `card_type`, `card_expiration_month`, `card_expiration_year`, `card_cvc`, `total_amount`, `created_at`, `updated_at`) VALUES
-  ('1', '2016-05-11', '2016-05-19', '2', '0', 'Pablo', 'Lara', 'pablo@gmail.com', NULL, 'calle', 'Madrid', '123456789', 'Pablo','123456789', 'VISA', '12', '16', '123', 199.98, '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000');
+INSERT INTO `reserves` (`id`, `starting_date`, `ending_date`, `adults_number`, `children_number`, `dni`, `name`, `surname`, `email`, `observations`, `address`, `city`, `phone`, `cardholder`, `card_number`, `card_type`, `card_expiration_month`, `card_expiration_year`, `card_cvc`, `total_amount`, `created_at`, `updated_at`) VALUES
+  ('1', '2016-05-11', '2016-05-19', '2', '0', '123456789A','Pablo', 'Lara', 'pablo@gmail.com', NULL, 'calle', 'Madrid', '123456789', 'Pablo','123456789', 'VISA', '12', '16', '123', 199.98, '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000');
 
 DROP TABLE IF EXISTS `reserves_rooms`;
 CREATE TABLE `reserves_rooms` (
