@@ -26,7 +26,7 @@ class IntranetReservesView{
                                 <div class="nav-wrapper">
                                     <form id="search-form">
                                         <div class="input-field">
-                                            <input class="index-search-bar indigo white-text" id="search" name="search" type="search" required placeholder="Buscar...">
+                                            <input class="index-search-bar indigo white-text" id="search" name="search" onkeyup="showInt(this.value)" type="search" required placeholder="Buscar...">
                                             <label for="search"><i class="material-icons white-text">search</i></label>
                                         </div>
                                     <form>

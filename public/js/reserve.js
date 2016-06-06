@@ -67,3 +67,18 @@
         $("input[name=total_amount_submit]").val($total.toString());
     });
 
+    function showInt(str) {
+        if (str.length == 0) {
+            document.getElementById("reserveslist").innerHTML = "";
+            return;
+        } else {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("reserveslist").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET","?page=intranet&action=findreserve&query="+str,true);
+            xmlhttp.send();
+        }
+    }

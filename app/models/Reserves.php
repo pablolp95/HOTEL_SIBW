@@ -146,4 +146,21 @@ class Reserves extends Model{
         $reserve->setAssignedRooms($associatedList);
 
     }
+    function searchParam($q)
+    {
+        $db = Db::getInstance();
+        $sql = 'SELECT * FROM reserves WHERE surname LIKE \'' . $q . '%\' OR  dni LIKE \'' . $q . '%\'';
+        $result=$db->query($sql);
+        $list = null;
+        if($result->num_rows > 0){
+            $list = array();
+            while($row = $result->fetch_assoc()){
+                $reserve = new Reserve();
+                $this->silentSave($reserve, $row);
+                array_push($list,$reserve);
+            }
+        }
+
+        return $list;
+    }
 }

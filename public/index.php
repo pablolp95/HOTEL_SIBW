@@ -7,8 +7,14 @@ $page = isset($_GET['page']) ? $_GET['page']:'';
 
 
 if($page == 'intranet'){
-    $intranet = new IntranetController();
-    $intranet->print_page();
+
+    if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'findreserve') {
+        include_once '../resources/scripts/showreserves.php';
+    }
+    else{
+        $intranet = new IntranetController();
+        $intranet->print_page();
+    }
 }
 else{
     $public = new PublicController();
