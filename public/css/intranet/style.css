@@ -226,6 +226,10 @@ li a:hover {
     font-weight: 700
 }
 
+#search-form{
+    height:100%;
+}
+
 .input-field{
     height: 100%;
 }

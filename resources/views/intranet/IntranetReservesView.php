@@ -24,16 +24,18 @@ class IntranetReservesView{
                         <div class="col s12">
                             <nav>
                                 <div class="nav-wrapper">
-                                    <div class="input-field">
-                                        <input class="index-search-bar indigo white-text" id="search" name="search" type="search" required placeholder="Buscar...">
-                                        <label for="search"><i class="material-icons white-text">search</i></label>
-                                    </div>
+                                    <form id="search-form">
+                                        <div class="input-field">
+                                            <input class="index-search-bar indigo white-text" id="search" name="search" type="search" required placeholder="Buscar...">
+                                            <label for="search"><i class="material-icons white-text">search</i></label>
+                                        </div>
+                                    <form>
                                 </div>
                             </nav>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col s12">
+                        <div class="col s12" id="reserveslist">
                             <table class="responsive-table hoverable-table">
                                 <thead>
                                     <tr>

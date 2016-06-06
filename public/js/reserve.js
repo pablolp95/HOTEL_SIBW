@@ -19,6 +19,7 @@
         $("input[name=total_amount_submit]").val($total.toString());
 
     });
+    
     $("#select_Doble").change(function(){
         $price_Individual = Number($("#price_Individual").text());
         $number_Individual = Number($("#select_Individual").val());
@@ -34,6 +35,7 @@
         $("input[name=total_amount_submit]").val($total.toString());
 
     });
+
     $("#select_Triple").change(function(){
         $price_Doble = Number($("#price_Doble").text());
         $number_Doble = Number($("#select_Doble").val());
@@ -49,6 +51,7 @@
         $("input[name=total_amount_submit]").val($total.toString());
 
     });
+
     $("#select_Familiar").change(function(){
         $price_Doble = Number($("#price_Doble").text());
         $number_Doble = Number($("#select_Doble").val());
