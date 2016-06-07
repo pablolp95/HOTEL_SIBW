@@ -1,7 +1,7 @@
 <?php
 include_once '../app/models/Promotion.php';
 
-class IPromotionsView {
+class IntranetPromotionsView {
     
     public static function print_index($promotions){
         echo'
@@ -28,15 +28,15 @@ class IPromotionsView {
                                   </tr>
                                 </thead>';
                             $i=1;
-                            while($i<=count($promotions)) {
+                            foreach ($promotions as $promotion) {
                                 echo '
                                   <tr>
-                                    <td>'.$promotions[$i-1]->get_name().'</td>
-                                    <td>'.$promotions[$i-1]->get_code().'</td>
+                                    <td>'.$promotion->getName().'</td>
+                                    <td>'.$promotion->getCode().'</td>
                                     <td class="center-align">
-                                        <a class="btn-floating btn-large waves-effect waves-light deep-orange tooltipped" href="?page=intranet&section=promotions&action=edit&id='.$promotions[$i-1]->get_id().'" data-position="top" data-delay="50" data-tooltip="Editar promoción"><i class="material-icons">edit</i></a>
-                                        <a class="btn-floating btn-large waves-effect waves-light red tooltipped" href="?page=intranet&section=promotions&id='.$promotions[$i-1]->get_id().'" data-position="top" data-delay="50" data-tooltip="Mostrar promoción"><i class="material-icons">visibility</i></a>
-                                        <a class="btn-floating btn-large waves-effect waves-light blue tooltipped" href="?page=intranet&section=promotions&action=delete&id='.$promotions[$i-1]->get_id().'" data-position="top" data-delay="50" data-tooltip="Eliminar promoción"><i class="material-icons">delete</i></a>
+                                        <a class="btn-floating btn-large waves-effect waves-light deep-orange tooltipped" href="?page=intranet&section=promotions&action=edit&id='.$promotion->getId().'" data-position="top" data-delay="50" data-tooltip="Editar promoción"><i class="material-icons">edit</i></a>
+                                        <a class="btn-floating btn-large waves-effect waves-light red tooltipped" href="?page=intranet&section=promotions&id='.$promotion->getId().'" data-position="top" data-delay="50" data-tooltip="Mostrar promoción"><i class="material-icons">visibility</i></a>
+                                        <a class="btn-floating btn-large waves-effect waves-light blue tooltipped" href="?page=intranet&section=promotions&action=delete&id='.$promotion->getId().'" data-position="top" data-delay="50" data-tooltip="Eliminar promoción"><i class="material-icons">delete</i></a>
                                     </td>
                                   </tr>';
                                 $i++;
@@ -63,13 +63,18 @@ class IPromotionsView {
                             <div class="row">
                                 <form  role="form" name="myForm" method="POST" action="?page=intranet&section=promotions&action=store">
                                     <div class="input-field col s12 m6">
-                                        <label>Nombre promoción:</label>
+                                        <label>Nombre promoción*:</label>
                                         <input class="validate" id="email" type="text" name="name" required>
                                     </div>
                                 
                                     <div class="input-field col s12 m6">
-                                        <label>Codigo promoción:</label>
-                                        <input class="validate" type="text" name="code">
+                                        <label>Codigo promoción*:</label>
+                                        <input class="validate" type="text" name="code" required>
+                                    </div>
+                                    
+                                    <div class="input-field col s12 m6">
+                                        <label>Importe:</label>
+                                        <input class="validate" type="text" name="price" required>
                                     </div>
                                 
                                     <div class="input-field col s12 m12">
@@ -97,16 +102,17 @@ class IPromotionsView {
                 <div class="container padded">
                     <div class="row">
                         <div class="col s12">
-                            <h1 class="grey-text text-darken-3">Promoción '.$promotion->get_name().'</h1>
+                            <h1 class="grey-text text-darken-3">Promoción '.$promotion->getName().'</h1>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s12">
                             <div class="row">
                                 <div class="col s12 m6">
-                                    <p><strong>Nombre: </strong>'.$promotion->get_name().'</p>
-                                    <p><strong>Código: </strong>'.$promotion->get_code().'</p>
-                                    <p><strong>Descripción: </strong>'.$promotion->get_description().'</p>
+                                    <p><strong>Nombre: </strong>'.$promotion->getName().'</p>
+                                    <p><strong>Código: </strong>'.$promotion->getCode().'</p>
+                                    <p><strong>Importe: </strong>'.$promotion->getPrice().'</p>
+                                    <p><strong>Descripción: </strong>'.$promotion->getDescription().'</p>
                                 </div>
                             </div>
                         </div>
@@ -121,33 +127,35 @@ class IPromotionsView {
                 <div class="container padded">
                     <div class="row">
                         <div class="col s12">
-                            <h1 class="grey-text text-darken-3">Editando promoción: '.$promotion->get_name().'</h1>
+                            <h1 class="grey-text text-darken-3">Editando promoción: '.$promotion->getName().'</h1>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s12">
                             <div class="row">
-                                <!-- Email field -->
-                                <form  role="form" name="myForm" method="POST" action="?page=intranet&section=promotions&action=update&id='.$promotion->get_id().'" ">
+                                <form  role="form" name="myForm" method="POST" action="?page=intranet&section=promotions&action=update&id='.$promotion->getId().'" ">
                                     <div class="input-field col s12 m6">
-                                        <label>Nombre:</label>
-                                        <input class="validate" id="email" type="text" name="name1" value="'.$promotion->get_name().'"required>
+                                        <label>Nombre*:</label>
+                                        <input class="validate" id="email" type="text" name="name" value="'.$promotion->getName().'"required>
                                     </div>
                                 
-                                    <!-- Status field -->
                                     <div class="input-field col s12 m6">
-                                        <label>Codigo promoción:</label>
-                                        <input class="validate" type="text"  name="code1"  value="'.$promotion->get_code().'">
+                                        <label>Codigo promoción*:</label>
+                                        <input class="validate" type="text"  name="code"  value="'.$promotion->getCode().'">
+                                    </div>
+                                    
+                                    <div class="input-field col s12 m6">
+                                        <label>Importe*:</label>
+                                        <input class="validate" type="text"  name="price"  value="'.$promotion->getPrice().'">
                                     </div>
                                 
-                                    <!-- Name field -->
                                     <div class="input-field col s12 m12">
-                                        <label>Descripción:</label>
-                                        <textarea class="materialize-textarea" type="text" name="description1">'.$promotion->get_description().'</textarea>
+                                        <label>Descripción*:</label>
+                                        <textarea class="materialize-textarea" type="text" name="description">'.$promotion->getDescription().'</textarea>
                                     </div>
                                 
                                     <div class="col s12">
-                                              <button type="submit" class="btn waves-effect waves-light right indigo">Guardar</button>
+                                        <button type="submit" class="btn waves-effect waves-light right indigo">Guardar</button>
                                     </div>
                                     <div class="col s12">
                                         <div class="clearfix"></div>

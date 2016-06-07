@@ -190,18 +190,15 @@ CREATE TABLE `promotions` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
   `code` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `price` decimal(8,2) unsigned NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
    PRIMARY KEY (`id`),
    UNIQUE KEY (`code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `promotions` (`id`, `name`, `description`, `code`, `created_at`, `updated_at`) VALUES
-  /*5 habitaciones individuales*/
-  (1, 'Oferta de dos noches', NULL,'DOSNOCHES', '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
-  (2, 'Oferta de 10% de descuento', NULL,'10POR100', '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
-  (3, 'Reserva anticipada', NULL,'ANTICIPADA', '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
-  (4, 'Doble tren','Habitación doble junto con tren turístico','DOBLETREN', '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
-  (5, 'Doble árabes', 'Habitación doble junto con sesión de baños árabes','DOBLEARABE', '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
-  (6, 'Doble Flamenco', 'Habitación doble junto con espectáculo de flamenco','DOBLEFLAMENCO', '2016-05-08 17:27:13', '2016-05-22 15:23:08');
-
+INSERT INTO `promotions` (`id`, `name`, `description`, `code`, `price`,`created_at`, `updated_at`) VALUES
+  (1, 'Reserva junto con tren turistico', NULL, 'TREN', 139, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (2, 'Reserva junto con sesion de baños arabes', NULL, 'ARABE', 174, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (3, 'Reserva junto con espectaculo de flamenco', NULL, 'FLAMENCO', 174, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (4, 'Reserva junto con visita guiada a la Alhambra', NULL, 'ALHAMBRA', 224,'2016-05-08 17:27:13', '2016-05-22 15:23:08');

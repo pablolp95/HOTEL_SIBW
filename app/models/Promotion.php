@@ -3,38 +3,97 @@
 class Promotion
 {
     var $id;
-    var $description;
-    var $promotion_code;
     var $name;
-    public function __construct($name,$code,$des)
+    var $description;
+    var $code;
+    var $price;
+
+    public function __construct($name, $description, $code, $price)
     {
-        $this->name=$name;
-        $this->description=$des;
-        $this->promotion_code=$code;
+        $this->name = $name;
+        $this->description = $description;
+        $this->code = $code;
+        $this->price = $price;
     }
 
-    public function get_id()
+    /**
+     * @return mixed
+     */
+    public function getId()
     {
         return $this->id;
     }
 
-    public function set_id($id)
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
     {
         $this->id = $id;
     }
 
-    public function get_name()
+    /**
+     * @return mixed
+     */
+    public function getName()
     {
         return $this->name;
     }
 
-    public function get_code()
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
     {
-        return $this->promotion_code;
+        $this->name = $name;
     }
 
-    public function get_description()
+    /**
+     * @return mixed
+     */
+    public function getDescription()
     {
         return $this->description;
     }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param mixed $code
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param mixed $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
 }

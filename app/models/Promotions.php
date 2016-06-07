@@ -9,10 +9,10 @@ class Promotions extends Model {
         $db = Db::getInstance();
         $result = $db->query('SELECT * FROM promotions');
 
-        while ($Promotion= $result->fetch_assoc()) {
-            $us=new Promotion($Promotion['name'],$Promotion['code'],$Promotion['description']);
-            $us->set_id($Promotion['id']);
-            array_push($list,$us);
+        while ($row = $result->fetch_assoc()) {
+            $promotion = new Promotion($row['name'], $row['description'], $row['code'], $row['price']);
+            $promotion->setId($row['id']);
+            array_push($list,$promotion);
         }
         return $list;
     }
@@ -21,14 +21,14 @@ class Promotions extends Model {
         $db = Db::getInstance();
         $statement = 'SELECT * FROM promotions WHERE id = \''.$id.'\'';
         $result = $db->query($statement);
-        $promocion = null;
+        $promotion = null;
         if($result->num_rows > 0){
             $row = $result->fetch_assoc();
-            $promocion = new Promotion($row['name'], $row['code'], $row['description']);
-            $promocion->set_id($row['id']);
+            $promotion = new Promotion($row['name'], $row['description'], $row['code'], $row['price']);
+            $promotion->setId($row['id']);
         }
 
-        return $promocion;
+        return $promotion;
     }
     function delete($id){
         $db = Db::getInstance();
@@ -36,17 +36,17 @@ class Promotions extends Model {
         return $db->query($statement);
     }
 
-    function update($Promotion){
+    function update($promotion){
         $db = Db::getInstance();
-        return $db ->query("UPDATE promotions SET name='{$Promotion->get_name()}' WHERE id={$Promotion->get_id()}") &&
-        $db ->query("UPDATE promotions SET description='{$Promotion->get_description()}' WHERE id={$Promotion->get_id()}")&&
-        $db ->query("UPDATE promotions SET code='{$Promotion->get_code()}' WHERE id={$Promotion->get_id()}");
+        return $db ->query("UPDATE promotions SET name='{$promotion->getName()}', description='{$promotion->getDescription()}',
+                            code='{$promotion->getCode()}', price='{$promotion->getPrice()}' WHERE id={$promotion->getId()}");
 
     }
 
-    function save($Promotion){
+    function save($promotion){
         $db = Db::getInstance();
-        return $db->query("INSERT INTO promotions (id, name, description ,code,created_at,updated_at)
-    VALUES ('','{$Promotion->get_name()}','{$Promotion->get_description()}','{$Promotion->get_code()}',NULL , NULL)");
+        return $db->query("INSERT INTO promotions (id, name, description , code, price, created_at, updated_at)
+                            VALUES ('','{$promotion->getName()}','{$promotion->getDescription()}','{$promotion->getCode()}',
+                            '{$promotion->getPrice()}', NULL , NULL)");
     }
 }
