@@ -3,6 +3,9 @@ include_once "../app/models/Reserve.php";
 include_once "../app/models/Reserves.php";
 include_once '../app/models/Roomtype.php';
 include_once '../app/models/Roomtypes.php';
+include_once '../app/controllers/ReservesController.php';
+include_once '../app/controllers/PromotionsController.php';
+include_once "../app/models/Promotion.php";
 
 
 $starting_date=$_GET['start'];
@@ -12,6 +15,8 @@ $reserves = new ReservesController();
 $availables = $reserves->getRoomsAvailable($starting_date,$ending_date);//Obtengo para cada tipo el número de habitaciones disponibles
 $roomtypes = new Roomtypes();//Objeto contendor de tipos de habitaciones
 $roomtype_list = array();//Esta variable almaenara los tipos de habitaciones
+$controller=new PromotionsController();
+$promotions= $controller->allpromotions();
 //Para cada tipo de habitacion obtengo su objeto para manejar la información relacionada a ella
 while($element = current($availables)) {
     $roomtype = $roomtypes->findByName(key($availables));
@@ -24,7 +29,7 @@ foreach ($availables as $type=>$number){
         $available = true;
     }
 }
-
+$k=0;
 if($available) {
     echo '<div class="panel panel-default">
                                 <table class="table table-roomtypes">
@@ -111,7 +116,23 @@ if($available) {
                             </div>
                         </div>
                         <div class="row next">
-                            <div class="col-sm-2 nopadding">
+                            <div class="col-sm-5 nopadding">
+                                <p>Promociones disponibles:</p>
+                            </div>
+                            <div class="col-sm-7 nopadding">
+
+                            <select class="button btn-lg" name="selectPromotion">';
+                            echo "<option value='' selected>Promociones...</option>";
+                            foreach ($promotions as $pro) {
+                                echo '<option value="'.$pro->getCode().'"';
+                                echo'>'.$pro->getName().'      '.$pro->getPrice().'€</option>';
+
+                            }
+                            echo "</select>";
+        echo '</div>
+                        </div>
+                        <div class="row next">
+                            <div class="col-sm-2 nopadding" id="price">
                                 <p>TOTAL: <span id="total_amount">0</span>€</p>
                                 <input type="hidden" id="total_amount_submit" name="total_amount_submit">
                             </div>

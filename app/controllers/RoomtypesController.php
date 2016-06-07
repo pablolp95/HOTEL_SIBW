@@ -60,6 +60,11 @@ class RoomtypesController extends Controller {
             header("Location: /?page=intranet&section=roomtypes");
 
     }
+    public function getall(){
+        $rooms = new Roomtypes();
+        $list = $rooms->all();
+    return $list;
+    }
 }
 
 ?>
