@@ -53,19 +53,24 @@ class Roomtypes extends Model {
 
     function update($roomtype){
         $db=Db::getInstance();
-        return $db ->query("UPDATE roomtypes SET name='{$roomtype->getName()}', description='{$roomtype->getDescription()}', base_price={$roomtype->getBasePrice()} WHERE id={$roomtype->getId()}");
+        return $db ->query("UPDATE roomtypes SET name='{$roomtype->getName()}', description='{$roomtype->getDescription()}',
+                            max_adults='{$roomtype->getMaxAdults()}', max_children='{$roomtype->getMaxChildren()}',
+                            base_price='{$roomtype->getBasePrice()}' WHERE id={$roomtype->getId()}");
     }
 
     function save($roomtype){
         $db = Db::getInstance();
-        return $db->query("INSERT INTO roomtypes (id, name, description, base_price, created_at, updated_at)
-    VALUES ('','{$roomtype->getName()}','{$roomtype->getDescription()}','{$roomtype->getBasePrice()}',NULL , NULL)");
+        return $db->query("INSERT INTO roomtypes (id, name, description, max_adults, max_children, base_price, created_at, updated_at)
+                            VALUES ('','{$roomtype->getName()}','{$roomtype->getDescription()}','{$roomtype->getMaxAdults()}',
+                            '{$roomtype->getMaxChildren()}','{$roomtype->getBasePrice()}',NULL , NULL)");
     }
 
     private function silentSave($reserve,$row){
         $reserve->setId($row['id']);
         $reserve->setName($row['name']);
         $reserve->setDescription($row['description']);
+        $reserve->setMaxAdults($row['max_adults']);
+        $reserve->setMaxChildren($row['max_children']);
         $reserve->setBasePrice($row['base_price']);
     }
 }

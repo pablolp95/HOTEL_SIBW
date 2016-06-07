@@ -66,10 +66,34 @@ class IntranetRoomtypesView {
                                         <label>Nombre del tipo:</label>
                                         <input class="validate" id="name" type="text" name="name" required>
                                     </div>
+                                    
                                     <div class="input-field col s12 m6">
                                         <label>Precio base:</label>
                                         <input class="validate" id="base_price" type="text" name="base_price" required>
                                     </div>
+                                    
+                                    <div class="input-field col s12 m6">
+                                        <select name="max_adults">
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                        <label>Número de adultos máximo:*</label>
+                                    </div>
+                                    
+                                    <div class="input-field col s12 m6">
+                                        <select name="max_children">
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                        <label>Número de niños máximo:*</label>
+                                    </div>
+                                    
                                     <div class="input-field col s12 m12">
                                         <label>Descripción:</label>
                                         <textarea class="materialize-textarea" type="text" name="description"></textarea>
@@ -131,14 +155,43 @@ class IntranetRoomtypesView {
                                         <label>Nombre del tipo:</label>
                                         <input class="validate" id="name" type="text" name="name" value="'.$roomtype->getName().'"required>
                                     </div>
+                                    
                                     <div class="input-field col s12 m6">
                                         <label>Precio base:</label>
                                         <input class="validate" id="base_price" type="text" name="base_price" value="'.$roomtype->getBasePrice().'"required>
                                     </div>
+                                    
+                                    <div class="input-field col s12 m6">
+                                        <select name="max_adults">';
+                                        for($i = 0;$i < 5; $i++) {
+                                            echo '<option value = "'.$i.'"';
+                                            if($i == $roomtype->getMaxAdults())
+                                                echo 'selected';
+                                            echo'>'.$i.'</option >';
+                                        }
+                                    echo'
+                                        </select>
+                                        <label>Número de adultos máximo:*</label>
+                                    </div>
+                                    
+                                    <div class="input-field col s12 m6">
+                                        <select name="max_children">';
+                                        for($i = 0;$i < 5; $i++) {
+                                            echo '<option value = "'.$i.'"';
+                                            if($i == $roomtype->getMaxChildren())
+                                                echo 'selected';
+                                            echo'>'.$i.'</option >';
+                                        }
+                                    echo'
+                                        </select>
+                                        <label>Número de niños máximo:*</label>
+                                    </div>
+
                                     <div class="input-field col s12 m12">
                                         <label>Descripción:</label>
                                         <textarea class="materialize-textarea" type="text" name="description">'.$roomtype->getDescription().'</textarea>
                                     </div>
+                                    
                                     <div class="col s12">
                                         <button type="submit" class="btn waves-effect waves-light right indigo">Guardar</button>
                                     </div>

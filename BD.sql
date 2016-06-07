@@ -53,8 +53,10 @@ INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
 DROP TABLE IF EXISTS `roomtypes`;
 CREATE TABLE `roomtypes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `max_adults` int COLLATE utf8_unicode_ci NOT NULL,
+  `max_children` int COLLATE utf8_unicode_ci NOT NULL,
   `base_price` decimal(8,2) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -62,11 +64,11 @@ CREATE TABLE `roomtypes` (
   UNIQUE KEY `roomtypes_name_unique` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `roomtypes` (`id`, `name`, `description`, `base_price`, `created_at`, `updated_at`) VALUES
-  (1, 'Individual', null, 49.99, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
-  (2, 'Doble', null, 69.99,'2016-05-08 17:27:13', '2016-05-22 15:23:08'),
-  (3, 'Triple', null, 75.99,'2016-05-08 17:27:13', '2016-05-22 15:23:08'),
-  (4, 'Familiar', null, 89.99,'2016-05-08 17:27:13', '2016-05-22 15:23:08');
+INSERT INTO `roomtypes` (`id`, `name`, `description`, `max_adults`, `max_children`,`base_price`, `created_at`, `updated_at`) VALUES
+  (1, 'Individual', null, 1, 2, 49.99, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (2, 'Doble', null, 2, 2, 69.99, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (3, 'Triple', null, 3, 2, 75.99,'2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (4, 'Familiar', null, 4, 2, 89.99, '2016-05-08 17:27:13', '2016-05-22 15:23:08');
 
 DROP TABLE IF EXISTS `rooms`;
 CREATE TABLE `rooms` (

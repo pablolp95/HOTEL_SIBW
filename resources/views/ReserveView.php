@@ -309,25 +309,47 @@ class ReserveView
                                 
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="card_type">Tipo de tajeta:</label>
-                                    <input type="text" class="form-control input-lg input-style" id="card_type" name="card_type" required>
-                                </div>
-                            </div>
-                                
-                            <div class="col-sm-6">
-                                <div class="form-group">
                                     <label for="card_expiration_month">Mes de caducidad de la tarjeta:</label>
-                                    <input type="text" class="form-control input-lg input-style" id="card_expiration_month" name="card_expiration_month" required>
+                                    <select class="form-control input-lg input-style" type="text" id="card_expiration_month" name="card_expiration_month" >
+                                        <option value="01">01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
                                 </div>
                             </div>
                                 
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="card_expiration_year">Mes de caducidad de la tarjeta:</label>
-                                    <input class="form-control input-lg noresize input-style" id="card_expiration_year" name="card_expiration_year" required>
+                                    <label for="card_expiration_year">Año de caducidad de la tarjeta:</label>
+                                    <select class="form-control input-lg input-style" type="text" id="card_expiration_year" name="card_expiration_year" >
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                    </select>
                                 </div>
                             </div>
-                                
+                            
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="card_type">Tipo de tajeta:</label>
+                                    <select class="form-control input-lg input-style" type="text" id="card_type" name="card_type" >
+                                        <option value="VISA">VISA</option>
+                                        <option value="MasterCard">MasterCard</option>
+                                        <option value="AmericanExpress">American Express</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="card_cvc">CVC:</label>

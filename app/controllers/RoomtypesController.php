@@ -16,8 +16,8 @@ class RoomtypesController extends Controller {
     }
 
     public function store(){
-        if(isset($_POST['name']) && isset($_POST['base_price'])){
-            $roomtype = new Roomtype(null,$_POST['name'], $_POST['description'], $_POST['base_price']);
+        if(isset($_POST['name'],$_POST['base_price'],$_POST['max_adults'],$_POST['max_children'])){
+            $roomtype = new Roomtype(null,$_POST['name'], $_POST['description'], $_POST['max_adults'], $_POST['max_children'],$_POST['base_price']);
             $roomtypes = new Roomtypes();
             if($roomtypes->save($roomtype)){
                 header("Location: /?page=intranet&section=roomtypes");
@@ -42,8 +42,8 @@ class RoomtypesController extends Controller {
     }
 
     public function update($id){
-        if(isset($_POST['name']) && isset($_POST['base_price'])){
-            $roomtype = new Roomtype($id,$_POST['name'], $_POST['description'], $_POST['base_price']);
+        if(isset($_POST['name'],$_POST['base_price'],$_POST['max_adults'],$_POST['max_children'])){
+            $roomtype = new Roomtype($id,$_POST['name'], $_POST['description'], $_POST['max_adults'], $_POST['max_children'],$_POST['base_price']);
             $roomtypes = new Roomtypes();
             if($roomtypes->update($roomtype)){
                 header("Location: /?page=intranet&section=roomtypes");

@@ -174,13 +174,37 @@ class IntranetReservesView{
                                 
                         <div class="row">
                             <div class="input-field col s12 m6">
+                                <select name="adults_number">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
                                 <label>Número de adultos:*</label>
-                                <input class="validate" type="text" name="adults_number" required>
                             </div>
                                     
                             <div class="input-field col s12 m6">
+                                <select name="children_number">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
                                 <label>Número de niños:*</label>
-                                <input class="validate" type="text" name="children_number" required>
                             </div>
                                     
                             <div class="input-field col s12 m6">
@@ -234,18 +258,40 @@ class IntranetReservesView{
                             </div>
                                     
                             <div class="input-field col s12 m6">
+                                <select type="text" id="card_type" name="card_type">
+                                    <option value="VISA">VISA</option>
+                                    <option value="MasterCard">MasterCard</option>
+                                    <option value="AmericanExpress">American Express</option>
+                                </select>
                                 <label>Tipo de tarjeta:*</label>
-                                <input class="validate" type="text" name="card_type" required>
                             </div>
                                     
                             <div class="input-field col s12 m6">
-                                <label>Mes de caducidad de la tarjeta:*</label>
-                                <input class="validate" type="text" name="card_expiration_month" required>
+                                <select name="card_expiration_month" >
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <label for="card_expiration_month">Mes de caducidad de la tarjeta:*</label>
                             </div>
                                     
                             <div class="input-field col s12 m6">
-                                <label>Año de caducidad de la tarjeta:*</label>
-                                <input class="validate" type="text" name="card_expiration_year" required>
+                                <select id="card_expiration_year" name="card_expiration_year" >
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                </select>
+                                <label for="card_expiration_year">Año de caducidad de la tarjeta:*</label>
                             </div>
                                     
                             <div class="input-field col s12 m6">
@@ -254,7 +300,7 @@ class IntranetReservesView{
                             </div>
                                     
                             <div class="input-field col s12 m6">
-                                <label>Código de promoción:*</label>
+                                <label>Código de promoción:</label>
                                 <input class="validate" type="text" name="promotion_code">
                             </div>
                                     
