@@ -1,3 +1,5 @@
+
+
     var day = 86400000;//milisegundos
     var start = new Date($("#starting_date").val());
     var end = new Date($("#ending_date").val());
@@ -87,4 +89,18 @@
             xmlhttp.send();
         }
         refreshTooltipped();
+    }
+
+    function loadDoc(start,end,adult) {
+       if(start=!"" && end!="" && adult!=0) {
+           var xmlhttp = new XMLHttpRequest();
+           xmlhttp.onreadystatechange = function () {
+               if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                   document.getElementById("roomstype").innerHTML = xmlhttp.responseText;
+
+               }
+           };
+           xmlhttp.open("GET", "?page=intranet&action=roomstype&start=" + start + "&end=" + end + "&adult=" + adult, true);
+           xmlhttp.send();
+       }
     }

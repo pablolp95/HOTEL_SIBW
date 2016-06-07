@@ -6,7 +6,6 @@ include_once '../app/models/Rooms.php';
 include_once '../app/models/Roomtypes.php';
 
 
-
 class ReserveView
 {
     function print_reserve($step){
@@ -30,18 +29,7 @@ class ReserveView
 
     private function print_select_room(){
         session_start();
-
-        $isset = false;
-        if(isset($_POST['starting_date'],$_POST['ending_date'],$_POST['adults_number'],$_POST['children_number'])){
-            $_SESSION['starting_date'] = $_POST['starting_date'];
-            $_SESSION['ending_date'] = $_POST['ending_date'];
-            $_SESSION['adults_number'] = $_POST['adults_number'];
-            $_SESSION['children_number'] = $_POST['children_number'];
-            $isset = true;
-        }
-
-        echo '
-            <section>
+        echo '<section>
                 <div class="container">
                     <div class="row select-room-title">
                         <div class="col-sm-12 nopadding">
@@ -53,19 +41,19 @@ class ReserveView
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label for="stating_date">Entrada</label>
-                                        <input type="date" class="form-control input-lg input-style" id="starting_date" name="starting_date" value="'.$_SESSION['starting_date'].'" required>
+                                        <input type="date" class="form-control input-lg input-style" id="starting_date" name="starting_date" value="" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label for="ending_date">Salida</label>
-                                        <input type="date" class="form-control input-lg input-style" id="ending_date" name="ending_date" value="'.$_SESSION['ending_date'].'" required>
+                                        <input type="date" class="form-control input-lg input-style" id="ending_date" name="ending_date" value="" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label>Adultos</label>
-                                        <select class="form-control input-lg input-style" id="adults_number" name="adults_number" required>';
+                                        <select class="form-control input-lg input-style" id="adults_number" value ="0" name="adults_number" required>';
                                             for($i=0;$i<11;++$i){
                                                 echo '<option value="'.$i.'"';
                                                 if($_SESSION['adults_number'] == $i){
@@ -92,86 +80,16 @@ class ReserveView
                                         </select>
                                     </div>
                                 </div>';
-                            echo '
+        echo '
                                 <div class="col-sm-2 select-room-submit">
-                                    <button class="button btn-lg" style="text-align: center">Comprobar</button>
+                                    <button class="button btn-lg" type="button" style="text-align: center" onclick="loadDoc(document.getElementById(\'starting_date\').value ,document.getElementById(\'ending_date\').value,document.getElementById(\'adults_number\').value)">Comprobar</button class="button btn-lg">
                                 </div>
+
+                            </div>
+                           <div class="row table-room" id="roomstype">
+
                             </div>
                     </form>';
-        if($isset){
-            $reserves = new ReservesController();
-            $availables = $reserves->getRoomsAvailable($_POST['starting_date'],$_POST['ending_date']);//Obtengo para cada tipo el número de habitaciones disponibles
-            $roomtypes = new Roomtypes();//Objeto contendor de tipos de habitaciones
-            $roomtype_list = array();//Esta variable almaenara los tipos de habitaciones
-            //Para cada tipo de habitacion obtengo su objeto para manejar la información relacionada a ella
-            while($element = current($availables)) {
-                $roomtype = $roomtypes->findByName(key($availables));
-                array_push($roomtype_list,$roomtype);
-                next($availables);
-            }
-            $available = false;
-            foreach ($availables as $type=>$number){
-                if($number > 0){
-                    $available = true;
-                }
-            }
-            if($available){
-                echo'
-                    <form role="form" name="myForm" method="POST" action="?page=reserve&step=introduce_info">
-                        <div class="row table-room">
-                            <div class="panel panel-default">
-                                <table class="table table-roomtypes"> 
-                                    <thead> 
-                                        <tr> 
-                                            <th>Tipo</th> 
-                                            <th>Precio</th> 
-                                            <th>Cantidad</th> 
-                                        </tr> 
-                                    </thead> 
-                                    <tbody>';
-                                    foreach ($roomtype_list as $roomtype){
-                                        if($availables[$roomtype->getName()] > 0){
-                                        echo '
-                                            <tr> 
-                                                <td>'.$roomtype->getName().'</td> 
-                                                <td id="price_'.$roomtype->getName().'">'.$roomtype->getBasePrice().'</td>
-                                                <td>
-                                                    <select class="form-control input-lg input-style" id="select_'.$roomtype->getName().'" name="select_'.$roomtype->getName().'">';
-                                                        echo '<option value="0">0</option>';
-                                                        for($i=1;$i <= $availables[$roomtype->getName()];$i++){
-                                                            echo '<option value="'.$i.'">'.$i.'</option>';
-                                                        }
-                                                        echo'
-                                                    </select>
-                                                </td>
-                                            </tr>';
-                                        }
-                                    }
-                echo'
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="row next">
-                            <div class="col-sm-2 nopadding">
-                                <p>TOTAL: <span id="total_amount">0</span>€</p>
-                                <input type="hidden" id="total_amount_submit" name="total_amount_submit">
-                            </div>
-                            <div class="col-sm-offset-8 col-sm-2">
-                                <button class="button btn-lg" style="text-align: center">Siguiente</button>
-                            </div>
-                        </div>
-                    </form>';
-            }
-            else{
-                echo '
-                    <div class="row">
-                        <div class="col-sm-12 noroom-message text-center">
-                            <h3>Lo sentimos, no tenemos habitaciones disponibles para estas fechas.</h3>
-                        </div>
-                    </div>';
-            }
-        }
         echo'
                 </div>
             </section>';

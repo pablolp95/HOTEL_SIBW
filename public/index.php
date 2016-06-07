@@ -11,6 +11,9 @@ if($page == 'intranet'){
     if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'findreserve') {
         include_once '../resources/scripts/showreserves.php';
     }
+    else if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'roomstype') {
+        include_once '../resources/scripts/showRooms.php';
+    }
     else{
         $intranet = new IntranetController();
         $intranet->print_page();
