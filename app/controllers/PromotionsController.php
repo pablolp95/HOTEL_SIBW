@@ -60,9 +60,9 @@ class PromotionsController extends Controller
             header("Location: /?page=intranet&section=promotions");
         }
     }
-    public function allpromotions(){
-        $p=new Promotions();
-        $list = $p->all();
+    public function allPromotions(){
+        $promotions = new Promotions();
+        $list = $promotions->all();
 
         return $list;
     }

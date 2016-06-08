@@ -10,6 +10,7 @@ include_once '../resources/views/PromotionsView.php';
 include_once '../resources/views/RoomsView.php';
 include_once '../resources/views/ReserveView.php';
 include_once '../app/controllers/ReservesController.php';
+include_once '../app/controllers/RoomtypesController.php';
 
 class PublicController{
     function print_page(){
@@ -94,5 +95,18 @@ class PublicController{
     function store_reserve(){
         $reserves = new ReservesController();
         $reserves->publicStore();
+    }
+
+    function get_prices(){
+        $types = json_decode(stripslashes($_POST['data']));
+        if($types != NULL){
+            $roomtypes = new RoomtypesController();
+            $list = array();
+            foreach($types as $type){
+                $roomtype = $roomtypes->findByName($type);
+                $list[$type] = $roomtype->getBasePrice();
+            }
+            echo json_encode($list);
+        }
     }
 }

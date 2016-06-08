@@ -29,16 +29,16 @@ class UsersView {
                                   </tr>
                                 </thead>';
                                 $i=1;
-                                while($i<=count($users)) {
+                                foreach ($users as $user) {
                                     echo'
                                       <tr>
-                                        <td>'.$users[$i-1]->get_name().'</td>
-                                        <td>'.$users[$i-1]->get_email().'</td>
+                                        <td>'.$user->get_name().'</td>
+                                        <td>'.$user->get_email().'</td>
                                         <td>rol</td>
                                         <td class="center-align">
-                                            <a class="btn-floating btn-large waves-effect waves-light deep-orange tooltipped" href="?page=intranet&section=users&action=edit&id='.$users[$i-1]->get_id().'" data-position="top" data-delay="50" data-tooltip="Editar usuario"><i class="material-icons">edit</i></a>
-                                            <a class="btn-floating btn-large waves-effect waves-light red tooltipped" href="?page=intranet&section=users&id='.$users[$i-1]->get_id().'" data-position="top" data-delay="50" data-tooltip="Mostrar usuario"><i class="material-icons">visibility</i></a>
-                                            <a class="btn-floating btn-large waves-effect waves-light blue tooltipped" href="?page=intranet&section=users&action=delete&id='.$users[$i-1]->get_id().'" data-position="top" data-delay="50" data-tooltip="Eliminar usuario"><i class="material-icons">delete</i></a>
+                                            <a class="btn-floating btn-large waves-effect waves-light deep-orange tooltipped" href="?page=intranet&section=users&action=edit&id='.$user->get_id().'" data-position="top" data-delay="50" data-tooltip="Editar usuario"><i class="material-icons">edit</i></a>
+                                            <a class="btn-floating btn-large waves-effect waves-light red tooltipped" href="?page=intranet&section=users&id='.$user->get_id().'" data-position="top" data-delay="50" data-tooltip="Mostrar usuario"><i class="material-icons">visibility</i></a>
+                                            <a class="btn-floating btn-large waves-effect waves-light blue tooltipped" href="?page=intranet&section=users&action=delete&id='.$user->get_id().'" data-position="top" data-delay="50" data-tooltip="Eliminar usuario"><i class="material-icons">delete</i></a>
                                         </td>
                                       </tr>';
                                     $i++;
@@ -65,26 +65,26 @@ class UsersView {
                                 <form  role="form" name="myForm" method="POST" action="?page=intranet&section=users&action=store" ">
                                     <div class="input-field col s12 m6">
                                         <label>Email:</label>
-                                        <input class="validate" id="email" type="email" name="email1" required>
+                                        <input class="validate" id="email" type="email" name="email" required>
                                     </div>
                                     <div class="input-field col s12 m6">
                                         <label>Contraseña</label>
-                                        <input class="validate" type="text"  name="password1">
+                                        <input class="validate" type="text"  name="password">
                                     </div>
                                     <div class="input-field col s12 m6">
                                         <label>Nombre</label>
-                                        <input class="validate" type="text" name="name1">
+                                        <input class="validate" type="text" name="name">
                                     </div>
                                     <!--Role dropdown select-->
                                     <div class="col s12 m6">
                                         <label>Rol de Usuario</label>
-                                        <select class="browser-default" name="select">
-                                            <option value="Recepcionista">Recepcionista</option>
+                                        <select name="rol">
+                                            <option value="recepcionista">Recepcionista</option>
                                             <option value="admin">Administrador</option>
                                         </select>
                                     </div>
                                     <div class="col s12">
-                                              <button type="submit" class="btn waves-effect waves-light right indigo">Guardar</button>
+                                        <button type="submit" class="btn waves-effect waves-light right indigo">Guardar</button>
                                     </div>
                                     <div class="col s12">
                                         <div class="clearfix"></div>
@@ -133,28 +133,26 @@ class UsersView {
                     <div class="row">
                         <div class="col s12">
                             <div class="row">
-                                <!-- Email field -->
                                 <form  role="form" name="myForm2" method="POST" action="?page=intranet&section=users&action=update&id='.$user->get_id().'">
                                     <div class="input-field col s12 m6">
                                         <label>Email:</label>
-                                        <input class="validate" type="email" name="email2" value="'.$user->get_email().'" required>
+                                        <input class="validate" type="email" name="email" value="'.$user->get_email().'" required>
                                     </div>
-                                    <!-- Status field -->
+
                                     <div class="input-field col s12 m6">
                                         <label>Contraseña:</label>
-                                        <input class="validate" type="password" name="password2" required>
+                                        <input class="validate" type="password" name="password">
                                     </div>
-                                    <!-- Name field -->
+
                                     <div class="input-field col s12 m6">
                                         <label>Nombre:</label>
-                                        <input class="validate" type="text" name="name2" value="'.$user->get_name().'">
+                                        <input class="validate" type="text" name="name" value="'.$user->get_name().'" required>
                                     </div>
                                 
-                                     <!-- Role dropdown select -->
                                     <div class="col s12 m6">
                                         <label>Rol de Usuario</label>
-                                        <select class="browser-default" name="select">
-                                            <option value="Recepcionista">Recepcionista</option>
+                                        <select name="rol">
+                                            <option value="recepcionista">Recepcionista</option>
                                             <option value="admin">Administrador</option>
                                         </select>
                                     </div>

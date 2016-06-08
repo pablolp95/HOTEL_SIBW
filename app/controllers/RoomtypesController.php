@@ -65,6 +65,12 @@ class RoomtypesController extends Controller {
         $list = $rooms->all();
     return $list;
     }
+
+    public function findByName($name){
+        $roomtypes = new Roomtypes();
+        $roomtype = $roomtypes->findByName($name);
+        return $roomtype;
+    }
 }
 
 ?>

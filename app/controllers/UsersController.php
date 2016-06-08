@@ -27,8 +27,8 @@ class UsersController extends Controller
     */
     public function store(){
         $users = new Users();
-        if(isset($_POST['name1'])&& isset($_POST['email1']) && isset($_POST['password1'])) {
-            $user = new User($_POST['name1'], $_POST['email1'], $_POST['password1']);
+        if(isset($_POST['name'],$_POST['email'],$_POST['password'])) {
+            $user = new User($_POST['name'], $_POST['email'], $_POST['password']);
             if($users->save($user))
                header("Location: /?page=intranet&section=users");
         }
@@ -63,14 +63,14 @@ class UsersController extends Controller
     public function update($id){
         $users = new Users();
 
-        if(isset($_POST['name2'])&& isset($_POST['email2']) && isset($_POST['password2'])){
-           $user=new User($_POST['name2'],$_POST['email2'],$_POST['password2']);
+        if(isset($_POST['name'],$_POST['email'],$_POST['password'])){
+           $user=new User($_POST['name'],$_POST['email'],$_POST['password']);
            $user->set_id($id);
            if($users->update($user)) {
              header("Location: /?page=intranet&section=users");
            }
            else{
-             header("Location: /?page=intranet&section=users&action=edit&id={$user->get_id()}");
+             header("Location: /?page=intranet&section=users&action=edit&id='.$id'");
            }
         }
     }

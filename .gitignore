@@ -1,4 +1,4 @@
 .idea
 public/components
 vendor
-app/Db.php
+./app/Db.php

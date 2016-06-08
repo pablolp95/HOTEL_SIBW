@@ -42,7 +42,7 @@ class IntranetReservesView{
                                         <th>ID</th>
                                         <th>DNI</th>
                                         <th>Nombre</th>
-                                        <th>Apellido</th>
+                                        <th>Apellidos</th>
                                         <th>Fecha entrada</th>
                                         <th>Fecha salida</th>
                                         <th class="center-align">Acciones</th>

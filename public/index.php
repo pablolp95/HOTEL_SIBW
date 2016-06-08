@@ -11,12 +11,6 @@ if($page == 'intranet'){
     if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'findreserve') {
         include_once '../resources/scripts/showreserves.php';
     }
-    else if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'roomstype') {
-        include_once '../resources/scripts/showRooms.php';
-    }
-    else if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'price'){
-        include_once '../resources/scripts/price.php';
-    }
     else{
         $intranet = new IntranetController();
         $intranet->print_page();
@@ -25,10 +19,21 @@ if($page == 'intranet'){
 else{
     $public = new PublicController();
 
-    if($page == 'reserve' && isset($_REQUEST['action']) && $_REQUEST['action'] == 'store') {
-        $public->store_reserve();
+    if($page == 'reserve' && isset($_REQUEST['action'])) {
+        if($_REQUEST['action'] == 'store'){
+            $public->store_reserve();
+        }
+        else if($_REQUEST['action'] == 'getprices'){
+            $public->get_prices();
+        }
+        else if($_REQUEST['action'] == 'roomstype') {
+            include_once '../resources/scripts/showRooms.php';
+        }
     }
-    $public->print_page();
+    else{
+        $public->print_page();
+
+    }
 }
 
 ?>

@@ -28,7 +28,6 @@ class ReserveView
     }
 
     private function print_select_room(){
-        session_start();
         echo '<section>
                 <div class="container">
                     <div class="row select-room-title">
@@ -36,18 +35,18 @@ class ReserveView
                             <h1>¿Cuando quieres alojarte?</h1>
                         </div>
                     </div>
-                    <form role="form" name="myForm" method="POST" action="?page=reserve&step=select_room">
+                    <form role="form" name="myForm" method="POST" action="?page=reserve&step=introduce_info">
                             <div class="row section">
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label for="stating_date">Entrada</label>
-                                        <input type="date" class="form-control input-lg input-style" id="starting_date" name="starting_date" value="" required>
+                                        <input type="date" class="form-control input-lg input-style" id="starting_date" name="starting_date" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label for="ending_date">Salida</label>
-                                        <input type="date" class="form-control input-lg input-style" id="ending_date" name="ending_date" value="" required>
+                                        <input type="date" class="form-control input-lg input-style" id="ending_date" name="ending_date" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
@@ -80,13 +79,13 @@ class ReserveView
                                         </select>
                                     </div>
                                 </div>';
-        echo '
+                                echo '
                                 <div class="col-sm-2 select-room-submit">
                                     <button class="button btn-lg" type="button" style="text-align: center" onclick="loadDoc(document.getElementById(\'starting_date\').value ,document.getElementById(\'ending_date\').value,document.getElementById(\'adults_number\').value)">Comprobar</button class="button btn-lg">
                                 </div>
 
                             </div>
-                           <div class="row table-room" id="roomstype">
+                            <div class="row table-room" id="roomstype">
 
                             </div>
                     </form>';
@@ -97,6 +96,10 @@ class ReserveView
 
     private function print_introduce_info(){
         session_start();
+        $_SESSION['starting_date'] = $_POST['starting_date'];
+        $_SESSION['ending_date'] = $_POST['ending_date'];
+        $_SESSION['adults_number'] = $_POST['adults_number'];
+        $_SESSION['children_number'] = $_POST['children_number'];
         $_SESSION['select_Individual'] = $_POST['select_Individual'];
         $_SESSION['select_Doble'] = $_POST['select_Doble'];
         $_SESSION['select_Triple'] = $_POST['select_Triple'];

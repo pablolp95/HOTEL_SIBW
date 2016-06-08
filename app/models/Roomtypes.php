@@ -52,7 +52,7 @@ class Roomtypes extends Model {
     }
 
     function update($roomtype){
-        $db=Db::getInstance();
+        $db = Db::getInstance();
         return $db ->query("UPDATE roomtypes SET name='{$roomtype->getName()}', description='{$roomtype->getDescription()}',
                             max_adults='{$roomtype->getMaxAdults()}', max_children='{$roomtype->getMaxChildren()}',
                             base_price='{$roomtype->getBasePrice()}' WHERE id={$roomtype->getId()}");
