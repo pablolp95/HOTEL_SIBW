@@ -199,6 +199,6 @@ CREATE TABLE `promotions` (
 
 INSERT INTO `promotions` (`id`, `name`, `description`, `code`, `price`,`created_at`, `updated_at`) VALUES
   (1, 'Reserva junto con tren turistico', NULL, 'TREN', 139, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
-  (2, 'Reserva junto con sesion de baños arabes', NULL, 'ARABE', 174, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
-  (3, 'Reserva junto con espectaculo de flamenco', NULL, 'FLAMENCO', 174, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (2, 'Reserva junto con sesion de Hamman', NULL, 'ARABE', 174, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
+  (3, 'Reserva junto con espectaculo de flamenco', NULL, 'FLAMENCO', 160, '2016-05-08 17:27:13', '2016-05-22 15:23:08'),
   (4, 'Reserva junto con visita guiada a la Alhambra', NULL, 'ALHAMBRA', 224,'2016-05-08 17:27:13', '2016-05-22 15:23:08');

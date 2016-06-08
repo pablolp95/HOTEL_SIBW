@@ -67,4 +67,11 @@ class PromotionsController extends Controller
         return $list;
     }
 
+    public function findByCode($code){
+        $promotions = new Promotions();
+        $promotion = $promotions->findByCode($code);
+
+        return $promotion;
+    }
+
 }

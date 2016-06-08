@@ -1,4 +1,4 @@
-    $("#roomstype").on("change",".selectType",function(){
+    $("#roomstype").on("change",".selectType, #promotion_code",function(){
         $table = document.getElementById("availables");
         $roomtypesList = [];
         $promotionsList = [];
@@ -9,8 +9,8 @@
 
         $select = document.getElementById("promotion_code");
         //Obtengo las promociones presentes actualmente y los almaceno
-        for (var i = 1, option; option = $select[i]; i++) {
-            $roomtypesList.push(option.val());
+        for (var j = 1, option; option = $select.options[j]; j++) {
+            $promotionsList.push(option.value);
         }
 
         //Convierto las listas a JSON para enviarlo al servidor
@@ -43,12 +43,22 @@
 
         ).then(function() {
 
-            // All is ready now, so...
-            var obj = JSON.parse(roomtypes);
+            var objroomtypes = JSON.parse(roomtypes);
             //Establezco el nuevo precio de las habitaciones que se muestran
-            jQuery.each(obj, function(type, price) {
+            jQuery.each(objroomtypes, function(type, price) {
                 $("#price_"+type).text(price.toString());
             });
+
+
+            if($("#promotion_code").val() != ""){
+                var objpromotions = JSON.parse(promotions);
+                //Establezco el nuevo precio de las habitaciones que se muestran
+                jQuery.each(objpromotions, function(code, price) {
+                    if($("#promotion_code").val() == code){
+                        $("#promotion_price").text(price.toString());
+                    }
+                });
+            }
             calculateTotal();
 
         });
@@ -83,7 +93,12 @@
             $total += $price_Familiar * $number_Familiar;
         }
 
-        $total *= $days;
+        $promotion = 0;
+        if($("#promotion_code").val() != ""){
+            $promotion = Number($("#promotion_price").text());
+        }
+
+        $total = ($total * $days) + $promotion;
         $("#total_amount").text($total.toString());
         $("input[name=total_amount_submit]").val($total.toString());
     }

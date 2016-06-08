@@ -30,6 +30,21 @@ class Promotions extends Model {
 
         return $promotion;
     }
+
+    function findByCode($code){
+        $db = Db::getInstance();
+        $statement = 'SELECT * FROM promotions WHERE code = \''.$code.'\'';
+        $result = $db->query($statement);
+        $promotion = null;
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+            $promotion = new Promotion($row['name'], $row['description'], $row['code'], $row['price']);
+            $promotion->setId($row['id']);
+        }
+
+        return $promotion;
+    }
+
     function delete($id){
         $db = Db::getInstance();
         $statement = 'DELETE FROM promotions WHERE id =\''.$id.'\'';

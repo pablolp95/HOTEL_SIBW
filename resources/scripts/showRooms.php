@@ -119,23 +119,27 @@ if($available) {
         <div class="col-sm-5 nopadding">
             <p>Promociones disponibles:</p>
         </div>
-        <div class="col-sm-7 nopadding">
+        <div class="col-sm-5 nopadding">
             <select class="form-control input-lg input-style" name="promotion_code"  id="promotion_code">';
-                echo "<option selected>Selecciona una promoción...</option>";
+                echo '<option value="" selected>Selecciona una promoción...</option>';
                 foreach ($promotions as $promotion) {
-                    echo '<option value="'.$promotion->getCode().'"';
-                    echo'>'.$promotion->getName().' - <span id="promotion_'.$promotion->getCode().'">'.$promotion->getPrice().'</span>€</option>';
+                    echo '<option value="'.$promotion->getCode().'">'.$promotion->getName().'</option>';
                 }
     echo '  
             </select>
         </div>
+        <div class="col-sm-2 nopadding">
+            <div class="input-lg input-style" style="border:1px solid #ccc;color:#555">
+                <span>Precio: <span id="promotion_price">0</span>€</span>
+            </div>
+        </div>
     </div>
     <div class="row next">
-        <div class="col-sm-2 nopadding" id="price">
+        <div class="col-sm-5 nopadding" id="price">
             <p>TOTAL: <span id="total_amount">0</span>€</p>
             <input type="hidden" id="total_amount_submit" name="total_amount_submit">
         </div>
-        <div class="col-sm-offset-8 col-sm-2">
+        <div class="col-sm-offset-5 col-sm-2">
             <button class="button btn-lg" style="text-align: center">Siguiente</button>
         </div>
     </div>';

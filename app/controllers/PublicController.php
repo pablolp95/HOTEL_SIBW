@@ -11,6 +11,7 @@ include_once '../resources/views/RoomsView.php';
 include_once '../resources/views/ReserveView.php';
 include_once '../app/controllers/ReservesController.php';
 include_once '../app/controllers/RoomtypesController.php';
+include_once '../app/controllers/PromotionsController.php';
 
 class PublicController{
     function print_page(){
@@ -111,13 +112,13 @@ class PublicController{
     }
 
     function get_promotions(){
-        $types = json_decode(stripslashes($_POST['data']));
-        if($types != NULL){
-            $roomtypes = new RoomtypesController();
+        $promotionsCodes = json_decode(stripslashes($_POST['data']));
+        if($promotionsCodes != NULL){
+            $promotions = new PromotionsController();
             $list = array();
-            foreach($types as $type){
-                $roomtype = $roomtypes->findByName($type);
-                $list[$type] = $roomtype->getBasePrice();
+            foreach($promotionsCodes as $code){
+                $promotion = $promotions->findByCode($code);
+                $list[$code] = $promotion->getPrice();
             }
             echo json_encode($list);
         }
