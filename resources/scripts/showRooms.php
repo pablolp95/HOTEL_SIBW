@@ -109,24 +109,22 @@ if($available) {
                                 </td>
                             </tr>';
                     }
-
                 }
-        }
+            }
     echo '
             </tbody>
         </table>
-    </div>
     </div>
     <div class="row next">
         <div class="col-sm-5 nopadding">
             <p>Promociones disponibles:</p>
         </div>
         <div class="col-sm-7 nopadding">
-            <select class="form-control input-lg input-style" name="selectPromotion">';
-                echo "<option value='' selected>Promociones...</option>";
+            <select class="form-control input-lg input-style" name="promotion_code"  id="promotion_code">';
+                echo "<option selected>Selecciona una promoción...</option>";
                 foreach ($promotions as $promotion) {
                     echo '<option value="'.$promotion->getCode().'"';
-                    echo'>'.$promotion->getName().'      '.$promotion->getPrice().'€</option>';
+                    echo'>'.$promotion->getName().' - <span id="promotion_'.$promotion->getCode().'">'.$promotion->getPrice().'</span>€</option>';
                 }
     echo '  
             </select>
@@ -147,7 +145,6 @@ else{
         <div class="row">
            <div class="col-sm-12 noroom-message text-center">
                <h3>Lo sentimos, no tenemos habitaciones disponibles para estas fechas.</h3>
-        </div>
-    </div>';
+        </div>';
 }
 ?>

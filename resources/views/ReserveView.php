@@ -104,6 +104,7 @@ class ReserveView
         $_SESSION['select_Doble'] = $_POST['select_Doble'];
         $_SESSION['select_Triple'] = $_POST['select_Triple'];
         $_SESSION['select_Familiar'] = $_POST['select_Familiar'];
+        $_SESSION['promotion_code'] = $_POST['promotion_code'];
         $_SESSION['total_amount_submit'] = $_POST['total_amount_submit'];
 
         echo '
@@ -202,6 +203,7 @@ class ReserveView
                         <input name="select_Doble" type="hidden" value="'.$_SESSION['select_Doble'].'">
                         <input name="select_Triple" type="hidden" value="'.$_SESSION['select_Triple'].'">
                         <input name="select_Familiar" type="hidden" value="'.$_SESSION['select_Familiar'].'">
+                        <input name="promotion_code" type="hidden" value="'.$_SESSION['promotion_code'].'">
                         <input name="name" type="hidden" value="'.$_SESSION['name'].'">
                         <input name="surname" type="hidden" value="'.$_SESSION['surname'].'">
                         <input name="city" type="hidden" value="'.$_SESSION['city'].'">

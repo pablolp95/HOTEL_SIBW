@@ -1,15 +1,22 @@
     $("#roomstype").on("change",".selectType",function(){
         $table = document.getElementById("availables");
-        $list = [];
+        $roomtypesList = [];
+        $promotionsList = [];
         //Obtengo los tipos de habitaciones presentes actualmente y los almaceno
         for (var i = 1, row; row = $table.rows[i]; i++) {
-            for (var j = 0, col; col = row.cells[j]; j+=3) {
-                $list.push(row.cells[j].innerHTML);
-            }
+            $roomtypesList.push(row.cells[0].innerHTML);
         }
-        //Convierto la lista a JSON para enviarlo al servidor
-        $jsonlist = JSON.stringify($list);
-        $.ajax({
+
+        $select = document.getElementById("promotion_code");
+        //Obtengo las promociones presentes actualmente y los almaceno
+        for (var i = 1, option; option = $select[i]; i++) {
+            $roomtypesList.push(option.val());
+        }
+
+        //Convierto las listas a JSON para enviarlo al servidor
+        $jsonRoomtypes = JSON.stringify($roomtypesList);
+        $jsonPromotions = JSON.stringify($promotionsList);
+        /*$.ajax({
                 type: "POST",
                 url: "/?page=reserve&action=getprices",
                 data: { data: $jsonlist }
@@ -20,7 +27,31 @@
                     $("#price_"+type).text(price.toString());
                 });
                 calculateTotal();
+            });*/
+        var roomtypes;
+        var promotions;
+        $.when(
+            // Obtengo el precio de las habitaciones que se muestran por pantalla
+            $.post("/?page=reserve&action=getroomtypes", {data: $jsonRoomtypes}, function(jsonResult) {
+                roomtypes = jsonResult;
+            }),
+
+            // Obtengo el precio de las promociones que se muestran por pantalla
+            $.post("/?page=reserve&action=getpromotions", {data: $jsonPromotions}, function(jsonResult) {
+                promotions = jsonResult;
+            })
+
+        ).then(function() {
+
+            // All is ready now, so...
+            var obj = JSON.parse(roomtypes);
+            //Establezco el nuevo precio de las habitaciones que se muestran
+            jQuery.each(obj, function(type, price) {
+                $("#price_"+type).text(price.toString());
             });
+            calculateTotal();
+
+        });
     });
 
     function calculateTotal() {

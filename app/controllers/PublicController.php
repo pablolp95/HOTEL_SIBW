@@ -97,7 +97,20 @@ class PublicController{
         $reserves->publicStore();
     }
 
-    function get_prices(){
+    function get_roomtypes(){
+        $types = json_decode(stripslashes($_POST['data']));
+        if($types != NULL){
+            $roomtypes = new RoomtypesController();
+            $list = array();
+            foreach($types as $type){
+                $roomtype = $roomtypes->findByName($type);
+                $list[$type] = $roomtype->getBasePrice();
+            }
+            echo json_encode($list);
+        }
+    }
+
+    function get_promotions(){
         $types = json_decode(stripslashes($_POST['data']));
         if($types != NULL){
             $roomtypes = new RoomtypesController();
